@@ -1,0 +1,20 @@
+{
+  "name": "clap-desktop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "electron-main.js",
+  "scripts": {
+    "start": "set NODE_ENV=DEV && electron .",
+    "build-renderer": "cd frontend && npm run build",
+    "electron-pack": "npm run build-renderer && electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^37.1.0"
+  },
+  "dependencies": {
+    "electron-store": "^10.1.0"
+  }
+}
