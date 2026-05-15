@@ -1,6 +1,49 @@
-import { useState } from 'react'
-import { X, Settings, Eye, Palette, Plus, Trash2 } from 'lucide-react'
+import { useState, useMemo } from 'react'
+import { X, Save, Plus, Trash2 } from 'lucide-react'
 import { useSettings } from '../stores/SettingsContext'
+
+const isPowerOfTwo = (n) => Number.isInteger(n) && n > 0 && (n & (n - 1)) === 0
+
+// Compute validation errors for a settings object. Returns an object keyed
+// by setting field; an empty object means the settings are valid. WASM
+// mel-spectrogram code requires power-of-two n_fft and a consistent ordering
+// of win_length ≤ n_fft, hop_length < win_length.
+const validateSettings = (s) => {
+  const errors = {}
+  if (!Number.isFinite(s.n_fft) || s.n_fft < 128 || s.n_fft > 8192) {
+    errors.n_fft = 'Must be between 128 and 8192'
+  } else if (!isPowerOfTwo(s.n_fft)) {
+    errors.n_fft = 'Must be a power of 2 (e.g. 256, 512, 1024, 2048)'
+  }
+  if (!Number.isFinite(s.win_length) || s.win_length < 64 || s.win_length > 8192) {
+    errors.win_length = 'Must be between 64 and 8192'
+  } else if (Number.isFinite(s.n_fft) && s.win_length > s.n_fft) {
+    errors.win_length = 'Must be ≤ FFT size'
+  }
+  if (!Number.isFinite(s.hop_length) || s.hop_length < 1 || s.hop_length > 4096) {
+    errors.hop_length = 'Must be between 1 and 4096'
+  } else if (Number.isFinite(s.win_length) && s.hop_length > s.win_length) {
+    errors.hop_length = 'Must be ≤ window length'
+  }
+  if (!Number.isFinite(s.f_min) || s.f_min < 0) {
+    errors.f_min = 'Must be ≥ 0'
+  }
+  if (!Number.isFinite(s.f_max) || s.f_max <= 0) {
+    errors.f_max = 'Must be > 0'
+  } else if (Number.isFinite(s.f_min) && s.f_max <= s.f_min) {
+    errors.f_max = 'Must be > min frequency'
+  }
+  if (!Number.isFinite(s.n_mels) || s.n_mels < 16 || s.n_mels > 512) {
+    errors.n_mels = 'Must be between 16 and 512'
+  }
+  if (!Number.isFinite(s.top_db) || s.top_db < 20 || s.top_db > 120) {
+    errors.top_db = 'Must be between 20 and 120'
+  }
+  if (!Number.isFinite(s.windowDuration) || s.windowDuration < 1 || s.windowDuration > 120) {
+    errors.windowDuration = 'Must be between 1 and 120'
+  }
+  return errors
+}
 
 const SettingsModal = ({ onClose }) => {
   const { settings, updateSettings } = useSettings()
@@ -8,10 +51,13 @@ const SettingsModal = ({ onClose }) => {
   const [newSpecies, setNewSpecies] = useState('')
   const [showAddSpecies, setShowAddSpecies] = useState(false)
 
+  const errors = useMemo(() => validateSettings(localSettings), [localSettings])
+  const hasErrors = Object.keys(errors).length > 0
+
   const handleSave = async () => {
+    if (hasErrors) return
     try {
       updateSettings(localSettings)
-      console.log('Settings saved:', localSettings)
       onClose()
     } catch (err) {
       console.error('Error saving settings:', err)
@@ -70,19 +116,6 @@ const SettingsModal = ({ onClose }) => {
               {/* Core Spectrogram Parameters */}
               <div>
                 <div className="grid grid-cols-3 gap-2">
-                  {/* <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1">Sample Rate (Hz)</label>
-                    <input
-                      type="number"
-                      min="8000"
-                      max="192000"
-                      step="1000"
-                      value={localSettings.sampleRate}
-                      onChange={(e) => setLocalSettings(prev => ({ ...prev, sampleRate: parseInt(e.target.value) }))}
-                      className="w-full px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
-                    />
-                  </div> */}
-
                   <div>
                     <label className="block text-xs font-medium text-gray-700 mb-1">FFT Size (n_fft)</label>
                     <input
@@ -92,8 +125,9 @@ const SettingsModal = ({ onClose }) => {
                       step="1"
                       value={localSettings.n_fft}
                       onChange={(e) => setLocalSettings(prev => ({ ...prev, n_fft: parseInt(e.target.value) }))}
-                      className="w-full px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className={`w-full px-2 py-1 border rounded text-xs focus:outline-none focus:ring-1 ${errors.n_fft ? 'border-red-400 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
                     />
+                    {errors.n_fft && <p className="text-[10px] text-red-600 mt-0.5">{errors.n_fft}</p>}
                   </div>
 
                   <div>
@@ -105,21 +139,23 @@ const SettingsModal = ({ onClose }) => {
                       step="1"
                       value={localSettings.win_length}
                       onChange={(e) => setLocalSettings(prev => ({ ...prev, win_length: parseInt(e.target.value) }))}
-                      className="w-full px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className={`w-full px-2 py-1 border rounded text-xs focus:outline-none focus:ring-1 ${errors.win_length ? 'border-red-400 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
                     />
+                    {errors.win_length && <p className="text-[10px] text-red-600 mt-0.5">{errors.win_length}</p>}
                   </div>
 
                   <div>
                     <label className="block text-xs font-medium text-gray-700 mb-1">Hop Length</label>
                     <input
                       type="number"
-                      min="16"
+                      min="1"
                       max="4096"
                       step="1"
                       value={localSettings.hop_length}
                       onChange={(e) => setLocalSettings(prev => ({ ...prev, hop_length: parseInt(e.target.value) }))}
-                      className="w-full px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className={`w-full px-2 py-1 border rounded text-xs focus:outline-none focus:ring-1 ${errors.hop_length ? 'border-red-400 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
                     />
+                    {errors.hop_length && <p className="text-[10px] text-red-600 mt-0.5">{errors.hop_length}</p>}
                   </div>
 
                   <div>
@@ -130,20 +166,22 @@ const SettingsModal = ({ onClose }) => {
                       step="1"
                       value={localSettings.f_min}
                       onChange={(e) => setLocalSettings(prev => ({ ...prev, f_min: parseFloat(e.target.value) }))}
-                      className="w-full px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className={`w-full px-2 py-1 border rounded text-xs focus:outline-none focus:ring-1 ${errors.f_min ? 'border-red-400 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
                     />
+                    {errors.f_min && <p className="text-[10px] text-red-600 mt-0.5">{errors.f_min}</p>}
                   </div>
 
                   <div>
                     <label className="block text-xs font-medium text-gray-700 mb-1">Max Frequency (Hz)</label>
                     <input
                       type="number"
-                      min="100"
+                      min="1"
                       step="1"
                       value={localSettings.f_max}
                       onChange={(e) => setLocalSettings(prev => ({ ...prev, f_max: parseFloat(e.target.value) }))}
-                      className="w-full px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className={`w-full px-2 py-1 border rounded text-xs focus:outline-none focus:ring-1 ${errors.f_max ? 'border-red-400 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
                     />
+                    {errors.f_max && <p className="text-[10px] text-red-600 mt-0.5">{errors.f_max}</p>}
                   </div>
 
                   <div>
@@ -155,8 +193,9 @@ const SettingsModal = ({ onClose }) => {
                       step="1"
                       value={localSettings.n_mels}
                       onChange={(e) => setLocalSettings(prev => ({ ...prev, n_mels: parseInt(e.target.value) }))}
-                      className="w-full px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className={`w-full px-2 py-1 border rounded text-xs focus:outline-none focus:ring-1 ${errors.n_mels ? 'border-red-400 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
                     />
+                    {errors.n_mels && <p className="text-[10px] text-red-600 mt-0.5">{errors.n_mels}</p>}
                   </div>
 
                   <div>
@@ -168,8 +207,9 @@ const SettingsModal = ({ onClose }) => {
                       step="1"
                       value={localSettings.top_db}
                       onChange={(e) => setLocalSettings(prev => ({ ...prev, top_db: parseInt(e.target.value) }))}
-                      className="w-full px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className={`w-full px-2 py-1 border rounded text-xs focus:outline-none focus:ring-1 ${errors.top_db ? 'border-red-400 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
                     />
+                    {errors.top_db && <p className="text-[10px] text-red-600 mt-0.5">{errors.top_db}</p>}
                   </div>
 
                   <div>
@@ -181,8 +221,9 @@ const SettingsModal = ({ onClose }) => {
                       step="1"
                       value={localSettings.windowDuration}
                       onChange={(e) => setLocalSettings(prev => ({ ...prev, windowDuration: parseInt(e.target.value) }))}
-                      className="w-full px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className={`w-full px-2 py-1 border rounded text-xs focus:outline-none focus:ring-1 ${errors.windowDuration ? 'border-red-400 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
                     />
+                    {errors.windowDuration && <p className="text-[10px] text-red-600 mt-0.5">{errors.windowDuration}</p>}
                   </div>
                 </div>
               </div>
@@ -289,8 +330,8 @@ const SettingsModal = ({ onClose }) => {
                 <div>
                   <div className="space-y-2 max-h-32 overflow-y-auto">
                     {localSettings.speciesList?.length > 0 ? (
-                      localSettings.speciesList.map((species, index) => (
-                        <div key={index} className="flex items-center justify-between p-2 bg-gray-50 rounded-md">
+                      localSettings.speciesList.map((species) => (
+                        <div key={species} className="flex items-center justify-between p-2 bg-gray-50 rounded-md">
                           <span className="text-sm text-gray-700">{species}</span>
                           <button
                             onClick={() => handleDeleteSpecies(species)}
@@ -312,7 +353,7 @@ const SettingsModal = ({ onClose }) => {
                       type="text"
                       value={newSpecies}
                       onChange={(e) => setNewSpecies(e.target.value)}
-                      onKeyPress={(e) => e.key === 'Enter' && handleAddSpecies()}
+                      onKeyDown={(e) => e.key === 'Enter' && handleAddSpecies()}
                       placeholder="Enter species name..."
                       className="flex-1 px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 text-xs"
                     />
@@ -344,11 +385,15 @@ const SettingsModal = ({ onClose }) => {
           >
             Cancel
           </button>
+          {hasErrors && (
+            <span className="text-xs text-red-600 mr-2">Fix validation errors to save</span>
+          )}
           <button
             onClick={handleSave}
-            className="px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors flex items-center space-x-1"
+            disabled={hasErrors}
+            className="px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors flex items-center space-x-1"
           >
-            <Settings className="h-3 w-3" />
+            <Save className="h-3 w-3" />
             <span className="text-xs font-medium">Save Settings</span>
           </button>
         </div>

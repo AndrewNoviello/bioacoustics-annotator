@@ -10,7 +10,8 @@ export const {
   listProfiles,
   listFilesOfExtension,
   openDirectoryDialog,
-  loadModel
+  loadModel,
+  listAvailableModels
 } = general
 
 export const {
@@ -26,7 +27,10 @@ export const {
   createSession,
   listSessions,
   getSession,
-  deleteSession
+  getExperiment,
+  deleteSession,
+  getSessionSettings,
+  setSessionSettings
 } = sessions
 
 export const {
@@ -35,5 +39,7 @@ export const {
   startDetection,
   wipeTemp,
   deleteDetection,
-  deleteExperiment
+  deleteExperiment,
+  updateDetectionTimes,
+  restoreDetection
 } = detection

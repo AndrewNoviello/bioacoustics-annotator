@@ -20,9 +20,11 @@
  * - listFilesOfExtension: Lists files in the selected folder by extension
  * - createSession: Creates a new detection session with chosen files
  */
-import { useState, useContext } from 'react'
+import { useState, useContext, useMemo } from 'react'
 import { X, Folder, FileAudio, Shuffle, Plus } from 'lucide-react'
 import { SessionContext } from '../stores/SessionContext'
+
+const INVALID_CHARS = /[/\\:*?"<>|]/
 
 const CreateSessionModal = ({ onClose }) => {
   const [selectedFolder, setSelectedFolder] = useState('')
@@ -31,8 +33,20 @@ const CreateSessionModal = ({ onClose }) => {
   const [availableFiles, setAvailableFiles] = useState([])
   const [selectedFiles, setSelectedFiles] = useState([])
   const [randomCount, setRandomCount] = useState(10)
+  const [isCreating, setIsCreating] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
+
+  // Live name validation — an empty name is OK (we auto-fill with an ISO
+  // timestamp on create), so only flag when the user has typed something
+  // that contains invalid characters.
+  const nameValidationError = useMemo(() => {
+    if (!sessionName) return null
+    if (INVALID_CHARS.test(sessionName)) {
+      return 'Session name contains invalid characters: / \\ : * ? " < > |'
+    }
+    return null
+  }, [sessionName])
 
   const { activeDataDir, activeProfile } = useContext(SessionContext)
 
@@ -41,7 +55,11 @@ const CreateSessionModal = ({ onClose }) => {
    * Uses a simple shuffle + slice to choose files without replacement.
    */
   const handleRandomSelect = () => {
-    const shuffled = [...availableFiles].sort(() => 0.5 - Math.random())
+    const shuffled = [...availableFiles]
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
     const selected = shuffled.slice(0, Math.min(randomCount, availableFiles.length))
     setSelectedFiles(selected)
   }
@@ -72,10 +90,18 @@ const CreateSessionModal = ({ onClose }) => {
       return
     }
 
-    try {
-      const sessionNameToUse = sessionName || `Session ${new Date().toLocaleString()}`
-      const fullPaths = selectedFiles.map((f) => `${selectedFolder}/${f}`)
+    const defaultName = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19)
+    const sessionNameToUse = sessionName.trim() || defaultName
 
+    if (INVALID_CHARS.test(sessionNameToUse)) {
+      setErrorMessage('Session name contains invalid characters: / \\ : * ? " < > |')
+      setSuccessMessage('')
+      return
+    }
+
+    setIsCreating(true)
+    try {
+      const fullPaths = selectedFiles.map((f) => `${selectedFolder}/${f}`)
       const res = await window.electronAPI.createSession(sessionNameToUse, fullPaths)
 
       if (res.success) {
@@ -92,6 +118,8 @@ const CreateSessionModal = ({ onClose }) => {
       console.error('Error creating session:', err)
       setSuccessMessage('')
       setErrorMessage('Error creating session. Please try again.')
+    } finally {
+      setIsCreating(false)
     }
   }
 
@@ -143,8 +171,11 @@ const CreateSessionModal = ({ onClose }) => {
               value={sessionName}
               onChange={(e) => setSessionName(e.target.value)}
               placeholder="e.g., Whale Detection Jan 2025"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${nameValidationError ? 'border-red-400 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
             />
+            {nameValidationError && (
+              <p className="text-xs text-red-600 mt-1">{nameValidationError}</p>
+            )}
           </div>
 
           {/* Folder Selection */}
@@ -259,11 +290,11 @@ const CreateSessionModal = ({ onClose }) => {
           </button>
           <button
             onClick={handleCreate}
-            disabled={selectedFiles.length === 0 || !activeDataDir}
+            disabled={selectedFiles.length === 0 || !activeDataDir || isCreating || !!nameValidationError}
             className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
           >
             <Plus className="h-4 w-4" />
-            <span className="text-sm font-medium">Create Session</span>
+            <span className="text-sm font-medium">{isCreating ? 'Creating…' : 'Create Session'}</span>
           </button>
         </div>
       </div>

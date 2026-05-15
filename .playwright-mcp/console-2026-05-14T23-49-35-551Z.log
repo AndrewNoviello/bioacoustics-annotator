@@ -1,0 +1,99 @@
+[     210ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:21606
+[     254ms] [WARNING] %cElectron Security Warning (Disabled webSecurity) font-weight: bold; This renderer process has "webSecurity" disabled. This
+  exposes users of this app to severe security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[     254ms] [WARNING] %cElectron Security Warning (allowRunningInsecureContent) font-weight: bold; This renderer process has "allowRunningInsecureContent"
+  enabled. This exposes users of this app to severe security risks.
+
+  
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[ 3201051ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201060ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201071ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201083ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201094ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201105ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201116ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201127ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201138ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201149ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201160ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201174ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201183ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201194ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201216ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201216ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201227ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201238ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201249ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201260ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201271ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201283ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201294ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201305ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201316ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201327ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201338ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201349ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201360ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201372ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201383ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201394ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201405ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201416ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201427ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201438ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201449ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201462ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3201471ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3210809ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3210826ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3210837ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3210848ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3210859ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3210881ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3210903ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3210914ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3210925ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3210936ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3210947ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3210959ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3210981ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3210992ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211003ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211014ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211025ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211036ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211048ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211058ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211070ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211081ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211092ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211103ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211114ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211125ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211136ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211147ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211158ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211170ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211181ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211192ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211192ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211214ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211225ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211248ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211258ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211269ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211292ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211314ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211336ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211359ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211392ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772
+[ 3211425ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:5772

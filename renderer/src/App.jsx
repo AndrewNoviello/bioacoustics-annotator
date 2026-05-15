@@ -10,13 +10,17 @@ import './index.css'
 function App() {
   const { setClapLoaded, setSelectedModel } = useContext(SessionContext)
 
-  // Load initial CLAP state
+  // Load initial CLAP state from the main process. The main process tracks
+  // model state by observing Python's model_loading_completed events, so this
+  // survives renderer reloads as long as Python is still running.
   useEffect(() => {
     const loadClapState = async () => {
       try {
-        const state = await window.electronAPI.getState()
-        setClapLoaded(state.model_loaded)
-        setSelectedModel(state.current_model)
+        const state = await window.electronAPI.getAppState()
+        if (state?.success) {
+          setClapLoaded(!!state.modelLoaded)
+          setSelectedModel(state.currentModel || null)
+        }
       } catch (error) {
         console.error('Failed to load CLAP state:', error)
       }
@@ -25,8 +29,8 @@ function App() {
   }, [setClapLoaded, setSelectedModel])
 
   return (
-    <SettingsProvider>
-      <Router>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <SettingsProvider>
         <div className="h-screen flex flex-col overflow-hidden">
           <Header />
           <main className="flex-1 flex flex-col min-h-0 overflow-hidden">
@@ -37,8 +41,8 @@ function App() {
             </Routes>
           </main>
         </div>
-      </Router>
-    </SettingsProvider>
+      </SettingsProvider>
+    </Router>
   )
 }
 

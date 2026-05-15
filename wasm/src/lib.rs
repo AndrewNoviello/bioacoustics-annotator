@@ -172,12 +172,6 @@ fn mel_filter_bank(
 
     let f_points: Vec<f32> = m_points.iter().map(|&mel| mel_to_hz(mel)).collect();
 
-    // Debug: Print frequency points for the top mel bins
-    if n_mels >= 8 {
-        println!("Top 8 mel frequency points: {:?}", &f_points[f_points.len()-10..]);
-        println!("f_max: {}, f_nyquist: {}", f_max, f_nyquist);
-    }
-
     let f_diff: Vec<f32> = f_points
         .iter()
         .skip(1)
@@ -251,16 +245,6 @@ fn mel_filter_bank(
                 fbank[i] *= enorm;
             }
         }
-    }
-
-    // Debug: Check the top mel filter bank values
-    if n_mels >= 8 && !fbanks.is_empty() {
-        let top_mel_idx = n_mels - 1;
-        let top_fbank = &fbanks[fbanks.len() - 1];
-        println!("Top mel filter bank (mel {}): max={:.6}, non-zero count={}", 
-                 top_mel_idx, 
-                 top_fbank.iter().fold(0.0_f32, |a, &b| a.max(b)),
-                 top_fbank.iter().filter(|&&x| x > 1e-10_f32).count());
     }
 
     fbanks

@@ -1,0 +1,63 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - img [ref=e7]
+      - heading "Bioacoustics Annotation Tool" [level=1] [ref=e13]
+    - generic [ref=e14]:
+      - button "CLAP Not Loaded" [ref=e16]:
+        - img [ref=e17]
+        - paragraph [ref=e19]: CLAP Not Loaded
+        - img [ref=e20]
+      - button "data" [ref=e23]:
+        - img [ref=e24]
+        - paragraph [ref=e26]: data
+      - button "Andrew" [ref=e28]:
+        - img [ref=e29]
+        - generic [ref=e32]: Andrew
+        - img [ref=e33]
+  - main [ref=e35]:
+    - main [ref=e37]:
+      - generic [ref=e38]:
+        - generic [ref=e41]:
+          - heading "Sessions" [level=2] [ref=e42]
+          - button "Create Session" [ref=e43]:
+            - img [ref=e44]
+            - generic [ref=e45]: Create Session
+        - generic [ref=e47]:
+          - generic [ref=e48] [cursor=pointer]:
+            - generic [ref=e49]:
+              - button "Confirm" [ref=e94]
+              - button "Cancel" [ref=e95]
+            - generic [ref=e54]:
+              - generic [ref=e55]:
+                - heading "test2" [level=3] [ref=e56]
+                - generic [ref=e57]: /61efefdd-4c20-4b1b-a599-f264e5895871
+                - generic [ref=e58]: 0 experiments
+              - paragraph [ref=e59]: Created 5/14/2026 at 9:44:10 PM
+              - generic [ref=e60]:
+                - generic [ref=e62]: Files (10)
+                - generic [ref=e65]:
+                  - generic [ref=e66]: northern-bottlenose-whale-hyperoodon-ampullatus.wav,
+                  - generic [ref=e67]: pilot-whale-globicephala-spp.wav,
+                  - generic [ref=e68]: north-atlantic-right-whale-eubalaena-glacialis-2.wav,
+                  - generic [ref=e69]: sei-whale-balaenoptera-borealis.wav,
+                  - generic [ref=e70]: humpback-whale-megaptera-novaeangliae.wav,
+                  - generic [ref=e71]: north-atlantic-right-whale-eubalaena-glacialis-1.wav,
+                  - generic [ref=e72]: killer-whale-orcinus-orca.wav,
+                  - generic [ref=e73]: minke-whale-balaenoptera-acutorostrata.wav,
+                  - generic [ref=e74]: fin-whale-balaenoptera physalus.wav,
+                  - text: blue-whale-balaenoptera-musculus.wav
+          - generic [ref=e75] [cursor=pointer]:
+            - button "Delete session" [ref=e77]:
+              - img [ref=e78]
+            - generic [ref=e81]:
+              - generic [ref=e82]:
+                - heading "Test" [level=3] [ref=e83]
+                - generic [ref=e84]: /ce4ec444-7933-4d16-9755-b675f3397cd7
+                - generic [ref=e85]: 1 experiments
+              - paragraph [ref=e86]: Created 5/13/2026 at 11:46:37 PM
+              - generic [ref=e87]:
+                - generic [ref=e89]: Files (2)
+                - generic [ref=e92]:
+                  - generic [ref=e93]: Recording_1_Segment_02.002.wav,
+                  - text: Recording_1_Segment_02.003.wav

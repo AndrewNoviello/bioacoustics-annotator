@@ -1,33 +1,37 @@
+import { parse } from 'csv-parse/sync'
+import { stringify } from 'csv-stringify/sync'
 import fs from 'fs/promises'
-import path from 'path'
+import { safePathJoin, atomicWriteFile } from './utils.js'
 
 async function verifyAnnotation(sessionId, experimentId, detectionId, verify, state) {
-  const experimentPath = path.join(state.dataDir, state.activeProfile, sessionId, experimentId + '.csv')
+  const experimentPath = safePathJoin(
+    state.dataDir, state.activeProfile, sessionId, experimentId + '.csv'
+  )
+  if (!experimentPath) return { success: false, error: 'Invalid path' }
 
   try {
-    const experimentData = await fs.readFile(experimentPath, 'utf-8')
-    const lines = experimentData.split('\n').filter(line => line.trim())
+    const raw = await fs.readFile(experimentPath, 'utf-8')
+    const records = parse(raw, { columns: true, skip_empty_lines: true, trim: true })
 
-    if (lines.length < 2) {
+    if (records.length === 0) {
       return { success: false, error: 'No detections found' }
     }
 
-    const header = lines[0]
-    const dataLines = lines.slice(1)
-
-    // Find and update the specific detection
-    const updatedLines = dataLines.map(line => {
-      const values = line.split(',')
-      if (values[0] === detectionId) {
-        values[6] = verify ? 1 : 0 // Update verified column
-        return values.join(',')
+    let updated = false
+    const updatedRecords = records.map(row => {
+      if (row.id === detectionId) {
+        updated = true
+        return { ...row, verified: verify ? 1 : 0 }
       }
-      return line
+      return row
     })
 
-    // Write back the entire file
-    const newContent = [header, ...updatedLines].join('\n')
-    await fs.writeFile(experimentPath, newContent, 'utf-8')
+    if (!updated) {
+      return { success: false, error: 'Detection not found' }
+    }
+
+    const csv = stringify(updatedRecords, { header: true })
+    await atomicWriteFile(experimentPath, csv)
 
     return { success: true, message: 'Detection verified successfully' }
   } catch (err) {
@@ -39,7 +43,4 @@ async function unverifyAnnotation(sessionId, experimentId, detectionId, state) {
   return verifyAnnotation(sessionId, experimentId, detectionId, false, state)
 }
 
-export {
-  verifyAnnotation,
-  unverifyAnnotation
-}
+export { verifyAnnotation, unverifyAnnotation }

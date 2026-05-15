@@ -19,6 +19,7 @@ contextBridge.exposeInMainWorld(
   createSession: (sessionName, files) => ipcRenderer.invoke('create-session', { sessionName, files }),
   listSessions: () => ipcRenderer.invoke('list-sessions'),
   getSession: (sessionId) => ipcRenderer.invoke('get-session', { sessionId }),
+  getExperiment: (sessionId, experimentId) => ipcRenderer.invoke('get-experiment', { sessionId, experimentId }),
   deleteSession: (sessionId) => ipcRenderer.invoke('delete-session', { sessionId }),
 
   // Detection operations
@@ -34,29 +35,22 @@ contextBridge.exposeInMainWorld(
   unverifyAnnotation: (sessionId, experimentId, detectionId) => ipcRenderer.invoke('unverify-annotation', { sessionId, experimentId, detectionId }),
   deleteDetection: (sessionId, experimentId, detectionId) => ipcRenderer.invoke('delete-detection', { sessionId, experimentId, detectionId }),
   deleteExperiment: (sessionId, experimentId) => ipcRenderer.invoke('delete-experiment', { sessionId, experimentId }),
+  updateDetectionTimes: (sessionId, experimentId, detectionId, start, end) => ipcRenderer.invoke('update-detection-times', { sessionId, experimentId, detectionId, start, end }),
+  restoreDetection: (sessionId, experimentId, detection) => ipcRenderer.invoke('restore-detection', { sessionId, experimentId, detection }),
 
   // App state management
   getAppState: () => ipcRenderer.invoke('get-app-state'),
   setDataDirectory: (dataDir) => ipcRenderer.invoke('set-data-directory', { dataDir }),
   setProfile: (profile) => ipcRenderer.invoke('set-profile', { profile }),
 
-  // Python job management (fire-and-forget)
-  startDetection: (sessionId, posPrompts, negPrompts, theta = 0.5) => ipcRenderer.send('start-detection', { sessionId, posPrompts, negPrompts, theta }),
-  loadModel: (modelName) => ipcRenderer.send('load-model', { modelName }),
+  // Settings persistence — per-session; sessionId is required
+  getSettings: (sessionId) => ipcRenderer.invoke('get-session-settings', sessionId),
+  setSettings: (sessionId, settings) => ipcRenderer.invoke('set-session-settings', sessionId, settings),
 
-  // Batch detection (Python backend)
-  runBatchDetection: (dataDir, profile, sessionId, files, posPrompts, negPrompts, theta = 0.5) =>
-    ipcRenderer.invoke('batch-detection', {
-      action: 'run_batch_detection',
-      params: {
-        data_dir: dataDir,
-        profile: profile,
-        session_id: sessionId,
-        files: files,
-        pos_prompts: posPrompts,
-        neg_prompts: negPrompts,
-        theta: theta
-      }
-    })
+  // Python job management (invoke so renderer gets an ack)
+  startDetection: (sessionId, posPrompts, negPrompts, theta) => ipcRenderer.invoke('start-detection', { sessionId, posPrompts, negPrompts, theta }),
+  cancelDetection: () => ipcRenderer.invoke('cancel-detection'),
+  loadModel: (modelName) => ipcRenderer.invoke('load-model', { modelName }),
+  listAvailableModels: () => ipcRenderer.invoke('list-available-models'),
 }
-) 
+)

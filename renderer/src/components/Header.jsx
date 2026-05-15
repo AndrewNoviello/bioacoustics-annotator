@@ -32,6 +32,7 @@ import { SessionContext } from '../stores/SessionContext'
 import { useNavigate, useLocation } from 'react-router-dom'
 import CreateProfileModal from './CreateProfileModal'
 import SettingsModal from './SettingsModal'
+import { useSettings } from '../stores/SettingsContext'
 
 const Header = () => {
   // Context values - app-wide state and actions
@@ -45,16 +46,19 @@ const Header = () => {
     pageTitle,              // Current page title (used in session pages)
     handleNewExperimentClick,      // Function to handle "New Experiment" button
     handleSavedExperimentsClick,   // Function to handle "Saved Experiments" button
+    overlayCount,           // Number of experiments currently overlaid (0/1 = no overlay)
     setProfile,             // Action to set active profile (with IPC persistence)
-    setDataDirectory        // Action to set data directory (with IPC persistence)
+    setDataDirectory,       // Action to set data directory (with IPC persistence)
+    profiles                // List of available profiles in current data dir (context-owned)
   } = useContext(SessionContext)
 
-  // Local state for profile management
-  const [profiles, setProfiles] = useState([])  // List of available profiles in current data dir
+  // Settings are now per-session; the button is only usable inside a session.
+  const { hasSession } = useSettings()
 
   // Navigation hooks
   const navigate = useNavigate()
   const location = useLocation()
+  const isSessionPage = location.pathname.startsWith('/session/')
 
   // UI state for dropdowns and modals
   const [showModelDropdown, setShowModelDropdown] = useState(false)
@@ -79,7 +83,6 @@ const Header = () => {
    */
   useEffect(() => {
     const handlePythonMessage = (event, message) => {
-      console.log('Python message:', message)
       switch (message.type) {
         case 'model_loading_started':
           setIsModelLoading(true)
@@ -98,8 +101,14 @@ const Header = () => {
             setErrorMessage(`Failed to load model: ${message.data.error}`)
           }
           break
+        case 'fatal_error':
+          setIsModelLoading(false)
+          setErrorMessage(`Backend error: ${message.data.message || 'ML backend crashed. Please restart the app.'}`)
+          break
+        case 'backend_timeout':
+          setErrorMessage('ML backend is taking longer than expected to start.')
+          break
         default:
-          // Ignore other message types
           break
       }
     }
@@ -118,16 +127,18 @@ const Header = () => {
    * 
    * @param {string} modelName - Name of the CLAP model to load
    */
-  const handleModelLoad = (modelName) => {
-    console.log(modelName)
+  const handleModelLoad = async (modelName) => {
     try {
       setIsModelLoading(true)
-      setShowModelDropdown(false) // Hide dropdown when loading starts
-      // Fire-and-forget: send command to Python backend
-      window.electronAPI.loadModel(modelName)
-      // Don't await - the Python message listener will handle the response
+      setShowModelDropdown(false)
+      const ack = await window.electronAPI.loadModel(modelName)
+      if (ack && !ack.success) {
+        setIsModelLoading(false)
+        setErrorMessage(`Failed to start model loading: ${ack.error}`)
+      }
+      // Completion arrives via python-message event listener
     } catch (err) {
-      console.error('Failed to start model loading:', err)
+      setIsModelLoading(false)
       setErrorMessage('Failed to start model loading')
     }
   }
@@ -168,31 +179,6 @@ const Header = () => {
   }
 
   /**
-   * Effect to load profiles when data directory changes
-   * 
-   * Automatically fetches the list of available profiles whenever the active
-   * data directory changes. This ensures the profile dropdown is always up-to-date.
-   * Also runs when activeProfile changes to ensure validation state is current.
-   */
-  useEffect(() => {
-    const loadProfiles = async () => {
-      if (!activeDataDir) {
-        setProfiles([])
-        return
-      }
-      try {
-        const res = await window.electronAPI.listProfiles()
-        if (res.success) setProfiles(res.dirs || [])
-        else setProfiles([])
-      } catch (e) {
-        console.error('Error listing profiles:', e)
-        setProfiles([])
-      }
-    }
-    loadProfiles()
-  }, [activeDataDir, activeProfile])
-
-  /**
    * Renders the left side of the header based on current route
    * 
    * - Main page: Shows app branding with fish icon and title
@@ -201,8 +187,6 @@ const Header = () => {
    * @returns {JSX.Element} Left side header content
    */
   const renderLeftSide = () => {
-    const isSessionPage = location.pathname.startsWith('/session/')
-
     if (!isSessionPage) {
       return (
         <div className="flex items-center gap-3">
@@ -236,8 +220,6 @@ const Header = () => {
    * @returns {JSX.Element|null} Session buttons or null if not on session page
    */
   const renderSessionButtons = () => {
-    const isSessionPage = location.pathname.startsWith('/session/')
-
     if (!isSessionPage) return null
 
     return (
@@ -247,7 +229,7 @@ const Header = () => {
           className="border border-green-600 px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 transition-colors flex items-center space-x-1 text-xs font-medium"
         >
           <History className="h-3 w-3" />
-          <span>Saved Experiments</span>
+          <span>Saved Experiments{overlayCount > 1 ? ` (${overlayCount})` : ''}</span>
         </button>
         <button
           onClick={handleNewExperimentClick}
@@ -262,10 +244,10 @@ const Header = () => {
 
   return (
     <div className="bg-white border-b border-gray-200 px-4 py-2">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-3 flex-wrap">
         {renderLeftSide()}
 
-        <div className="flex flex-row items-center space-x-3">
+        <div className="flex flex-row items-center gap-x-3 gap-y-2 flex-wrap min-w-0">
           {/* CLAP Status */}
           <div className="relative">
             <button
@@ -316,20 +298,29 @@ const Header = () => {
             )}
           </div>
 
-          {/* Data Directory Selector */}
-          <div>
-            <button
-              onClick={handleDataDirectorySelect}
-              className="flex items-center space-x-1 px-2 py-1 bg-white border border-gray-300 rounded hover:bg-gray-50 transition-colors"
-            >
-              <Folder className="h-3 w-3 text-gray-500" />
-              <p className="text-xs font-medium text-gray-700">
-                {activeDataDir ? `${activeDataDir.split(/[\\\/]/).pop()}` : 'Set Data Directory'}
-              </p>
-            </button>
-          </div>
+          {/* Data Directory Selector — only on the home page. Inside a
+              session the workspace path is irrelevant; the audio source
+              folder is shown in the session body instead. */}
+          {!isSessionPage && (
+            <div>
+              <button
+                onClick={handleDataDirectorySelect}
+                className="flex items-center space-x-1 px-2 py-1 bg-white border border-gray-300 rounded hover:bg-gray-50 transition-colors"
+              >
+                <Folder className="h-3 w-3 text-gray-500" />
+                <p className="text-xs font-medium text-gray-700">
+                  {activeDataDir ? `${activeDataDir.split(/[\\\/]/).pop()}` : 'Set Data Directory'}
+                </p>
+              </button>
+            </div>
+          )}
 
-          {/* Profile Selector */}
+          {/* Profile Selector — only on the home page. Sessions live at
+              dataDir/<profile>/<sessionId>/, so once a session is open the
+              profile is already fixed by the session's disk location.
+              Switching it mid-session would re-fire Session.loadSessionData
+              against a non-existent path and break the open session. */}
+          {!isSessionPage && (
           <div className="relative">
             <button
               onClick={() => setShowProfileDropdown(!showProfileDropdown)}
@@ -354,7 +345,7 @@ const Header = () => {
                       <p className="text-xs text-gray-500 font-medium">No profiles found</p>
                       {activeDataDir && (
                         <button
-                          onClick={() => setShowCreateProfile(true)}
+                          onClick={() => { setShowCreateProfile(true); setShowProfileDropdown(false); }}
                           className="flex items-center space-x-1 text-xs text-blue-600 hover:text-blue-700 font-medium mt-1"
                         >
                           <Plus className="h-3 w-3" />
@@ -377,7 +368,7 @@ const Header = () => {
                       {activeDataDir && (
                         <div className="border-t border-gray-100 pt-1">
                           <button
-                            onClick={() => setShowCreateProfile(true)}
+                            onClick={() => { setShowCreateProfile(true); setShowProfileDropdown(false); }}
                             className="flex items-center space-x-1 w-full text-left px-3 py-1 text-xs text-blue-600 hover:text-blue-700 font-medium"
                           >
                             <Plus className="h-3 w-3" />
@@ -391,17 +382,21 @@ const Header = () => {
               </div>
             )}
           </div>
+          )}
 
-          {/* Settings Button */}
-          <div>
-            <button
-              onClick={() => setShowSettings(true)}
-              className="flex items-center space-x-1 px-2 py-1 bg-white border border-gray-300 rounded hover:bg-gray-50 transition-colors"
-            >
-              <Settings className="h-3 w-3 text-gray-500" />
-              <span className="text-xs font-medium text-gray-700">Settings</span>
-            </button>
-          </div>
+          {/* Settings Button — only shown inside a session, since settings are per-session */}
+          {hasSession && (
+            <div>
+              <button
+                onClick={() => setShowSettings(true)}
+                title="Edit session settings"
+                className="flex items-center space-x-1 px-2 py-1 bg-white border border-gray-300 rounded hover:bg-gray-50 transition-colors"
+              >
+                <Settings className="h-3 w-3 text-gray-500" />
+                <span className="text-xs font-medium text-gray-700">Settings</span>
+              </button>
+            </div>
+          )}
           {renderSessionButtons()}
 
         </div>

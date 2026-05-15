@@ -1,13 +1,28 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CLAP-based bioacoustics annotation tool" />
+  <!--
+    Content-Security-Policy
+    -----------------------
+    'self' / blob: covers Vite's HMR + our own bundles. 'unsafe-inline' on
+    style-src is needed for Tailwind's inlined styles and for inline `style`
+    props on SVG elements. file: schemes cover local audio playback. WASM is
+    instantiated by the rust-melspec module, hence 'wasm-unsafe-eval'.
+    In dev Vite injects scripts via 'unsafe-inline' from the served HTML; we
+    allow this but production builds emit hashed module scripts so the policy
+    can be tightened further when packaging.
+  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' blob: data: file:; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; media-src 'self' file: blob:; connect-src 'self' ws: http://localhost:* blob: data: file:; worker-src 'self' blob:; font-src 'self' data:;" />
+  <title>CLAP Desktop - Bioacoustics Annotation Tool</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

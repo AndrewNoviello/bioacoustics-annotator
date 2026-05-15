@@ -1,0 +1,24 @@
+[     415ms] [WARNING] %cElectron Security Warning (Disabled webSecurity) font-weight: bold; This renderer process has "webSecurity" disabled. This
+  exposes users of this app to severe security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[     415ms] [WARNING] %cElectron Security Warning (allowRunningInsecureContent) font-weight: bold; This renderer process has "allowRunningInsecureContent"
+  enabled. This exposes users of this app to severe security risks.
+
+  
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[     415ms] [WARNING] %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[     421ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:9222/undefined:0

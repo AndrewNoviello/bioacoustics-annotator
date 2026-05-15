@@ -1,0 +1,39 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - img [ref=e7]
+      - heading "Bioacoustics Annotation Tool" [level=1] [ref=e13]
+    - generic [ref=e14]:
+      - button "CLAP_Jan23" [ref=e16]:
+        - img [ref=e17]
+        - paragraph [ref=e20]: CLAP_Jan23
+        - img [ref=e21]
+      - button "data" [ref=e24]:
+        - img [ref=e25]
+        - paragraph [ref=e27]: data
+      - button "Andrew" [ref=e29]:
+        - img [ref=e30]
+        - generic [ref=e33]: Andrew
+        - img [ref=e34]
+  - main [ref=e36]:
+    - main [ref=e38]:
+      - generic [ref=e39]:
+        - generic [ref=e42]:
+          - heading "Sessions" [level=2] [ref=e43]
+          - button "Create Session" [ref=e44]:
+            - img [ref=e45]
+            - generic [ref=e46]: Create Session
+        - generic [ref=e49] [cursor=pointer]:
+          - button "Delete session" [ref=e51]:
+            - img [ref=e52]
+          - generic [ref=e55]:
+            - generic [ref=e56]:
+              - heading "Test" [level=3] [ref=e57]
+              - generic [ref=e58]: /ce4ec444-7933-4d16-9755-b675f3397cd7
+              - generic [ref=e59]: 2 experiments
+            - paragraph [ref=e60]: Created 5/13/2026 at 11:46:37 PM
+            - generic [ref=e61]:
+              - generic [ref=e63]: Files (2)
+              - generic [ref=e66]:
+                - generic [ref=e67]: Recording_1_Segment_02.002.wav,
+                - text: Recording_1_Segment_02.003.wav

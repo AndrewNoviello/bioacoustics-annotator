@@ -1,0 +1,1682 @@
+[
+  {
+    "i": 0,
+    "populated": false,
+    "states": [
+      {
+        "name": "SpectrogramViewer",
+        "depth": 2,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramGraphics",
+        "depth": 4,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "",
+            "len": 0
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          },
+          {
+            "h": 2,
+            "ms": "object"
+          },
+          {
+            "h": 3,
+            "ms": "object"
+          },
+          {
+            "h": 4,
+            "ms": "object"
+          },
+          {
+            "h": 5,
+            "ms": "object"
+          },
+          {
+            "h": 6,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramProvider",
+        "depth": 7,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "number"
+          },
+          {
+            "h": 1,
+            "ms": "number"
+          },
+          {
+            "h": 2,
+            "ms": "number"
+          },
+          {
+            "h": 3,
+            "ms": "object",
+            "len": 283150
+          },
+          {
+            "h": 4,
+            "ms": "number"
+          },
+          {
+            "h": 5,
+            "ms": "number"
+          },
+          {
+            "h": 6,
+            "ms": "boolean"
+          },
+          {
+            "h": 7,
+            "ms": "object"
+          },
+          {
+            "h": 8,
+            "ms": "object"
+          },
+          {
+            "h": 9,
+            "ms": "object"
+          },
+          {
+            "h": 10,
+            "ms": "object"
+          },
+          {
+            "h": 11,
+            "ms": "object"
+          },
+          {
+            "h": 12,
+            "ms": "object"
+          },
+          {
+            "h": 13,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 14,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 15,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 16,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 17,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 18,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 19,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramPlayer",
+        "depth": 9,
+        "hooks": []
+      },
+      {
+        "name": "Spectrogram",
+        "depth": 10,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object",
+            "len": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "i": 1,
+    "populated": false,
+    "states": [
+      {
+        "name": "SpectrogramViewer",
+        "depth": 2,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramGraphics",
+        "depth": 4,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "",
+            "len": 0
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          },
+          {
+            "h": 2,
+            "ms": "object"
+          },
+          {
+            "h": 3,
+            "ms": "object"
+          },
+          {
+            "h": 4,
+            "ms": "object"
+          },
+          {
+            "h": 5,
+            "ms": "object"
+          },
+          {
+            "h": 6,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramProvider",
+        "depth": 7,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "number"
+          },
+          {
+            "h": 1,
+            "ms": "number"
+          },
+          {
+            "h": 2,
+            "ms": "number"
+          },
+          {
+            "h": 3,
+            "ms": "object",
+            "len": 1429235
+          },
+          {
+            "h": 4,
+            "ms": "number"
+          },
+          {
+            "h": 5,
+            "ms": "number"
+          },
+          {
+            "h": 6,
+            "ms": "boolean"
+          },
+          {
+            "h": 7,
+            "ms": "object"
+          },
+          {
+            "h": 8,
+            "ms": "object"
+          },
+          {
+            "h": 9,
+            "ms": "object"
+          },
+          {
+            "h": 10,
+            "ms": "object"
+          },
+          {
+            "h": 11,
+            "ms": "object"
+          },
+          {
+            "h": 12,
+            "ms": "object"
+          },
+          {
+            "h": 13,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 14,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 15,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 16,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 17,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 18,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 19,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramPlayer",
+        "depth": 9,
+        "hooks": []
+      },
+      {
+        "name": "Spectrogram",
+        "depth": 10,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object",
+            "len": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "i": 2,
+    "populated": false,
+    "states": [
+      {
+        "name": "SpectrogramViewer",
+        "depth": 2,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramGraphics",
+        "depth": 4,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "",
+            "len": 0
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          },
+          {
+            "h": 2,
+            "ms": "object"
+          },
+          {
+            "h": 3,
+            "ms": "object"
+          },
+          {
+            "h": 4,
+            "ms": "object"
+          },
+          {
+            "h": 5,
+            "ms": "object"
+          },
+          {
+            "h": 6,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramProvider",
+        "depth": 7,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "number"
+          },
+          {
+            "h": 1,
+            "ms": "number"
+          },
+          {
+            "h": 2,
+            "ms": "number"
+          },
+          {
+            "h": 3,
+            "ms": "object",
+            "len": 1276992
+          },
+          {
+            "h": 4,
+            "ms": "number"
+          },
+          {
+            "h": 5,
+            "ms": "number"
+          },
+          {
+            "h": 6,
+            "ms": "boolean"
+          },
+          {
+            "h": 7,
+            "ms": "object"
+          },
+          {
+            "h": 8,
+            "ms": "object"
+          },
+          {
+            "h": 9,
+            "ms": "object"
+          },
+          {
+            "h": 10,
+            "ms": "object"
+          },
+          {
+            "h": 11,
+            "ms": "object"
+          },
+          {
+            "h": 12,
+            "ms": "object"
+          },
+          {
+            "h": 13,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 14,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 15,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 16,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 17,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 18,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 19,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramPlayer",
+        "depth": 9,
+        "hooks": []
+      },
+      {
+        "name": "Spectrogram",
+        "depth": 10,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object",
+            "len": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "i": 3,
+    "populated": false,
+    "states": [
+      {
+        "name": "SpectrogramViewer",
+        "depth": 2,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramGraphics",
+        "depth": 4,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "",
+            "len": 0
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          },
+          {
+            "h": 2,
+            "ms": "object"
+          },
+          {
+            "h": 3,
+            "ms": "object"
+          },
+          {
+            "h": 4,
+            "ms": "object"
+          },
+          {
+            "h": 5,
+            "ms": "object"
+          },
+          {
+            "h": 6,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramProvider",
+        "depth": 7,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "number"
+          },
+          {
+            "h": 1,
+            "ms": "number"
+          },
+          {
+            "h": 2,
+            "ms": "number"
+          },
+          {
+            "h": 3,
+            "ms": "object",
+            "len": 382896
+          },
+          {
+            "h": 4,
+            "ms": "number"
+          },
+          {
+            "h": 5,
+            "ms": "number"
+          },
+          {
+            "h": 6,
+            "ms": "boolean"
+          },
+          {
+            "h": 7,
+            "ms": "object"
+          },
+          {
+            "h": 8,
+            "ms": "object"
+          },
+          {
+            "h": 9,
+            "ms": "object"
+          },
+          {
+            "h": 10,
+            "ms": "object"
+          },
+          {
+            "h": 11,
+            "ms": "object"
+          },
+          {
+            "h": 12,
+            "ms": "object"
+          },
+          {
+            "h": 13,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 14,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 15,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 16,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 17,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 18,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 19,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramPlayer",
+        "depth": 9,
+        "hooks": []
+      },
+      {
+        "name": "Spectrogram",
+        "depth": 10,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object",
+            "len": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "i": 4,
+    "populated": false,
+    "states": [
+      {
+        "name": "SpectrogramViewer",
+        "depth": 2,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramGraphics",
+        "depth": 4,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "",
+            "len": 0
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          },
+          {
+            "h": 2,
+            "ms": "object"
+          },
+          {
+            "h": 3,
+            "ms": "object"
+          },
+          {
+            "h": 4,
+            "ms": "object"
+          },
+          {
+            "h": 5,
+            "ms": "object"
+          },
+          {
+            "h": 6,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramProvider",
+        "depth": 7,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "number"
+          },
+          {
+            "h": 1,
+            "ms": "number"
+          },
+          {
+            "h": 2,
+            "ms": "number"
+          },
+          {
+            "h": 3,
+            "ms": "object",
+            "len": 2619984
+          },
+          {
+            "h": 4,
+            "ms": "number"
+          },
+          {
+            "h": 5,
+            "ms": "number"
+          },
+          {
+            "h": 6,
+            "ms": "boolean"
+          },
+          {
+            "h": 7,
+            "ms": "object"
+          },
+          {
+            "h": 8,
+            "ms": "object"
+          },
+          {
+            "h": 9,
+            "ms": "object"
+          },
+          {
+            "h": 10,
+            "ms": "object"
+          },
+          {
+            "h": 11,
+            "ms": "object"
+          },
+          {
+            "h": 12,
+            "ms": "object"
+          },
+          {
+            "h": 13,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 14,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 15,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 16,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 17,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 18,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 19,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramPlayer",
+        "depth": 9,
+        "hooks": []
+      },
+      {
+        "name": "Spectrogram",
+        "depth": 10,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object",
+            "len": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "i": 5,
+    "populated": false,
+    "states": [
+      {
+        "name": "SpectrogramViewer",
+        "depth": 2,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramGraphics",
+        "depth": 4,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "",
+            "len": 0
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          },
+          {
+            "h": 2,
+            "ms": "object"
+          },
+          {
+            "h": 3,
+            "ms": "object"
+          },
+          {
+            "h": 4,
+            "ms": "object"
+          },
+          {
+            "h": 5,
+            "ms": "object"
+          },
+          {
+            "h": 6,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramProvider",
+        "depth": 7,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "number"
+          },
+          {
+            "h": 1,
+            "ms": "number"
+          },
+          {
+            "h": 2,
+            "ms": "number"
+          },
+          {
+            "h": 3,
+            "ms": "object",
+            "len": 628152
+          },
+          {
+            "h": 4,
+            "ms": "number"
+          },
+          {
+            "h": 5,
+            "ms": "number"
+          },
+          {
+            "h": 6,
+            "ms": "boolean"
+          },
+          {
+            "h": 7,
+            "ms": "object"
+          },
+          {
+            "h": 8,
+            "ms": "object"
+          },
+          {
+            "h": 9,
+            "ms": "object"
+          },
+          {
+            "h": 10,
+            "ms": "object"
+          },
+          {
+            "h": 11,
+            "ms": "object"
+          },
+          {
+            "h": 12,
+            "ms": "object"
+          },
+          {
+            "h": 13,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 14,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 15,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 16,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 17,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 18,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 19,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramPlayer",
+        "depth": 9,
+        "hooks": []
+      },
+      {
+        "name": "Spectrogram",
+        "depth": 10,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object",
+            "len": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "i": 6,
+    "populated": true,
+    "states": [
+      {
+        "name": "SpectrogramViewer",
+        "depth": 2,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramGraphics",
+        "depth": 4,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "",
+            "len": 0
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          },
+          {
+            "h": 2,
+            "ms": "object"
+          },
+          {
+            "h": 3,
+            "ms": "object"
+          },
+          {
+            "h": 4,
+            "ms": "object"
+          },
+          {
+            "h": 5,
+            "ms": "object"
+          },
+          {
+            "h": 6,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramProvider",
+        "depth": 7,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "number"
+          },
+          {
+            "h": 1,
+            "ms": "number"
+          },
+          {
+            "h": 2,
+            "ms": "number"
+          },
+          {
+            "h": 3,
+            "ms": "object",
+            "len": 2567992
+          },
+          {
+            "h": 4,
+            "ms": "number"
+          },
+          {
+            "h": 5,
+            "ms": "number"
+          },
+          {
+            "h": 6,
+            "ms": "boolean"
+          },
+          {
+            "h": 7,
+            "ms": "object"
+          },
+          {
+            "h": 8,
+            "ms": "object"
+          },
+          {
+            "h": 9,
+            "ms": "object"
+          },
+          {
+            "h": 10,
+            "ms": "object"
+          },
+          {
+            "h": 11,
+            "ms": "object"
+          },
+          {
+            "h": 12,
+            "ms": "object"
+          },
+          {
+            "h": 13,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 14,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 15,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 16,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 17,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 18,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 19,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramPlayer",
+        "depth": 9,
+        "hooks": []
+      },
+      {
+        "name": "Spectrogram",
+        "depth": 10,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object",
+            "len": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "i": 7,
+    "populated": false,
+    "states": [
+      {
+        "name": "SpectrogramViewer",
+        "depth": 2,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramGraphics",
+        "depth": 4,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "",
+            "len": 0
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          },
+          {
+            "h": 2,
+            "ms": "object"
+          },
+          {
+            "h": 3,
+            "ms": "object"
+          },
+          {
+            "h": 4,
+            "ms": "object"
+          },
+          {
+            "h": 5,
+            "ms": "object"
+          },
+          {
+            "h": 6,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramProvider",
+        "depth": 7,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "number"
+          },
+          {
+            "h": 1,
+            "ms": "number"
+          },
+          {
+            "h": 2,
+            "ms": "number"
+          },
+          {
+            "h": 3,
+            "ms": "object",
+            "len": 1859064
+          },
+          {
+            "h": 4,
+            "ms": "number"
+          },
+          {
+            "h": 5,
+            "ms": "number"
+          },
+          {
+            "h": 6,
+            "ms": "boolean"
+          },
+          {
+            "h": 7,
+            "ms": "object"
+          },
+          {
+            "h": 8,
+            "ms": "object"
+          },
+          {
+            "h": 9,
+            "ms": "object"
+          },
+          {
+            "h": 10,
+            "ms": "object"
+          },
+          {
+            "h": 11,
+            "ms": "object"
+          },
+          {
+            "h": 12,
+            "ms": "object"
+          },
+          {
+            "h": 13,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 14,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 15,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 16,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 17,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 18,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 19,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramPlayer",
+        "depth": 9,
+        "hooks": []
+      },
+      {
+        "name": "Spectrogram",
+        "depth": 10,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object",
+            "len": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "i": 8,
+    "populated": false,
+    "states": [
+      {
+        "name": "SpectrogramViewer",
+        "depth": 2,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramGraphics",
+        "depth": 4,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "",
+            "len": 0
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          },
+          {
+            "h": 2,
+            "ms": "object"
+          },
+          {
+            "h": 3,
+            "ms": "object"
+          },
+          {
+            "h": 4,
+            "ms": "object"
+          },
+          {
+            "h": 5,
+            "ms": "object"
+          },
+          {
+            "h": 6,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramProvider",
+        "depth": 7,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "number"
+          },
+          {
+            "h": 1,
+            "ms": "number"
+          },
+          {
+            "h": 2,
+            "ms": "number"
+          },
+          {
+            "h": 3,
+            "ms": "object",
+            "len": 664512
+          },
+          {
+            "h": 4,
+            "ms": "number"
+          },
+          {
+            "h": 5,
+            "ms": "number"
+          },
+          {
+            "h": 6,
+            "ms": "boolean"
+          },
+          {
+            "h": 7,
+            "ms": "object"
+          },
+          {
+            "h": 8,
+            "ms": "object"
+          },
+          {
+            "h": 9,
+            "ms": "object"
+          },
+          {
+            "h": 10,
+            "ms": "object"
+          },
+          {
+            "h": 11,
+            "ms": "object"
+          },
+          {
+            "h": 12,
+            "ms": "object"
+          },
+          {
+            "h": 13,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 14,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 15,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 16,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 17,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 18,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 19,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramPlayer",
+        "depth": 9,
+        "hooks": []
+      },
+      {
+        "name": "Spectrogram",
+        "depth": 10,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object",
+            "len": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "i": 9,
+    "populated": false,
+    "states": [
+      {
+        "name": "SpectrogramViewer",
+        "depth": 2,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramGraphics",
+        "depth": 4,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "",
+            "len": 0
+          },
+          {
+            "h": 1,
+            "ms": "object"
+          },
+          {
+            "h": 2,
+            "ms": "object"
+          },
+          {
+            "h": 3,
+            "ms": "object"
+          },
+          {
+            "h": 4,
+            "ms": "object"
+          },
+          {
+            "h": 5,
+            "ms": "object"
+          },
+          {
+            "h": 6,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramProvider",
+        "depth": 7,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "number"
+          },
+          {
+            "h": 1,
+            "ms": "number"
+          },
+          {
+            "h": 2,
+            "ms": "number"
+          },
+          {
+            "h": 3,
+            "ms": "object",
+            "len": 4462368
+          },
+          {
+            "h": 4,
+            "ms": "number"
+          },
+          {
+            "h": 5,
+            "ms": "number"
+          },
+          {
+            "h": 6,
+            "ms": "boolean"
+          },
+          {
+            "h": 7,
+            "ms": "object"
+          },
+          {
+            "h": 8,
+            "ms": "object"
+          },
+          {
+            "h": 9,
+            "ms": "object"
+          },
+          {
+            "h": 10,
+            "ms": "object"
+          },
+          {
+            "h": 11,
+            "ms": "object"
+          },
+          {
+            "h": 12,
+            "ms": "object"
+          },
+          {
+            "h": 13,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 14,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 15,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 16,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 17,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 18,
+            "ms": "object",
+            "len": 2
+          },
+          {
+            "h": 19,
+            "ms": "object"
+          }
+        ]
+      },
+      {
+        "name": "SpectrogramPlayer",
+        "depth": 9,
+        "hooks": []
+      },
+      {
+        "name": "Spectrogram",
+        "depth": 10,
+        "hooks": [
+          {
+            "h": 0,
+            "ms": "object"
+          },
+          {
+            "h": 1,
+            "ms": "object",
+            "len": 2
+          }
+        ]
+      }
+    ]
+  }
+]

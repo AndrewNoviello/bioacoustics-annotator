@@ -14,18 +14,31 @@
  * IPC Dependencies:
  * - createProfile: Creates a new profile directory and configuration
  */
-import { useState, useContext } from 'react'
+import { useState, useContext, useMemo } from 'react'
 import { X, Plus } from 'lucide-react'
 import { SessionContext } from '../stores/SessionContext'
 
+const INVALID_CHARS = /[/\\:*?"<>|]/
+
 const CreateProfileModal = ({ onClose }) => {
   // Local state for the profile name input
-  const [profileName, setProfileName] = useState(null)
+  const [profileName, setProfileName] = useState('')
+  const [isCreating, setIsCreating] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
 
+  // Live validation: flag invalid characters as the user types so the Create
+  // button stays disabled and the user gets immediate feedback.
+  const nameValidationError = useMemo(() => {
+    if (!profileName) return null
+    if (INVALID_CHARS.test(profileName)) {
+      return 'Profile name contains invalid characters: / \\ : * ? " < > |'
+    }
+    return null
+  }, [profileName])
+
   // Get context values for profile creation and data directory validation
-  const { setProfile, activeDataDir } = useContext(SessionContext);
+  const { setProfile, activeDataDir, refreshProfiles } = useContext(SessionContext);
 
   /**
    * Handles the profile creation process
@@ -37,28 +50,33 @@ const CreateProfileModal = ({ onClose }) => {
    * On failure, shows an alert with the error message
    */
   const handleCreate = async () => {
-    // Validate required inputs
-    if (!profileName.trim() || !activeDataDir) {
-      console.error('No profile name or data directory')
+    const trimmed = profileName.trim()
+    if (!trimmed || !activeDataDir) {
+      setErrorMessage('Profile name and data directory are required')
+      return
+    }
+    if (nameValidationError) {
+      setErrorMessage(nameValidationError)
       return
     }
 
+    setIsCreating(true)
     try {
-      const profileNameTrimmed = profileName.trim()
-
-      // Call IPC method to create profile on the backend
-      const result = await window.electronAPI.createProfile(profileNameTrimmed)
+      const result = await window.electronAPI.createProfile(trimmed)
 
       if (result.success) {
-        // Set the newly created profile as active and close modal after a brief success message
-        setProfile(profileNameTrimmed);
+        // Refresh the profiles list FIRST so the new name is in it by the
+        // time we mark it active. Otherwise Header renders "Invalid Profile"
+        // for the brief window between setProfile resolving and the next
+        // refreshProfiles tick.
+        await refreshProfiles()
+        await setProfile(trimmed)
         setErrorMessage('')
         setSuccessMessage('Profile created successfully')
         setTimeout(() => {
           onClose()
         }, 900)
       } else {
-        // Show user-friendly error message
         setSuccessMessage('')
         setErrorMessage(result.error || 'Failed to create profile')
       }
@@ -66,6 +84,8 @@ const CreateProfileModal = ({ onClose }) => {
       console.error('Error creating profile:', err)
       setSuccessMessage('')
       setErrorMessage('Error creating profile. Please try again.')
+    } finally {
+      setIsCreating(false)
     }
   }
 
@@ -105,11 +125,14 @@ const CreateProfileModal = ({ onClose }) => {
               type="text"
               value={profileName}
               onChange={(e) => setProfileName(e.target.value)}
-              onKeyPress={handleKeyPress}
+              onKeyDown={handleKeyPress}
               placeholder="e.g., Marine Biology Project"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${nameValidationError ? 'border-red-400 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
               autoFocus
             />
+            {nameValidationError && (
+              <p className="text-xs text-red-600 mt-1">{nameValidationError}</p>
+            )}
           </div>
 
           {/* Data Directory Info - Read-only display */}
@@ -143,14 +166,13 @@ const CreateProfileModal = ({ onClose }) => {
           >
             Cancel
           </button>
-          {/* Create button - disabled when inputs are invalid */}
           <button
             onClick={handleCreate}
-            disabled={!profileName || !activeDataDir}
+            disabled={!profileName.trim() || !activeDataDir || isCreating || !!nameValidationError}
             className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
           >
             <Plus className="h-4 w-4" />
-            <span className="text-sm font-medium">Create Profile</span>
+            <span className="text-sm font-medium">{isCreating ? 'Creating…' : 'Create Profile'}</span>
           </button>
         </div>
       </div>

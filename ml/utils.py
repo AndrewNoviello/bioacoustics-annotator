@@ -7,8 +7,8 @@
 # This helps optimizing the spectrogram for seeing signals in them.
 # line 418 I increase size of spectrogram segment taller.
 
-# %%
 import os
+import sys
 import shutil
 import time
 import numpy as np
@@ -26,12 +26,18 @@ import torch
 from torch.utils.data import DataLoader
 import torchaudio
 
-import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+# Get the directory containing this module for relative path resolution
+_module_dir = os.path.dirname(os.path.abspath(__file__))
 
-from clap.CLAPWrapper import CLAPWrapper
-from clap.dataset.datasets import Inference_DS, Batch_Inference_DS
+# Handle imports - support both direct execution and module import
+try:
+    # When imported as a module
+    from .clap.CLAPWrapper import CLAPWrapper
+    from .clap.dataset.datasets import Inference_DS, Batch_Inference_DS
+except ImportError:
+    # When run directly or from main.py
+    from clap.CLAPWrapper import CLAPWrapper
+    from clap.dataset.datasets import Inference_DS, Batch_Inference_DS
 
 #%% Dynamic gain definition for spectrogram generation
 def calculate_dynamic_db_gain(S):
@@ -56,32 +62,72 @@ def softmax(x, T=1):
     e_x = np.exp(x / T)
     return e_x / e_x.sum(axis=1).reshape(-1, 1)
 
-# %%
 # Define the weights path and load the CLAP model. 
-#weights_path = 'models/weights/jan23.pth'
 clap = None
+
+def get_models_dir():
+    """Get the models directory path, supporting both development and packaged scenarios."""
+    # First, check for environment variable override
+    env_models_dir = os.environ.get('CLAP_MODELS_DIR')
+    if env_models_dir and os.path.isdir(env_models_dir):
+        return env_models_dir
+
+    # PyInstaller bundle: the clap_backend exe is at resources/clap_backend/clap_backend.exe
+    # Model weights are placed at resources/models/ (one level up from clap_backend/)
+    if getattr(sys, 'frozen', False):
+        bundled_models = os.path.normpath(
+            os.path.join(os.path.dirname(sys.executable), '..', 'models')
+        )
+        if os.path.isdir(bundled_models):
+            return bundled_models
+
+    # Default: models/ directory relative to this module (development)
+    return os.path.join(_module_dir, 'models')
+
 def load_models(model_name, send_message):
     """
     Loads the CLAP model from the weights path.
+    
     Args:
         model_name (str): Name of the model to load.
+        send_message: Callback function for sending status messages.
 
     Returns:
-        str: Path to the loaded model weights.    
+        CLAPWrapper: The loaded CLAP model wrapper.
+        
+    Raises:
+        FileNotFoundError: If the model weights file is not found.
     """
-    # Set clap as a global variable
     global clap
+    
+    # Construct the weights path
+    models_dir = get_models_dir()
+    weights_path = os.path.join(models_dir, '{}.pth'.format(model_name))
+    
+    # Verify the model file exists
+    if not os.path.exists(weights_path):
+        raise FileNotFoundError(
+            f"Model weights not found at: {weights_path}\n"
+            f"Please ensure the model file '{model_name}.pth' exists in the models directory: {models_dir}"
+        )
+    
+    # Auto-detect CUDA availability
+    use_cuda = torch.cuda.is_available()
+    if send_message:
+        send_message('model_info', {
+            'weights_path': weights_path,
+            'use_cuda': use_cuda,
+            'cuda_available': torch.cuda.is_available()
+        })
+    
     # Load the model
-    weights_path = None
-    weights_path = os.path.join(os.path.dirname(__file__), 'models', '{}.pth'.format(model_name))
-    # send_message('weights_path', {'weights_path': weights_path})
-    clap = CLAPWrapper(weights_path, use_cuda=True)
-    # Load the weights
+    clap = CLAPWrapper(weights_path, use_cuda=use_cuda)
     clap.load_clap()
+    
     return clap
 
 # %%
-def compute_similarity(model, data_loader, class_prompts, neg_n=1, pos_n=1, theta=0.5):
+def compute_similarity(model, data_loader, class_prompts, neg_n=1, pos_n=1, theta=0.5, progress_callback=None):
     """
     Computes the similarity between audio embeddings and class text embeddings.
 
@@ -113,16 +159,17 @@ def compute_similarity(model, data_loader, class_prompts, neg_n=1, pos_n=1, thet
 
     time.sleep(2)
 
-    for i in tqdm(range(len(data_loader)), desc="Detection in process..."):
+    total_batches = len(data_loader)
+    for batch_i in tqdm(range(total_batches), desc="Detection in process..."):
 
-        x = next(data_iter) 
-        
+        x = next(data_iter)
+
         if torch.cuda.is_available():
             x = x.cuda()
-        
+
         audio_embeddings = model._get_audio_embeddings(x)
         similarity = model.compute_similarity(audio_embeddings, text_embeddings)
-        
+
         scores = []
         # Compute the similarity scores for each audio embedding with the class prompts.
         for i in range(len(similarity)):
@@ -135,8 +182,22 @@ def compute_similarity(model, data_loader, class_prompts, neg_n=1, pos_n=1, thet
             for i in range(neg_n, neg_n + pos_n):
                 pos_sc += values[indices == i].item()
             scores.append((neg_sc, pos_sc))
-        
+
         total_scores.append(np.array(scores))
+
+        # Emit progress so the renderer can show a percentage instead of just
+        # an elapsed-time counter. We emit after each batch completes so the
+        # 0% case is implicit (UI shows 0 until first batch finishes).
+        if progress_callback is not None:
+            try:
+                batch_idx = batch_i + 1
+                progress_callback({
+                    'batch_idx': batch_idx,
+                    'total_batches': total_batches,
+                    'percent': (batch_idx / total_batches) * 100.0,
+                })
+            except Exception:
+                pass
     # Concatenate the total scores and apply softmax to get the final scores.
     total_scores = np.concatenate(total_scores, 0)
     total_scores = softmax(total_scores)
@@ -146,10 +207,20 @@ def compute_similarity(model, data_loader, class_prompts, neg_n=1, pos_n=1, thet
     return total_scores, preds
 
 # %%
+def get_default_temp_path():
+    """Get a default temporary path that works in both dev and production."""
+    import tempfile
+    temp_path = os.path.join(tempfile.gettempdir(), 'clap_desktop_temp')
+    os.makedirs(temp_path, exist_ok=True)
+    return temp_path
+
 def generate_spectrogram_results(wav, sr, seg_size=None, preds=None, total_scores=None,
                                  nperseg=1024, noverlap=512,
-                                 cmap='viridis', khz_lims=[0, 10], prefix="full", save_path=os.path.join(".", "temp"),
+                                 cmap='viridis', khz_lims=[0, 10], prefix="full", save_path=None,
                                  output_segs=True):
+    # Use default temp path if not provided
+    if save_path is None:
+        save_path = get_default_temp_path()
     """
     Generates and saves prediction results including spectrogram images and audio segments.
 
@@ -248,7 +319,7 @@ def generate_spectrogram_results(wav, sr, seg_size=None, preds=None, total_score
 
 
 # %%
-def batch_audio_detection(wav_list, neg_prompts, pos_prompts, theta, save_path):
+def batch_audio_detection(wav_list, neg_prompts, pos_prompts, theta, save_path, progress_callback=None):
 
     if isinstance(wav_list, str):
         wav_list = wav_list.split("\n")
@@ -258,7 +329,7 @@ def batch_audio_detection(wav_list, neg_prompts, pos_prompts, theta, save_path):
 
     # Add the segments to the DataLoader.
     inf_dl = DataLoader(
-                inf_dset, batch_size=10, shuffle=False, 
+                inf_dset, batch_size=10, shuffle=False,
                 pin_memory=False, num_workers=0, drop_last=False
         )
 
@@ -272,7 +343,8 @@ def batch_audio_detection(wav_list, neg_prompts, pos_prompts, theta, save_path):
     class_prompts = [prompt + x for x in classes]
 
     total_scores, preds = compute_similarity(clap, inf_dl, class_prompts,
-                                             neg_n=neg_n, pos_n=pos_n, theta=theta)
+                                             neg_n=neg_n, pos_n=pos_n, theta=theta,
+                                             progress_callback=progress_callback)
 
     print("Outputing detection results..")
     with open(save_path, 'w') as det_preds:
@@ -321,7 +393,7 @@ def single_audio_detection(wav_path, neg_prompts=None, pos_prompts=None, theta=0
 
     print("Outputing figures..")
 
-    save_path = os.path.join(".", "temp")
+    save_path = get_default_temp_path()
     generate_spectrogram_results(wav, sr, inf_dset.seg_size, preds, total_scores,
                                  save_path=save_path)
 
@@ -330,8 +402,11 @@ def single_audio_detection(wav_path, neg_prompts=None, pos_prompts=None, theta=0
 # %%
 def generate_segs(wav_path, file_ann, 
                   nperseg=1024, noverlap=512,
-                  cmap='viridis', khz_lims=[0, 5], save_path=os.path.join(".", "temp"), prefix="Ann",
+                  cmap='viridis', khz_lims=[0, 5], save_path=None, prefix="Ann",
                   clean_seg_folder=True, save_full=True):
+    # Use default temp path if not provided
+    if save_path is None:
+        save_path = get_default_temp_path()
     """
     Generates and saves segments as images and audio files directly from detection or annotations.
 

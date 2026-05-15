@@ -1,0 +1,138 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - button [ref=e134] [cursor=pointer]:
+          - img [ref=e135]
+        - heading "Test" [level=1] [ref=e137]
+      - generic [ref=e14]:
+        - button "CLAP_Jan23" [ref=e16]:
+          - img [ref=e17]
+          - paragraph [ref=e20]: CLAP_Jan23
+          - img [ref=e21]
+        - button "Settings" [active] [ref=e139]:
+          - img [ref=e140]
+          - generic [ref=e143]: Settings
+        - generic [ref=e144]:
+          - button "Saved Experiments" [ref=e145]:
+            - img [ref=e146]
+            - generic [ref=e150]: Saved Experiments
+          - button "New Experiment" [ref=e151]:
+            - img [ref=e152]
+            - generic [ref=e153]: New Experiment
+    - generic [ref=e248]:
+      - generic [ref=e249]:
+        - heading "Settings" [level=2] [ref=e250]
+        - button [ref=e251]:
+          - img [ref=e252]
+      - generic [ref=e256]:
+        - heading "Spectrogram Settings" [level=3] [ref=e257]
+        - generic [ref=e258]:
+          - generic [ref=e260]:
+            - generic [ref=e261]:
+              - generic [ref=e262]: FFT Size (n_fft)
+              - spinbutton [ref=e263]: "2048"
+            - generic [ref=e264]:
+              - generic [ref=e265]: Window Length
+              - spinbutton [ref=e266]: "1024"
+            - generic [ref=e267]:
+              - generic [ref=e268]: Hop Length
+              - spinbutton [ref=e269]: "256"
+            - generic [ref=e270]:
+              - generic [ref=e271]: Min Frequency (Hz)
+              - spinbutton [ref=e272]: "10"
+            - generic [ref=e273]:
+              - generic [ref=e274]: Max Frequency (Hz)
+              - spinbutton [ref=e275]: "16000"
+            - generic [ref=e276]:
+              - generic [ref=e277]: Mel Bands (n_mels)
+              - spinbutton [ref=e278]: "128"
+            - generic [ref=e279]:
+              - generic [ref=e280]: Top dB
+              - spinbutton [ref=e281]: "80"
+            - generic [ref=e282]:
+              - generic [ref=e283]: Window Duration (sec)
+              - spinbutton [ref=e284]: "15"
+          - generic [ref=e285]:
+            - generic [ref=e286]:
+              - generic [ref=e287]: Gain Percentile [90-99]
+              - spinbutton [ref=e288]: "98"
+            - generic [ref=e289]:
+              - generic [ref=e290]: Brightness [-0.5, 0.5]
+              - spinbutton [ref=e291]: "0"
+            - generic [ref=e292]:
+              - generic [ref=e293]: Contrast [0.5-2.0]
+              - spinbutton [ref=e294]: "1"
+          - generic [ref=e295]:
+            - generic [ref=e297]:
+              - checkbox "Dynamic Gain" [checked] [ref=e298]
+              - generic [ref=e299]: Dynamic Gain
+            - generic [ref=e301]:
+              - checkbox "Auto Gamma" [checked] [ref=e302]
+              - generic [ref=e303]: Auto Gamma
+        - generic [ref=e304]:
+          - generic [ref=e305]:
+            - heading "Species List" [level=3] [ref=e306]
+            - button [ref=e307] [cursor=pointer]:
+              - img [ref=e308]
+          - paragraph [ref=e312]: No species added yet
+      - generic [ref=e313]:
+        - button "Cancel" [ref=e314]
+        - button "Save Settings" [ref=e315]:
+          - img [ref=e316]
+          - generic [ref=e320]: Save Settings
+  - main [ref=e36]:
+    - generic [ref=e155]:
+      - generic [ref=e157]:
+        - generic "C:\\Users\\andno\\Desktop\\MSR_Proj\\CLAP_Annotation\\demo_data\\sample" [ref=e158]: "Source: C:\\Users\\andno\\Desktop\\MSR_Proj\\CLAP_Annotation\\demo_data\\sample"
+        - generic [ref=e160]:
+          - generic [ref=e161]:
+            - img [ref=e163] [cursor=pointer]
+            - img [ref=e164] [cursor=pointer]
+          - generic [ref=e171]: Recording_1_Segment_02.002.wav
+        - generic [ref=e173]:
+          - generic [ref=e174]:
+            - img [ref=e176] [cursor=pointer]
+            - img [ref=e180] [cursor=pointer]
+          - generic [ref=e188]: Recording_1_Segment_02.003.wav
+      - generic [ref=e189]:
+        - generic [ref=e190]:
+          - heading "Detection Annotation" [level=3] [ref=e211]
+          - button [ref=e192]:
+            - img [ref=e193]
+        - generic [ref=e195]:
+          - generic [ref=e196]:
+            - button "Delete detection" [ref=e212]:
+              - img [ref=e213]
+            - generic [ref=e199]:
+              - generic [ref=e216]:
+                - strong [ref=e217]: "File:"
+                - text: C:\Users\andno\Desktop\MSR_Proj\CLAP_Annotation\demo_data\sample/Recording_1_Segment_02.003.wav
+              - generic [ref=e218]:
+                - strong [ref=e219]: "Time:"
+                - text: 0.00s - 6.00s
+              - generic [ref=e220]:
+                - strong [ref=e221]: "Confidence:"
+                - text: 59.5%
+              - generic [ref=e222]:
+                - strong [ref=e223]: "Species:"
+                - text: Not annotated
+              - generic [ref=e224]:
+                - strong [ref=e225]: "Status:"
+                - generic [ref=e226]: Unverified
+          - generic [ref=e207]:
+            - generic [ref=e227]:
+              - generic [ref=e228]: Species Annotation
+              - combobox [ref=e229]:
+                - option "Select species..." [selected]
+            - generic [ref=e230]:
+              - generic [ref=e231]:
+                - button "Save Annotation" [disabled] [ref=e232]:
+                  - img [ref=e233]
+                  - generic [ref=e237]: Save Annotation
+                - button "Cancel" [ref=e238]:
+                  - img [ref=e239]
+                  - generic [ref=e242]: Cancel
+              - button "Next" [disabled] [ref=e243]:
+                - generic [ref=e244]: Next
+                - img [ref=e245]

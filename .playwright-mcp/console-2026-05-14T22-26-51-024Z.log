@@ -1,0 +1,123 @@
+[     156ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:21606
+[     220ms] [WARNING] %cElectron Security Warning (Disabled webSecurity) font-weight: bold; This renderer process has "webSecurity" disabled. This
+  exposes users of this app to severe security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[     220ms] [WARNING] %cElectron Security Warning (allowRunningInsecureContent) font-weight: bold; This renderer process has "allowRunningInsecureContent"
+  enabled. This exposes users of this app to severe security risks.
+
+  
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[  163527ms] ReferenceError: useRef is not defined
+    at TimeUpdateBridge (http://localhost:5173/spectrogram/SpectrogramPlayer.tsx?t=1778797774437:28:24)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:11594:26)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:14628:28)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:15970:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:3678:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:3703:24)
+    at invokeGuardedCallback (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:3737:39)
+    at beginWork$1 (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19816:15)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19249:20)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19188:13)
+[  163536ms] ReferenceError: useRef is not defined
+    at TimeUpdateBridge (http://localhost:5173/spectrogram/SpectrogramPlayer.tsx?t=1778797774437:28:24)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:11594:26)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:14628:28)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:15970:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:3678:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:3703:24)
+    at invokeGuardedCallback (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:3737:39)
+    at beginWork$1 (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19816:15)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19249:20)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19188:13)
+[  163539ms] ReferenceError: useRef is not defined
+    at TimeUpdateBridge (http://localhost:5173/spectrogram/SpectrogramPlayer.tsx?t=1778797774437:28:24)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:11594:26)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:14628:28)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:15970:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:3678:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:3703:24)
+    at invokeGuardedCallback (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:3737:39)
+    at beginWork$1 (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19816:15)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19249:20)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19188:13)
+[  163541ms] ReferenceError: useRef is not defined
+    at TimeUpdateBridge (http://localhost:5173/spectrogram/SpectrogramPlayer.tsx?t=1778797774437:28:24)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:11594:26)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:14628:28)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:15970:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:3678:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:3703:24)
+    at invokeGuardedCallback (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:3737:39)
+    at beginWork$1 (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19816:15)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19249:20)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19188:13)
+[  163542ms] [ERROR] The above error occurred in the <TimeUpdateBridge> component:
+
+    at TimeUpdateBridge (http://localhost:5173/spectrogram/SpectrogramPlayer.tsx?t=1778797774437:23:3)
+    at SpectrogramProvider (http://localhost:5173/spectrogram/SpectrogramProvider.tsx:65:5)
+    at div
+    at SpectrogramPlayer (http://localhost:5173/spectrogram/SpectrogramPlayer.tsx?t=1778797774437:49:5)
+    at http://localhost:5173/src/components/Spectrogram.jsx?t=1778797545327:21:3
+    at div
+    at div
+    at div
+    at div
+    at div
+    at div
+    at Session (http://localhost:5173/src/components/Session.jsx?t=1778797582402:40:148)
+    at RenderedRoute (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4086:5)
+    at Routes (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4556:5)
+    at main
+    at div
+    at SettingsProvider (http://localhost:5173/src/stores/SettingsContext.jsx:55:36)
+    at Router (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4499:15)
+    at HashRouter (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:5281:5)
+    at App (http://localhost:5173/src/App.jsx?t=1778797582402:28:47)
+    at SessionProvider (http://localhost:5173/src/stores/SessionContext.jsx:20:35)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:14077
+[  163542ms] [ERROR] The above error occurred in the <TimeUpdateBridge> component:
+
+    at TimeUpdateBridge (http://localhost:5173/spectrogram/SpectrogramPlayer.tsx?t=1778797774437:23:3)
+    at SpectrogramProvider (http://localhost:5173/spectrogram/SpectrogramProvider.tsx:65:5)
+    at div
+    at SpectrogramPlayer (http://localhost:5173/spectrogram/SpectrogramPlayer.tsx?t=1778797774437:49:5)
+    at http://localhost:5173/src/components/Spectrogram.jsx?t=1778797545327:21:3
+    at div
+    at div
+    at div
+    at div
+    at div
+    at div
+    at Session (http://localhost:5173/src/components/Session.jsx?t=1778797582402:40:148)
+    at RenderedRoute (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4086:5)
+    at Routes (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4556:5)
+    at main
+    at div
+    at SettingsProvider (http://localhost:5173/src/stores/SettingsContext.jsx:55:36)
+    at Router (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4499:15)
+    at HashRouter (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:5281:5)
+    at App (http://localhost:5173/src/App.jsx?t=1778797582402:28:47)
+    at SessionProvider (http://localhost:5173/src/stores/SessionContext.jsx:20:35)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:14077
+[  163547ms] ReferenceError: useRef is not defined
+    at TimeUpdateBridge (http://localhost:5173/spectrogram/SpectrogramPlayer.tsx?t=1778797774437:28:24)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:11594:26)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:14628:28)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:15970:22)
+    at beginWork$1 (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19804:22)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19249:20)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19188:13)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19167:15)
+    at recoverFromConcurrentError (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18784:28)
+    at performSyncWorkOnRoot (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18930:28)

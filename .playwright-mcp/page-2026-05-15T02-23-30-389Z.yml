@@ -1,0 +1,104 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - button [ref=e96] [cursor=pointer]:
+        - img [ref=e97]
+      - heading "test2" [level=1] [ref=e99]
+    - generic [ref=e14]:
+      - button "CLAP Not Loaded" [ref=e16]:
+        - img [ref=e17]
+        - paragraph [ref=e19]: CLAP Not Loaded
+        - img [ref=e20]
+      - button "Settings" [ref=e101]:
+        - img [ref=e102]
+        - generic [ref=e105]: Settings
+      - generic [ref=e106]:
+        - button "Saved Experiments" [ref=e107]:
+          - img [ref=e108]
+          - generic [ref=e112]: Saved Experiments
+        - button "New Experiment" [ref=e113]:
+          - img [ref=e114]
+          - generic [ref=e115]: New Experiment
+  - main [ref=e35]:
+    - generic [ref=e117]:
+      - generic [ref=e119]:
+        - generic "C:\\Users\\andno\\Downloads\\archive (1)\\whale-sounds\\whale-sounds-wav" [ref=e120]: "Source: C:\\Users\\andno\\Downloads\\archive (1)\\whale-sounds\\whale-sounds-wav"
+        - generic [ref=e122]:
+          - generic [ref=e123]:
+            - img [ref=e125] [cursor=pointer]
+            - img [ref=e126] [cursor=pointer]
+          - generic [ref=e133]: northern-bottlenose-whale-hyperoodon-ampullatus.wav
+        - generic [ref=e135]:
+          - generic [ref=e136]:
+            - img [ref=e138] [cursor=pointer]
+            - img [ref=e139] [cursor=pointer]
+          - generic [ref=e146]: pilot-whale-globicephala-spp.wav
+        - generic [ref=e148]:
+          - generic [ref=e149]:
+            - img [ref=e151] [cursor=pointer]
+            - img [ref=e152] [cursor=pointer]
+          - generic [ref=e159]: north-atlantic-right-whale-eubalaena-glacialis-2.wav
+        - generic [ref=e161]:
+          - generic [ref=e162]:
+            - img [ref=e164] [cursor=pointer]
+            - img [ref=e165] [cursor=pointer]
+          - generic [ref=e172]: sei-whale-balaenoptera-borealis.wav
+        - generic [ref=e174]:
+          - generic [ref=e175]:
+            - img [ref=e177] [cursor=pointer]
+            - img [ref=e178] [cursor=pointer]
+          - generic [ref=e185]: humpback-whale-megaptera-novaeangliae.wav
+        - generic [ref=e187]:
+          - generic [ref=e188]:
+            - img [ref=e190] [cursor=pointer]
+            - img [ref=e191] [cursor=pointer]
+          - generic [ref=e198]: north-atlantic-right-whale-eubalaena-glacialis-1.wav
+        - generic [ref=e200]:
+          - generic [ref=e201]:
+            - img [ref=e203] [cursor=pointer]
+            - img [ref=e204] [cursor=pointer]
+          - generic [ref=e211]: killer-whale-orcinus-orca.wav
+        - generic [ref=e213]:
+          - generic [ref=e214]:
+            - img [ref=e216] [cursor=pointer]
+            - img [ref=e217] [cursor=pointer]
+          - generic [ref=e224]: minke-whale-balaenoptera-acutorostrata.wav
+        - generic [ref=e226]:
+          - generic [ref=e227]:
+            - img [ref=e229] [cursor=pointer]
+            - img [ref=e230] [cursor=pointer]
+          - generic [ref=e237]: fin-whale-balaenoptera physalus.wav
+        - generic [ref=e239]:
+          - generic [ref=e240]:
+            - img [ref=e242] [cursor=pointer]
+            - img [ref=e243] [cursor=pointer]
+          - generic [ref=e250]: blue-whale-balaenoptera-musculus.wav
+      - generic [ref=e251]:
+        - generic [ref=e252]:
+          - heading "New Experiment" [level=3] [ref=e253]
+          - button [ref=e254]:
+            - img [ref=e255]
+        - generic [ref=e257]:
+          - generic [ref=e258]:
+            - generic [ref=e259]:
+              - generic [ref=e260]: Positive Prompts
+              - textbox "e.g., whale song; humpback vocalization; low frequency calls" [ref=e261]
+            - generic [ref=e262]:
+              - generic [ref=e263]: Negative Prompts
+              - textbox "e.g., background noise; boat engine; human activity" [ref=e264]
+          - generic [ref=e265]:
+            - generic [ref=e266]: Detection Threshold (θ = 0.5)
+            - slider [ref=e267]: "0.5"
+          - generic [ref=e269]:
+            - button "Run Detection" [ref=e270]:
+              - img [ref=e271]
+              - generic [ref=e273]: Run Detection
+            - button "Save Experiment" [disabled] [ref=e274]:
+              - img [ref=e275]
+              - generic [ref=e279]: Save Experiment
+            - button "Wipe Prompt" [ref=e280]:
+              - img [ref=e281]
+              - generic [ref=e284]: Wipe Prompt
+            - button "Wipe Experiment" [ref=e285]:
+              - img [ref=e286]
+              - generic [ref=e289]: Wipe Experiment

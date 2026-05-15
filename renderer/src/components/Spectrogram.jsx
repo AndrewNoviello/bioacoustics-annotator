@@ -1,7 +1,6 @@
 // SpectrogramPlayer component using react-audio-spectrogram-player
 import React, { useState, useMemo } from 'react'
 import SpectrogramPlayer from '../../spectrogram/SpectrogramPlayer'
-import { useSettings } from '../stores/SettingsContext'
 
 const Spectrogram = React.memo(({
   filePath,
@@ -9,10 +8,13 @@ const Spectrogram = React.memo(({
   detections = [],
   onDetectionClick = null,
   windowLength = 15,
-  activeDetection = null
+  activeDetection = null,
+  selectedExperiments = [],
+  maxLanes = 3,
+  onDetectionResize = null,
+  onTimeUpdate = null
 }) => {
   const [error, setError] = useState(null)
-  const { settings } = useSettings()
 
   if (!filePath) {
     return (
@@ -39,10 +41,10 @@ const Spectrogram = React.memo(({
 
   // Convert CLAP detections to spectrogram annotations format
   const formatDetections = (detections) => {
-    console.log(detections)
     if (!detections || detections.length === 0) return []
 
     // Convert all detections to a single annotation group
+    // Include experiment color info if available (multi-experiment mode)
     const data = detections.map((detection) => {
       return {
         id: detection.id,
@@ -51,7 +53,10 @@ const Spectrogram = React.memo(({
           detection.start_time || 0,
           detection.end_time || detection.start_time + 1 || 0,
           '' // No label needed
-        ]
+        ],
+        // Include experiment metadata for color coding
+        experimentId: detection.experimentId,
+        experimentColor: detection.experimentColor
       }
     })
 
@@ -62,7 +67,7 @@ const Spectrogram = React.memo(({
   // Memoize the annotations to prevent unnecessary re-renders
   const annotations = useMemo(() => {
     return formatDetections(detections)
-  }, [detections, height]) // Dependencies: detections array and height
+  }, [detections])
 
   if (!audioUrl || error) {
     return (
@@ -80,10 +85,13 @@ const Spectrogram = React.memo(({
       <SpectrogramPlayer
         fileId={filePath}
         src={audioUrl}
-        sampleRate={32000}  // Common for marine recordings
         annotations={annotations}
         handleDetectionClick={onDetectionClick}
         activeDetection={activeDetection}
+        selectedExperiments={selectedExperiments}
+        maxLanes={maxLanes}
+        onDetectionResize={onDetectionResize}
+        onTimeUpdate={onTimeUpdate}
       />
     )
   } catch (err) {

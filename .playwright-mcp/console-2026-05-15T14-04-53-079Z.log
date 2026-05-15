@@ -1,0 +1,287 @@
+[     123ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:21606
+[     160ms] [WARNING] %cElectron Security Warning (Disabled webSecurity) font-weight: bold; This renderer process has "webSecurity" disabled. This
+  exposes users of this app to severe security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[     161ms] [WARNING] %cElectron Security Warning (allowRunningInsecureContent) font-weight: bold; This renderer process has "allowRunningInsecureContent"
+  enabled. This exposes users of this app to severe security risks.
+
+  
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[    5942ms] [LOG] [DBG gfx worker-new] before new Worker() minke-whale-balaenoptera-acutorostrata.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:80
+[    5943ms] [LOG] [DBG gfx worker-new] after new Worker() minke-whale-balaenoptera-acutorostrata.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:82
+[    5943ms] [LOG] [DBG gfx set_pcm] skip: no samples minke-whale-balaenoptera-acutorostrata.wav len= 0 sr= 32000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:140
+[    5944ms] [LOG] [DBG gfx render] post minke-whale-balaenoptera-acutorostrata.wav id= 1 haveSamples= false @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[    5944ms] [LOG] [DBG audio] start fetch minke-whale-balaenoptera-acutorostrata.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:118
+[    5947ms] [LOG] [DBG audio] fetched minke-whale-balaenoptera-acutorostrata.wav ok= true @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:121
+[    5957ms] [LOG] [DBG audio] arrayBuffer minke-whale-balaenoptera-acutorostrata.wav bytes= 619732 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:126
+[    5972ms] [LOG] [DBG worker boot] start wid= bq2wq5 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:3
+[    5973ms] [LOG] [DBG worker boot] wasm-glue imported wid= bq2wq5 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:5
+[    5974ms] [LOG] [DBG worker boot] registering onmessage wid= bq2wq5 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:165
+[    5983ms] [LOG] [DBG audio] AudioContext created minke-whale-balaenoptera-acutorostrata.wav state= running @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:129
+[    5984ms] [LOG] [DBG worker] render recv minke-whale-balaenoptera-acutorostrata.wav id= 1 inFlight= false hadPending= false @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:189
+[    5984ms] [LOG] [DBG worker proc] start minke-whale-balaenoptera-acutorostrata.wav id= 1 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:73
+[    5985ms] [LOG] [DBG worker proc] wasm ready minke-whale-balaenoptera-acutorostrata.wav id= 1 pcmInStore= false @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:76
+[    6046ms] [LOG] [DBG audio] decoded minke-whale-balaenoptera-acutorostrata.wav sr= 48000 len= 1859064 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:131
+[    6047ms] [LOG] [DBG audio] setAudioSamples called minke-whale-balaenoptera-acutorostrata.wav samples= 1859064 @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:136
+[    6047ms] [LOG] [DBG audio] closing AudioContext minke-whale-balaenoptera-acutorostrata.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:141
+[    6049ms] [LOG] [DBG gfx set_pcm] post minke-whale-balaenoptera-acutorostrata.wav len= 1859064 sr= 48000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:149
+[    6050ms] [LOG] [DBG gfx render] post minke-whale-balaenoptera-acutorostrata.wav id= 2 haveSamples= true @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[    6050ms] [LOG] [DBG worker] set_pcm minke-whale-balaenoptera-acutorostrata.wav len= 1859064 sr= 48000 waiters= 1 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:177
+[    6050ms] [LOG] [DBG worker proc] pcm ready minke-whale-balaenoptera-acutorostrata.wav id= 1 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:78
+[    7047ms] [LOG] [DBG gfx worker-new] before new Worker() sei-whale-balaenoptera-borealis.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:80
+[    7047ms] [LOG] [DBG gfx worker-new] after new Worker() sei-whale-balaenoptera-borealis.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:82
+[    7047ms] [LOG] [DBG gfx set_pcm] skip: no samples sei-whale-balaenoptera-borealis.wav len= 0 sr= 32000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:140
+[    7047ms] [LOG] [DBG gfx render] post sei-whale-balaenoptera-borealis.wav id= 1 haveSamples= false @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[    7048ms] [LOG] [DBG audio] start fetch sei-whale-balaenoptera-borealis.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:118
+[    7050ms] [LOG] [DBG audio] fetched sei-whale-balaenoptera-borealis.wav ok= true @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:121
+[    7051ms] [LOG] [DBG audio] arrayBuffer sei-whale-balaenoptera-borealis.wav bytes= 127676 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:126
+[    7051ms] [LOG] [DBG audio] AudioContext created sei-whale-balaenoptera-borealis.wav state= running @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:129
+[    7064ms] [LOG] [DBG audio] decoded sei-whale-balaenoptera-borealis.wav sr= 48000 len= 382896 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:131
+[    7064ms] [LOG] [DBG audio] setAudioSamples called sei-whale-balaenoptera-borealis.wav samples= 382896 @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:136
+[    7064ms] [LOG] [DBG audio] closing AudioContext sei-whale-balaenoptera-borealis.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:141
+[    7066ms] [LOG] [DBG gfx set_pcm] post sei-whale-balaenoptera-borealis.wav len= 382896 sr= 48000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:149
+[    7066ms] [LOG] [DBG gfx render] post sei-whale-balaenoptera-borealis.wav id= 2 haveSamples= true @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[    7075ms] [LOG] [DBG worker boot] start wid= cby3bd @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:3
+[    7075ms] [LOG] [DBG worker boot] wasm-glue imported wid= cby3bd @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:5
+[    7076ms] [LOG] [DBG worker boot] registering onmessage wid= cby3bd @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:165
+[    7548ms] [LOG] [DBG gfx worker-new] before new Worker() fin-whale-balaenoptera physalus.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:80
+[    7548ms] [LOG] [DBG gfx worker-new] after new Worker() fin-whale-balaenoptera physalus.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:82
+[    7548ms] [LOG] [DBG gfx set_pcm] skip: no samples fin-whale-balaenoptera physalus.wav len= 0 sr= 32000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:140
+[    7549ms] [LOG] [DBG gfx render] post fin-whale-balaenoptera physalus.wav id= 1 haveSamples= false @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[    7549ms] [LOG] [DBG audio] start fetch fin-whale-balaenoptera physalus.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:118
+[    7551ms] [LOG] [DBG audio] fetched fin-whale-balaenoptera physalus.wav ok= true @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:121
+[    7555ms] [LOG] [DBG audio] arrayBuffer fin-whale-balaenoptera physalus.wav bytes= 221548 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:126
+[    7555ms] [LOG] [DBG audio] AudioContext created fin-whale-balaenoptera physalus.wav state= running @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:129
+[    7574ms] [LOG] [DBG audio] decoded fin-whale-balaenoptera physalus.wav sr= 48000 len= 664512 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:131
+[    7575ms] [LOG] [DBG audio] setAudioSamples called fin-whale-balaenoptera physalus.wav samples= 664512 @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:136
+[    7575ms] [LOG] [DBG audio] closing AudioContext fin-whale-balaenoptera physalus.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:141
+[    7576ms] [LOG] [DBG worker boot] start wid= ef9t0j @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:3
+[    7576ms] [LOG] [DBG worker boot] wasm-glue imported wid= ef9t0j @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:5
+[    7576ms] [LOG] [DBG worker boot] registering onmessage wid= ef9t0j @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:165
+[    7577ms] [LOG] [DBG gfx set_pcm] post fin-whale-balaenoptera physalus.wav len= 664512 sr= 48000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:149
+[    7577ms] [LOG] [DBG gfx render] post fin-whale-balaenoptera physalus.wav id= 2 haveSamples= true @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[    7578ms] [LOG] [DBG worker] set_pcm fin-whale-balaenoptera physalus.wav len= 664512 sr= 48000 waiters= 0 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:177
+[    7578ms] [LOG] [DBG worker] render recv fin-whale-balaenoptera physalus.wav id= 2 inFlight= false hadPending= false @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:189
+[    7579ms] [LOG] [DBG worker proc] start fin-whale-balaenoptera physalus.wav id= 2 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:73
+[    7579ms] [LOG] [DBG worker proc] wasm ready fin-whale-balaenoptera physalus.wav id= 2 pcmInStore= true @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:76
+[    7583ms] [LOG] [DBG worker proc] pcm ready fin-whale-balaenoptera physalus.wav id= 2 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:78
+[    8046ms] [LOG] [DBG gfx worker-new] before new Worker() pilot-whale-globicephala-spp.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:80
+[    8047ms] [LOG] [DBG gfx worker-new] after new Worker() pilot-whale-globicephala-spp.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:82
+[    8047ms] [LOG] [DBG gfx set_pcm] skip: no samples pilot-whale-globicephala-spp.wav len= 0 sr= 32000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:140
+[    8047ms] [LOG] [DBG gfx render] post pilot-whale-globicephala-spp.wav id= 1 haveSamples= false @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[    8047ms] [LOG] [DBG audio] start fetch pilot-whale-globicephala-spp.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:118
+[    8049ms] [LOG] [DBG audio] fetched pilot-whale-globicephala-spp.wav ok= true @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:121
+[    8065ms] [LOG] [DBG audio] arrayBuffer pilot-whale-globicephala-spp.wav bytes= 1313154 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:126
+[    8065ms] [LOG] [DBG audio] AudioContext created pilot-whale-globicephala-spp.wav state= running @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:129
+[    8081ms] [LOG] [DBG worker boot] start wid= xqzvrp @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:3
+[    8081ms] [LOG] [DBG worker boot] wasm-glue imported wid= xqzvrp @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:5
+[    8082ms] [LOG] [DBG worker boot] registering onmessage wid= xqzvrp @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:165
+[    8123ms] [LOG] [DBG audio] decoded pilot-whale-globicephala-spp.wav sr= 48000 len= 1429235 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:131
+[    8123ms] [LOG] [DBG audio] setAudioSamples called pilot-whale-globicephala-spp.wav samples= 1429235 @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:136
+[    8123ms] [LOG] [DBG audio] closing AudioContext pilot-whale-globicephala-spp.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:141
+[    8127ms] [LOG] [DBG gfx set_pcm] post pilot-whale-globicephala-spp.wav len= 1429235 sr= 48000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:149
+[    8127ms] [LOG] [DBG gfx render] post pilot-whale-globicephala-spp.wav id= 2 haveSamples= true @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[    8128ms] [LOG] [DBG worker] set_pcm pilot-whale-globicephala-spp.wav len= 1429235 sr= 48000 waiters= 0 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:177
+[    8128ms] [LOG] [DBG worker] render recv pilot-whale-globicephala-spp.wav id= 2 inFlight= false hadPending= false @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:189
+[    8128ms] [LOG] [DBG worker proc] start pilot-whale-globicephala-spp.wav id= 2 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:73
+[    8129ms] [LOG] [DBG worker proc] wasm ready pilot-whale-globicephala-spp.wav id= 2 pcmInStore= true @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:76
+[    8129ms] [LOG] [DBG worker proc] pcm ready pilot-whale-globicephala-spp.wav id= 2 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:78
+[    8558ms] [LOG] [DBG gfx worker-new] before new Worker() north-atlantic-right-whale-eubalaena-glacialis-1.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:80
+[    8558ms] [LOG] [DBG gfx worker-new] after new Worker() north-atlantic-right-whale-eubalaena-glacialis-1.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:82
+[    8558ms] [LOG] [DBG gfx set_pcm] skip: no samples north-atlantic-right-whale-eubalaena-glacialis-1.wav len= 0 sr= 32000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:140
+[    8558ms] [LOG] [DBG gfx render] post north-atlantic-right-whale-eubalaena-glacialis-1.wav id= 1 haveSamples= false @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[    8559ms] [LOG] [DBG audio] start fetch north-atlantic-right-whale-eubalaena-glacialis-1.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:118
+[    8561ms] [LOG] [DBG audio] fetched north-atlantic-right-whale-eubalaena-glacialis-1.wav ok= true @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:121
+[    8563ms] [LOG] [DBG audio] arrayBuffer north-atlantic-right-whale-eubalaena-glacialis-1.wav bytes= 209428 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:126
+[    8564ms] [LOG] [DBG audio] AudioContext created north-atlantic-right-whale-eubalaena-glacialis-1.wav state= running @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:129
+[    8585ms] [LOG] [DBG audio] decoded north-atlantic-right-whale-eubalaena-glacialis-1.wav sr= 48000 len= 628152 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:131
+[    8585ms] [LOG] [DBG audio] setAudioSamples called north-atlantic-right-whale-eubalaena-glacialis-1.wav samples= 628152 @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:136
+[    8585ms] [LOG] [DBG audio] closing AudioContext north-atlantic-right-whale-eubalaena-glacialis-1.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:141
+[    8587ms] [LOG] [DBG gfx set_pcm] post north-atlantic-right-whale-eubalaena-glacialis-1.wav len= 628152 sr= 48000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:149
+[    8587ms] [LOG] [DBG gfx render] post north-atlantic-right-whale-eubalaena-glacialis-1.wav id= 2 haveSamples= true @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[    8591ms] [LOG] [DBG worker boot] start wid= hkvxuo @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:3
+[    8593ms] [LOG] [DBG worker boot] wasm-glue imported wid= hkvxuo @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:5
+[    8594ms] [LOG] [DBG worker boot] registering onmessage wid= hkvxuo @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:165
+[    9069ms] [LOG] [DBG gfx worker-new] before new Worker() blue-whale-balaenoptera-musculus.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:80
+[    9070ms] [LOG] [DBG gfx worker-new] after new Worker() blue-whale-balaenoptera-musculus.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:82
+[    9070ms] [LOG] [DBG gfx set_pcm] skip: no samples blue-whale-balaenoptera-musculus.wav len= 0 sr= 32000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:140
+[    9070ms] [LOG] [DBG gfx render] post blue-whale-balaenoptera-musculus.wav id= 1 haveSamples= false @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[    9070ms] [LOG] [DBG audio] start fetch blue-whale-balaenoptera-musculus.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:118
+[    9072ms] [LOG] [DBG audio] fetched blue-whale-balaenoptera-musculus.wav ok= true @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:121
+[    9088ms] [LOG] [DBG audio] arrayBuffer blue-whale-balaenoptera-musculus.wav bytes= 1487500 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:126
+[    9088ms] [LOG] [DBG audio] AudioContext created blue-whale-balaenoptera-musculus.wav state= running @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:129
+[    9107ms] [LOG] [DBG worker boot] start wid= aux99c @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:3
+[    9112ms] [LOG] [DBG worker boot] wasm-glue imported wid= aux99c @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:5
+[    9112ms] [LOG] [DBG worker boot] registering onmessage wid= aux99c @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:165
+[    9225ms] [LOG] [DBG audio] decoded blue-whale-balaenoptera-musculus.wav sr= 48000 len= 4462368 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:131
+[    9225ms] [LOG] [DBG audio] setAudioSamples called blue-whale-balaenoptera-musculus.wav samples= 4462368 @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:136
+[    9225ms] [LOG] [DBG audio] closing AudioContext blue-whale-balaenoptera-musculus.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:141
+[    9231ms] [LOG] [DBG gfx set_pcm] post blue-whale-balaenoptera-musculus.wav len= 4462368 sr= 48000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:149
+[    9232ms] [LOG] [DBG gfx render] post blue-whale-balaenoptera-musculus.wav id= 2 haveSamples= true @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[    9232ms] [LOG] [DBG worker] set_pcm blue-whale-balaenoptera-musculus.wav len= 4462368 sr= 48000 waiters= 0 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:177
+[    9233ms] [LOG] [DBG worker] render recv blue-whale-balaenoptera-musculus.wav id= 2 inFlight= false hadPending= false @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:189
+[    9233ms] [LOG] [DBG worker proc] start blue-whale-balaenoptera-musculus.wav id= 2 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:73
+[    9233ms] [LOG] [DBG worker proc] wasm ready blue-whale-balaenoptera-musculus.wav id= 2 pcmInStore= true @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:76
+[    9233ms] [LOG] [DBG worker proc] pcm ready blue-whale-balaenoptera-musculus.wav id= 2 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:78
+[    9568ms] [LOG] [DBG gfx worker-new] before new Worker() northern-bottlenose-whale-hyperoodon-ampullatus.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:80
+[    9569ms] [LOG] [DBG gfx worker-new] after new Worker() northern-bottlenose-whale-hyperoodon-ampullatus.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:82
+[    9569ms] [LOG] [DBG gfx set_pcm] skip: no samples northern-bottlenose-whale-hyperoodon-ampullatus.wav len= 0 sr= 32000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:140
+[    9569ms] [LOG] [DBG gfx render] post northern-bottlenose-whale-hyperoodon-ampullatus.wav id= 1 haveSamples= false @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[    9570ms] [LOG] [DBG audio] start fetch northern-bottlenose-whale-hyperoodon-ampullatus.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:118
+[    9572ms] [LOG] [DBG audio] fetched northern-bottlenose-whale-hyperoodon-ampullatus.wav ok= true @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:121
+[    9577ms] [LOG] [DBG audio] arrayBuffer northern-bottlenose-whale-hyperoodon-ampullatus.wav bytes= 566344 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:126
+[    9578ms] [LOG] [DBG audio] AudioContext created northern-bottlenose-whale-hyperoodon-ampullatus.wav state= running @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:129
+[    9583ms] [LOG] [DBG audio] decoded northern-bottlenose-whale-hyperoodon-ampullatus.wav sr= 48000 len= 283150 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:131
+[    9583ms] [LOG] [DBG audio] setAudioSamples called northern-bottlenose-whale-hyperoodon-ampullatus.wav samples= 283150 @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:136
+[    9583ms] [LOG] [DBG audio] closing AudioContext northern-bottlenose-whale-hyperoodon-ampullatus.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:141
+[    9584ms] [LOG] [DBG gfx set_pcm] post northern-bottlenose-whale-hyperoodon-ampullatus.wav len= 283150 sr= 48000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:149
+[    9585ms] [LOG] [DBG gfx render] post northern-bottlenose-whale-hyperoodon-ampullatus.wav id= 2 haveSamples= true @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[    9614ms] [LOG] [DBG worker boot] start wid= owacnx @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:3
+[    9614ms] [LOG] [DBG worker boot] wasm-glue imported wid= owacnx @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:5
+[    9615ms] [LOG] [DBG worker boot] registering onmessage wid= owacnx @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:165
+[   10080ms] [LOG] [DBG gfx worker-new] before new Worker() killer-whale-orcinus-orca.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:80
+[   10081ms] [LOG] [DBG gfx worker-new] after new Worker() killer-whale-orcinus-orca.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:82
+[   10081ms] [LOG] [DBG gfx set_pcm] skip: no samples killer-whale-orcinus-orca.wav len= 0 sr= 32000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:140
+[   10081ms] [LOG] [DBG gfx render] post killer-whale-orcinus-orca.wav id= 1 haveSamples= false @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[   10081ms] [LOG] [DBG audio] start fetch killer-whale-orcinus-orca.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:118
+[   10083ms] [LOG] [DBG audio] fetched killer-whale-orcinus-orca.wav ok= true @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:121
+[   10125ms] [LOG] [DBG audio] arrayBuffer killer-whale-orcinus-orca.wav bytes= 4718730 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:126
+[   10125ms] [LOG] [DBG audio] AudioContext created killer-whale-orcinus-orca.wav state= running @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:129
+[   10128ms] [LOG] [DBG worker boot] start wid= 118axo @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:3
+[   10131ms] [LOG] [DBG worker boot] wasm-glue imported wid= 118axo @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:5
+[   10132ms] [LOG] [DBG worker boot] registering onmessage wid= 118axo @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:165
+[   10132ms] [LOG] [DBG worker] render recv killer-whale-orcinus-orca.wav id= 1 inFlight= false hadPending= false @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:189
+[   10133ms] [LOG] [DBG worker proc] start killer-whale-orcinus-orca.wav id= 1 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:73
+[   10133ms] [LOG] [DBG worker proc] wasm ready killer-whale-orcinus-orca.wav id= 1 pcmInStore= false @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:76
+[   10226ms] [LOG] [DBG audio] decoded killer-whale-orcinus-orca.wav sr= 48000 len= 2567992 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:131
+[   10226ms] [LOG] [DBG audio] setAudioSamples called killer-whale-orcinus-orca.wav samples= 2567992 @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:136
+[   10226ms] [LOG] [DBG audio] closing AudioContext killer-whale-orcinus-orca.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:141
+[   10233ms] [LOG] [DBG gfx set_pcm] post killer-whale-orcinus-orca.wav len= 2567992 sr= 48000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:149
+[   10233ms] [LOG] [DBG gfx render] post killer-whale-orcinus-orca.wav id= 2 haveSamples= true @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[   10233ms] [LOG] [DBG worker] set_pcm killer-whale-orcinus-orca.wav len= 2567992 sr= 48000 waiters= 1 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:177
+[   10233ms] [LOG] [DBG worker proc] pcm ready killer-whale-orcinus-orca.wav id= 1 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:78
+[   10580ms] [LOG] [DBG gfx worker-new] before new Worker() north-atlantic-right-whale-eubalaena-glacialis-2.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:80
+[   10580ms] [LOG] [DBG gfx worker-new] after new Worker() north-atlantic-right-whale-eubalaena-glacialis-2.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:82
+[   10580ms] [LOG] [DBG gfx set_pcm] skip: no samples north-atlantic-right-whale-eubalaena-glacialis-2.wav len= 0 sr= 32000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:140
+[   10580ms] [LOG] [DBG gfx render] post north-atlantic-right-whale-eubalaena-glacialis-2.wav id= 1 haveSamples= false @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[   10581ms] [LOG] [DBG audio] start fetch north-atlantic-right-whale-eubalaena-glacialis-2.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:118
+[   10582ms] [LOG] [DBG audio] fetched north-atlantic-right-whale-eubalaena-glacialis-2.wav ok= true @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:121
+[   10588ms] [LOG] [DBG audio] arrayBuffer north-atlantic-right-whale-eubalaena-glacialis-2.wav bytes= 425708 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:126
+[   10588ms] [LOG] [DBG audio] AudioContext created north-atlantic-right-whale-eubalaena-glacialis-2.wav state= running @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:129
+[   10632ms] [LOG] [DBG worker boot] start wid= sczebo @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:3
+[   10636ms] [LOG] [DBG worker boot] wasm-glue imported wid= sczebo @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:5
+[   10640ms] [LOG] [DBG worker boot] registering onmessage wid= sczebo @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:165
+[   10649ms] [LOG] [DBG audio] decoded north-atlantic-right-whale-eubalaena-glacialis-2.wav sr= 48000 len= 1276992 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:131
+[   10650ms] [LOG] [DBG audio] setAudioSamples called north-atlantic-right-whale-eubalaena-glacialis-2.wav samples= 1276992 @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:136
+[   10650ms] [LOG] [DBG audio] closing AudioContext north-atlantic-right-whale-eubalaena-glacialis-2.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:141
+[   10653ms] [LOG] [DBG gfx set_pcm] post north-atlantic-right-whale-eubalaena-glacialis-2.wav len= 1276992 sr= 48000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:149
+[   10653ms] [LOG] [DBG gfx render] post north-atlantic-right-whale-eubalaena-glacialis-2.wav id= 2 haveSamples= true @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[   10654ms] [LOG] [DBG worker] set_pcm north-atlantic-right-whale-eubalaena-glacialis-2.wav len= 1276992 sr= 48000 waiters= 0 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:177
+[   10654ms] [LOG] [DBG worker] render recv north-atlantic-right-whale-eubalaena-glacialis-2.wav id= 2 inFlight= false hadPending= false @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:189
+[   10654ms] [LOG] [DBG worker proc] start north-atlantic-right-whale-eubalaena-glacialis-2.wav id= 2 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:73
+[   10655ms] [LOG] [DBG worker proc] wasm ready north-atlantic-right-whale-eubalaena-glacialis-2.wav id= 2 pcmInStore= true @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:76
+[   10655ms] [LOG] [DBG worker proc] pcm ready north-atlantic-right-whale-eubalaena-glacialis-2.wav id= 2 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:78
+[   11091ms] [LOG] [DBG gfx worker-new] before new Worker() sperm-whale-physeter-macrocephalus.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:80
+[   11091ms] [LOG] [DBG gfx worker-new] after new Worker() sperm-whale-physeter-macrocephalus.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:82
+[   11092ms] [LOG] [DBG gfx set_pcm] skip: no samples sperm-whale-physeter-macrocephalus.wav len= 0 sr= 32000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:140
+[   11092ms] [LOG] [DBG gfx render] post sperm-whale-physeter-macrocephalus.wav id= 1 haveSamples= false @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[   11092ms] [LOG] [DBG audio] start fetch sperm-whale-physeter-macrocephalus.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:118
+[   11094ms] [LOG] [DBG audio] fetched sperm-whale-physeter-macrocephalus.wav ok= true @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:121
+[   11100ms] [LOG] [DBG audio] arrayBuffer sperm-whale-physeter-macrocephalus.wav bytes= 611836 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:126
+[   11116ms] [LOG] [DBG audio] AudioContext created sperm-whale-physeter-macrocephalus.wav state= running @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:129
+[   11125ms] [LOG] [DBG audio] decoded sperm-whale-physeter-macrocephalus.wav sr= 48000 len= 305896 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:131
+[   11125ms] [LOG] [DBG audio] setAudioSamples called sperm-whale-physeter-macrocephalus.wav samples= 305896 @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:136
+[   11125ms] [LOG] [DBG audio] closing AudioContext sperm-whale-physeter-macrocephalus.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:141
+[   11126ms] [LOG] [DBG gfx set_pcm] post sperm-whale-physeter-macrocephalus.wav len= 305896 sr= 48000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:149
+[   11126ms] [LOG] [DBG gfx render] post sperm-whale-physeter-macrocephalus.wav id= 2 haveSamples= true @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[   11142ms] [LOG] [DBG worker boot] start wid= mb1sxp @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:3
+[   11143ms] [LOG] [DBG worker boot] wasm-glue imported wid= mb1sxp @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:5
+[   11143ms] [LOG] [DBG worker boot] registering onmessage wid= mb1sxp @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:165
+[   11564ms] [LOG] [DBG worker] render recv minke-whale-balaenoptera-acutorostrata.wav id= 2 inFlight= true hadPending= false @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:189
+[   11566ms] [LOG] [DBG worker proc] start minke-whale-balaenoptera-acutorostrata.wav id= 2 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:73
+[   11566ms] [LOG] [DBG worker proc] wasm ready minke-whale-balaenoptera-acutorostrata.wav id= 2 pcmInStore= true @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:76
+[   11566ms] [LOG] [DBG worker proc] pcm ready minke-whale-balaenoptera-acutorostrata.wav id= 2 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:78
+[   11567ms] [LOG] [DBG gfx onmessage] minke-whale-balaenoptera-acutorostrata.wav type= image replyId= 1 lastDispatched= 2 lastSettled= 0 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:94
+[   11591ms] [LOG] [DBG gfx worker-new] before new Worker() humpback-whale-megaptera-novaeangliae.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:80
+[   11591ms] [LOG] [DBG gfx worker-new] after new Worker() humpback-whale-megaptera-novaeangliae.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:82
+[   11592ms] [LOG] [DBG gfx set_pcm] skip: no samples humpback-whale-megaptera-novaeangliae.wav len= 0 sr= 32000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:140
+[   11592ms] [LOG] [DBG gfx render] post humpback-whale-megaptera-novaeangliae.wav id= 1 haveSamples= false @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[   11592ms] [LOG] [DBG audio] start fetch humpback-whale-megaptera-novaeangliae.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:118
+[   11594ms] [LOG] [DBG audio] fetched humpback-whale-megaptera-novaeangliae.wav ok= true @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:121
+[   11603ms] [LOG] [DBG audio] arrayBuffer humpback-whale-megaptera-novaeangliae.wav bytes= 873372 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:126
+[   11603ms] [LOG] [DBG audio] AudioContext created humpback-whale-megaptera-novaeangliae.wav state= running @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:129
+[   11660ms] [LOG] [DBG worker boot] start wid= 0sx2g4 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:3
+[   11660ms] [LOG] [DBG worker boot] wasm-glue imported wid= 0sx2g4 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:5
+[   11661ms] [LOG] [DBG worker boot] registering onmessage wid= 0sx2g4 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:165
+[   11724ms] [LOG] [DBG audio] decoded humpback-whale-megaptera-novaeangliae.wav sr= 48000 len= 2619984 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:131
+[   11724ms] [LOG] [DBG audio] setAudioSamples called humpback-whale-megaptera-novaeangliae.wav samples= 2619984 @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:136
+[   11724ms] [LOG] [DBG audio] closing AudioContext humpback-whale-megaptera-novaeangliae.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:141
+[   11730ms] [LOG] [DBG gfx set_pcm] post humpback-whale-megaptera-novaeangliae.wav len= 2619984 sr= 48000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:149
+[   11731ms] [LOG] [DBG gfx render] post humpback-whale-megaptera-novaeangliae.wav id= 2 haveSamples= true @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[   11731ms] [LOG] [DBG worker] set_pcm humpback-whale-megaptera-novaeangliae.wav len= 2619984 sr= 48000 waiters= 0 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:177
+[   11732ms] [LOG] [DBG worker] render recv humpback-whale-megaptera-novaeangliae.wav id= 2 inFlight= false hadPending= false @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:189
+[   11732ms] [LOG] [DBG worker proc] start humpback-whale-megaptera-novaeangliae.wav id= 2 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:73
+[   11732ms] [LOG] [DBG worker proc] wasm ready humpback-whale-megaptera-novaeangliae.wav id= 2 pcmInStore= true @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:76
+[   11732ms] [LOG] [DBG worker proc] pcm ready humpback-whale-megaptera-novaeangliae.wav id= 2 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:78
+[   18036ms] [LOG] [DBG gfx onmessage] fin-whale-balaenoptera physalus.wav type= image replyId= 2 lastDispatched= 2 lastSettled= 0 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:94
+[   19350ms] [LOG] [DBG gfx onmessage] pilot-whale-globicephala-spp.wav type= image replyId= 2 lastDispatched= 2 lastSettled= 0 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:94
+[   20123ms] [LOG] [DBG worker] render recv killer-whale-orcinus-orca.wav id= 2 inFlight= true hadPending= false @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:189
+[   20125ms] [LOG] [DBG gfx onmessage] killer-whale-orcinus-orca.wav type= image replyId= 1 lastDispatched= 2 lastSettled= 0 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:94
+[   20125ms] [LOG] [DBG worker proc] start killer-whale-orcinus-orca.wav id= 2 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:73
+[   20125ms] [LOG] [DBG worker proc] wasm ready killer-whale-orcinus-orca.wav id= 2 pcmInStore= true @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:76
+[   20125ms] [LOG] [DBG worker proc] pcm ready killer-whale-orcinus-orca.wav id= 2 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:78
+[   22626ms] [LOG] [DBG gfx onmessage] blue-whale-balaenoptera-musculus.wav type= image replyId= 2 lastDispatched= 2 lastSettled= 0 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:94
+[   23658ms] [LOG] [DBG gfx onmessage] minke-whale-balaenoptera-acutorostrata.wav type= image replyId= 2 lastDispatched= 2 lastSettled= 1 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:94
+[   23867ms] [LOG] [DBG gfx onmessage] humpback-whale-megaptera-novaeangliae.wav type= image replyId= 2 lastDispatched= 2 lastSettled= 0 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:94
+[   24311ms] [LOG] [DBG gfx onmessage] north-atlantic-right-whale-eubalaena-glacialis-2.wav type= image replyId= 2 lastDispatched= 2 lastSettled= 0 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:94
+[   29633ms] [LOG] [DBG gfx onmessage] killer-whale-orcinus-orca.wav type= image replyId= 2 lastDispatched= 2 lastSettled= 1 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:94
+[   62253ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:21606
+[   62285ms] [WARNING] %cElectron Security Warning (Disabled webSecurity) font-weight: bold; This renderer process has "webSecurity" disabled. This
+  exposes users of this app to severe security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[   62286ms] [WARNING] %cElectron Security Warning (allowRunningInsecureContent) font-weight: bold; This renderer process has "allowRunningInsecureContent"
+  enabled. This exposes users of this app to severe security risks.
+
+  
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[   62340ms] [LOG] [DBG gfx worker-new] before new Worker() minke-whale-balaenoptera-acutorostrata.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:80
+[   62340ms] [LOG] [DBG gfx worker-new] after new Worker() minke-whale-balaenoptera-acutorostrata.wav @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:82
+[   62341ms] [LOG] [DBG gfx set_pcm] skip: no samples minke-whale-balaenoptera-acutorostrata.wav len= 0 sr= 32000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:140
+[   62341ms] [LOG] [DBG gfx render] post minke-whale-balaenoptera-acutorostrata.wav id= 1 haveSamples= false @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[   62342ms] [LOG] [DBG audio] start fetch minke-whale-balaenoptera-acutorostrata.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:118
+[   62348ms] [LOG] [DBG audio] fetched minke-whale-balaenoptera-acutorostrata.wav ok= true @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:121
+[   62358ms] [LOG] [DBG audio] arrayBuffer minke-whale-balaenoptera-acutorostrata.wav bytes= 619732 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:126
+[   62381ms] [LOG] [DBG worker boot] start wid= 3htmhq @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:3
+[   62382ms] [LOG] [DBG worker boot] wasm-glue imported wid= 3htmhq @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:5
+[   62382ms] [LOG] [DBG worker boot] registering onmessage wid= 3htmhq @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:165
+[   62387ms] [LOG] [DBG audio] AudioContext created minke-whale-balaenoptera-acutorostrata.wav state= running @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:129
+[   62388ms] [LOG] [DBG worker addEventListener] got msg wid= 3htmhq type= init fileId= undefined @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:167
+[   62390ms] [LOG] [DBG worker self.onmessage] got msg wid= 3htmhq type= init @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:170
+[   62392ms] [LOG] [DBG worker addEventListener] got msg wid= 3htmhq type= render fileId= C:\Users\andno\Downloads\archive (1)\whale-sounds\whale-sounds-wav/minke-whale-balaenoptera-acutorostrata.wav @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:167
+[   62392ms] [LOG] [DBG worker self.onmessage] got msg wid= 3htmhq type= render @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:170
+[   62392ms] [LOG] [DBG worker] render recv minke-whale-balaenoptera-acutorostrata.wav id= 1 inFlight= false hadPending= false @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:193
+[   62392ms] [LOG] [DBG worker proc] start minke-whale-balaenoptera-acutorostrata.wav id= 1 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:73
+[   62393ms] [LOG] [DBG worker proc] wasm ready minke-whale-balaenoptera-acutorostrata.wav id= 1 pcmInStore= false @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:76
+[   62445ms] [LOG] [DBG audio] decoded minke-whale-balaenoptera-acutorostrata.wav sr= 48000 len= 1859064 cancelled= false @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:131
+[   62446ms] [LOG] [DBG audio] setAudioSamples called minke-whale-balaenoptera-acutorostrata.wav samples= 1859064 @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:136
+[   62446ms] [LOG] [DBG audio] closing AudioContext minke-whale-balaenoptera-acutorostrata.wav @ http://localhost:5173/spectrogram/SpectrogramProvider.tsx?t=1778853471459:141
+[   62449ms] [LOG] [DBG gfx set_pcm] post minke-whale-balaenoptera-acutorostrata.wav len= 1859064 sr= 48000 @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:149
+[   62449ms] [LOG] [DBG gfx render] post minke-whale-balaenoptera-acutorostrata.wav id= 2 haveSamples= true @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1778853888734:168
+[   62449ms] [LOG] [DBG worker addEventListener] got msg wid= 3htmhq type= set_pcm fileId= C:\Users\andno\Downloads\archive (1)\whale-sounds\whale-sounds-wav/minke-whale-balaenoptera-acutorostrata.wav @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:167
+[   62449ms] [LOG] [DBG worker self.onmessage] got msg wid= 3htmhq type= set_pcm @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:170
+[   62450ms] [LOG] [DBG worker] set_pcm minke-whale-balaenoptera-acutorostrata.wav len= 1859064 sr= 48000 waiters= 1 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:181
+[   62450ms] [LOG] [DBG worker proc] pcm ready minke-whale-balaenoptera-acutorostrata.wav id= 1 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:78

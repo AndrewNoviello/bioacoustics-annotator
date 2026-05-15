@@ -191,8 +191,14 @@ class CLAPWrapper():
         """
         tokenized_texts = []
         for ttext in text_queries:
-            tok = self.tokenizer.encode_plus(
-                text=ttext, add_special_tokens=True, max_length=self.text_len, padding='max_length', return_tensors="pt")
+            tok = self.tokenizer(
+                text=ttext,
+                add_special_tokens=True,
+                max_length=self.text_len,
+                padding='max_length',
+                return_tensors="pt",
+                truncation=True
+            )
             for key in self.token_keys:
                 tok[key] = tok[key].reshape(-1).cuda() if self.use_cuda and torch.cuda.is_available() else tok[key].reshape(-1)
             tokenized_texts.append(tok)

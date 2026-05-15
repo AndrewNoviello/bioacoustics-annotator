@@ -5,9 +5,7 @@ import App from './App.jsx'
 import { SessionProvider } from './stores/SessionContext'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <SessionProvider>
-      <App />
-    </SessionProvider>
-  </StrictMode>,
+  <SessionProvider>
+    <App />
+  </SessionProvider>
 )

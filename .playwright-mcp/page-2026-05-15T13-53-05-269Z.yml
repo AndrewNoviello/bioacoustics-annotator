@@ -1,0 +1,11 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]: Inspectable WebContents
+  - generic [ref=e3]:
+    - paragraph [ref=e4]:
+      - link "DevTools" [ref=e5] [cursor=pointer]:
+        - /url: https://chrome-devtools-frontend.appspot.com/serve_rev/@0ab811c9b69f109739dd2a31d91983c1af2cd3bf/inspector.html?ws=localhost:9222/devtools/page/E1A7F19889F90C8A9B0EA51B377227CA
+        - generic [ref=e6]: DevTools
+    - paragraph [ref=e7]:
+      - link "Content shell remote debugging" [ref=e8] [cursor=pointer]:
+        - /url: https://chrome-devtools-frontend.appspot.com/serve_rev/@0ab811c9b69f109739dd2a31d91983c1af2cd3bf/inspector.html?ws=localhost:9222/devtools/page/DB12DE05601BA219584BFF319D3520A8
+        - generic [ref=e9]: Content shell remote debugging

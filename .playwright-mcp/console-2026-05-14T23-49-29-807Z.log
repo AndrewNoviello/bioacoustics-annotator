@@ -1,0 +1,10 @@
+[  -22673ms] [TIMEEND] Main._createAppUI: 10.900146484375 ms @ devtools://devtools/bundled/entrypoints/main/main.js:0
+[  -22534ms] [TIMEEND] Main._showAppUI: 133.637939453125 ms @ devtools://devtools/bundled/entrypoints/main/main.js:0
+[  -22521ms] [TIMEEND] Main._initializeTarget: 11.023193359375 ms @ devtools://devtools/bundled/entrypoints/main/main.js:0
+[  -22417ms] [TIMEEND] Main._lateInitialization: 0.31298828125 ms @ devtools://devtools/bundled/entrypoints/main/main.js:0
+[  -22301ms] [ERROR] Request Autofill.enable failed. {"code":-32601,"message":"'Autofill.enable' wasn't found"} @ devtools://devtools/bundled/core/protocol_client/protocol_client.js:0
+[  -22300ms] [ERROR] Request Autofill.setAddresses failed. {"code":-32601,"message":"'Autofill.setAddresses' wasn't found"} @ devtools://devtools/bundled/core/protocol_client/protocol_client.js:0
+[    6160ms] [ERROR] Request Emulation.setEmitTouchEventsForMouse failed. {"code":-32601,"message":"'Emulation.setEmitTouchEventsForMouse' wasn't found"} @ devtools://devtools/bundled/core/protocol_client/protocol_client.js:0
+[    6184ms] [ERROR] Request Emulation.setEmitTouchEventsForMouse failed. {"code":-32601,"message":"'Emulation.setEmitTouchEventsForMouse' wasn't found"} @ devtools://devtools/bundled/core/protocol_client/protocol_client.js:0
+[  108058ms] [ERROR] Request Emulation.setEmitTouchEventsForMouse failed. {"code":-32601,"message":"'Emulation.setEmitTouchEventsForMouse' wasn't found"} @ devtools://devtools/bundled/core/protocol_client/protocol_client.js:0
+[  108091ms] [ERROR] Request Emulation.setEmitTouchEventsForMouse failed. {"code":-32601,"message":"'Emulation.setEmitTouchEventsForMouse' wasn't found"} @ devtools://devtools/bundled/core/protocol_client/protocol_client.js:0

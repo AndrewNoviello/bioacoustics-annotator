@@ -1,7 +1,53 @@
-import { Play, Save, RotateCcw, X, Loader2, ChevronDown } from 'lucide-react'
+import { Play, Save, RotateCcw, X, Loader2, ChevronDown, ChevronUp, StopCircle } from 'lucide-react'
 import React from 'react';
 
-const NewExperimentPanel = ({ showExperimentPanel, setShowExperimentPanel, setPositivePrompt, setNegativePrompt, setTheta, errorMessage, isRunningDetection, activeExperiment, handleRunDetection, handleSaveExperiment, wipeTemp, positivePrompt, negativePrompt, theta, setErrorMessage }) => {
+interface Props {
+  showExperimentPanel: boolean
+  setShowExperimentPanel: (v: boolean) => void
+  setPositivePrompt: (v: string) => void
+  setNegativePrompt: (v: string) => void
+  setTheta: (v: number) => void
+  errorMessage: string
+  isRunningDetection: boolean
+  detectionElapsed: number
+  detectionProgress: number | null
+  onCancelDetection: () => void
+  activeExperiment: string | null
+  handleRunDetection: () => void
+  handleSaveExperiment: () => void
+  wipeTemp: () => void
+  positivePrompt: string
+  negativePrompt: string
+  theta: number
+  setErrorMessage: (v: string) => void
+}
+
+const formatElapsed = (secs: number): string => {
+  const m = Math.floor(secs / 60)
+  const s = secs % 60
+  return `${m}:${String(s).padStart(2, '0')}`
+}
+
+const NewExperimentPanel = ({
+  showExperimentPanel,
+  setShowExperimentPanel,
+  setPositivePrompt,
+  setNegativePrompt,
+  setTheta,
+  errorMessage,
+  isRunningDetection,
+  detectionElapsed,
+  detectionProgress,
+  onCancelDetection,
+  activeExperiment,
+  handleRunDetection,
+  handleSaveExperiment,
+  wipeTemp,
+  positivePrompt,
+  negativePrompt,
+  theta,
+  setErrorMessage,
+}: Props) => {
   return (
     <div className="bg-white border-t border-gray-200">
       <div className="px-3 py-2 flex items-center justify-between">
@@ -10,7 +56,7 @@ const NewExperimentPanel = ({ showExperimentPanel, setShowExperimentPanel, setPo
           onClick={() => setShowExperimentPanel(!showExperimentPanel)}
           className="p-1 hover:bg-gray-100 rounded text-xs"
         >
-          <ChevronDown className="h-4 w-4" />
+          {showExperimentPanel ? <ChevronDown className="h-4 w-4" /> : <ChevronUp className="h-4 w-4" />}
         </button>
       </div>
 
@@ -60,6 +106,21 @@ const NewExperimentPanel = ({ showExperimentPanel, setShowExperimentPanel, setPo
           </div>
         )}
 
+        {isRunningDetection && detectionProgress !== null && (
+          <div className="mb-2">
+            <div className="flex items-center justify-between text-[10px] text-gray-600 mb-0.5">
+              <span>Processing batches…</span>
+              <span>{detectionProgress.toFixed(0)}%</span>
+            </div>
+            <div className="w-full h-1.5 bg-gray-200 rounded overflow-hidden">
+              <div
+                className="h-full bg-blue-600 transition-[width] duration-150 ease-out"
+                style={{ width: `${Math.max(0, Math.min(100, detectionProgress))}%` }}
+              />
+            </div>
+          </div>
+        )}
+
         <div className="flex items-center justify-between">
           <div className="flex flex-row items-center space-x-2">
             <button
@@ -68,8 +129,17 @@ const NewExperimentPanel = ({ showExperimentPanel, setShowExperimentPanel, setPo
               className="px-3 py-1.5 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors flex items-center space-x-1 text-xs font-medium"
             >
               {isRunningDetection ? <Loader2 className="h-3 w-3 animate-spin" /> : <Play className="h-3 w-3" />}
-              <span>{isRunningDetection ? 'Running Detection...' : 'Run Detection'}</span>
+              <span>{isRunningDetection ? `Running… ${formatElapsed(detectionElapsed)}${detectionProgress !== null ? ` (${detectionProgress.toFixed(0)}%)` : ''}` : 'Run Detection'}</span>
             </button>
+            {isRunningDetection && (
+              <button
+                onClick={onCancelDetection}
+                className="px-3 py-1.5 bg-red-600 text-white rounded hover:bg-red-700 transition-colors flex items-center space-x-1 text-xs font-medium"
+              >
+                <StopCircle className="h-3 w-3" />
+                <span>Cancel</span>
+              </button>
+            )}
             <button
               onClick={handleSaveExperiment}
               disabled={isRunningDetection || activeExperiment !== 'temp'}
@@ -97,7 +167,6 @@ const NewExperimentPanel = ({ showExperimentPanel, setShowExperimentPanel, setPo
           </div>
         </div>
       </div>
-
     </div>
   );
 }

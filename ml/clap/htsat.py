@@ -957,10 +957,11 @@ class HTSATWrapper(nn.Module):
         fmax, classes_num, out_emb):
         super().__init__()
 
-        # print("parameters are being overidden when using HTSAT")
-        # print("HTSAT only support loading a pretrained model on AudioSet")
-        # @TODO later look at what parameters are same and can be merged
-
+        # Note: HTSAT uses the config module for its internal settings.
+        # The parameters passed to this constructor are for compatibility
+        # but the actual HTSAT model uses config values for AudioSet pretrained weights.
+        
+        # Import config module (already imported at top of file as 'from . import config')
         self.htsat = HTSAT_Swin_Transformer(config=config)
 
     def forward(self, x):

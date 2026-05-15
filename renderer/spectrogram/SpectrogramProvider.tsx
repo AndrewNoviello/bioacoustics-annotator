@@ -4,6 +4,8 @@ import React, {
   useEffect,
   useRef,
   useContext,
+  useCallback,
+  useMemo,
   SetStateAction,
   Dispatch,
 } from "react";
@@ -22,7 +24,6 @@ export type SpectrogramContextType = {
   endTime: number; // Derived: startTime + windowDuration
   windowDuration: number;
   isZoomed: boolean;
-  isLoading: boolean;
 
   // Audio playback methods
   setDuration: Dispatch<SetStateAction<number | null>>;
@@ -32,7 +33,6 @@ export type SpectrogramContextType = {
 
   // Viewport/zoom methods
   setStartTime: (newStartTime: number) => void;
-  scroll: (deltaSeconds: number) => void;
 };
 
 export const SpectrogramContext = createContext<SpectrogramContextType>({
@@ -54,12 +54,10 @@ export const SpectrogramContext = createContext<SpectrogramContextType>({
   endTime: 1,
   windowDuration: 15,
   isZoomed: false,
-  isLoading: false,
 
 
   // Viewport/zoom methods
   setStartTime: () => { },
-  scroll: () => { },
 });
 
 export function useSpectrogram() {
@@ -69,7 +67,6 @@ export function useSpectrogram() {
 export type SpectrogramProviderProps = {
   children: JSX.Element | JSX.Element[];
   src: string;
-  sampleRate: number;
 };
 
 // Reduce frequency to improve performance (updates ~10×/sec)
@@ -94,7 +91,6 @@ function SpectrogramProvider(props: SpectrogramProviderProps) {
 
   // Viewport/zoom state - only track startTime, derive endTime
   const [startTime, setStartTimeState] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
 
   // Derived values
   const endTime = startTime + windowDuration;
@@ -152,6 +148,9 @@ function SpectrogramProvider(props: SpectrogramProviderProps) {
   }, [audioRef.current]);
   // Audio loading effect
   useEffect(() => {
+    let cancelled = false;
+    let audioContext: AudioContext | null = null;
+
     const fetchAudioData = async () => {
       try {
         const response = await fetch(src);
@@ -159,22 +158,35 @@ function SpectrogramProvider(props: SpectrogramProviderProps) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const arrayBuffer = await response.arrayBuffer();
-        const view = new DataView(arrayBuffer);
-        const sampleRateFetch = view.getUint32(24, true); // little-endian
+        if (cancelled) return;
 
-        const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+        audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
 
         const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+        if (cancelled) return;
+
         const samples = audioBuffer.getChannelData(0);
 
+        // The PCM returned by audioBuffer.getChannelData() is at the AudioContext's
+        // own sample rate (often 48000), regardless of the original file. Send that
+        // rate to the spectrogram worker; using the header rate would mis-scale time
+        // and clamp f_max to the wrong Nyquist.
         setAudioSamples(samples);
-        setSampleRate(sampleRateFetch);
+        setSampleRate(audioBuffer.sampleRate);
       } catch (error) {
-        console.error('Error loading audio:', error);
+        if (!cancelled) console.error('Error loading audio:', error);
+      } finally {
+        // Browsers cap concurrent AudioContexts (~6 in Chrome). Without this
+        // close(), every file switch leaks one — eventually new AudioContext()
+        // throws or decodeAudioData fails silently and spectrograms stop loading.
+        if (audioContext) {
+          audioContext.close().catch(() => { });
+        }
       }
     };
 
     fetchAudioData();
+    return () => { cancelled = true; };
   }, [src]);
 
   // Initialize viewport with duration
@@ -187,7 +199,7 @@ function SpectrogramProvider(props: SpectrogramProviderProps) {
   }, [duration]);
 
   // Enforce boundaries helper function
-  const enforceBoundaries = (start: number) => {
+  const enforceBoundaries = useCallback((start: number) => {
     if (!duration) return start;
 
     let boundedStart = Math.max(0, start);
@@ -199,46 +211,37 @@ function SpectrogramProvider(props: SpectrogramProviderProps) {
     }
 
     return boundedStart;
-  };
+  }, [duration, windowDuration]);
 
   // Audio playback methods
-  const setCurrentTime = (newTime: number) => {
+  const setCurrentTime = useCallback((newTime: number) => {
     if (audioRef.current !== null) {
       audioRef.current.currentTime = newTime;
     }
     _setCurrentTime(newTime);
-  };
+  }, []);
 
-  const setPlaybackRate = (newRate: number) => {
+  const setPlaybackRate = useCallback((newRate: number) => {
     if (audioRef.current !== null) {
       audioRef.current.playbackRate = newRate;
     }
     _setPlaybackRate(newRate);
-  };
+  }, []);
 
-  const pause = () => {
+  const pause = useCallback(() => {
     if (audioRef.current !== null) {
       audioRef.current.pause();
     }
-  };
+  }, []);
 
   // Viewport/zoom methods
-  const setStartTime = (newStartTime: number) => {
+  const setStartTime = useCallback((newStartTime: number) => {
     const boundedStart = enforceBoundaries(newStartTime);
     setStartTimeState(boundedStart);
-  };
-
-  const scroll = (deltaSeconds: number) => {
-    const newStartTime = startTime + deltaSeconds;
-    const boundedStart = enforceBoundaries(newStartTime);
-    setStartTimeState(boundedStart);
-  };
+  }, [enforceBoundaries]);
 
   // Auto-scroll effect (from original ZoomProvider)
   useEffect(() => {
-    // Don't auto-scroll during loading to avoid interfering with user interaction
-    if (isLoading) return;
-
     if (currentTime >= endTime && currentTime <= endTime + 0.1) {
       const newStartTime = endTime;
       const boundedStart = enforceBoundaries(newStartTime);
@@ -252,7 +255,7 @@ function SpectrogramProvider(props: SpectrogramProviderProps) {
       const boundedStart = enforceBoundaries(newStartTime);
       setStartTimeState(boundedStart);
     }
-  }, [currentTime, startTime, endTime, windowDuration, duration, isLoading]);
+  }, [currentTime, startTime, endTime, windowDuration, duration]);
 
   // Cleanup debounce timer on unmount
   useEffect(() => {
@@ -288,33 +291,34 @@ function SpectrogramProvider(props: SpectrogramProviderProps) {
     }
   };
 
+  // Memoize the context value so consumers don't re-render on every parent
+  // render. Without this, every Session-tree render propagates a fresh value
+  // into SpectrogramGraphics — the component that owns the worker render
+  // effect — even when no spectrogram-relevant state has changed.
+  const contextValue = useMemo(() => ({
+    duration,
+    currentTime,
+    playbackRate,
+    sampleRate,
+    audioSamples,
+    startTime,
+    endTime,
+    windowDuration,
+    isZoomed,
+    setDuration,
+    setCurrentTime,
+    setPlaybackRate,
+    pause,
+    setStartTime,
+  }), [
+    duration, currentTime, playbackRate, sampleRate, audioSamples,
+    startTime, endTime, windowDuration, isZoomed,
+    setCurrentTime, setPlaybackRate, pause, setStartTime,
+  ]);
+
   return (
     <SpectrogramContext.Provider
-      value={{
-        // Audio playback state
-        duration,
-        currentTime,
-        playbackRate,
-        sampleRate,
-        audioSamples,
-
-        // Viewport/zoom state
-        startTime,
-        endTime,
-        windowDuration,
-        isZoomed,
-        isLoading,
-
-        // Audio playback methods
-        setDuration,
-        setCurrentTime,
-        setPlaybackRate,
-        pause,
-
-        // Viewport/zoom methods
-        setStartTime,
-        scroll,
-      }}
+      value={contextValue}
     >
       {children}
       <div

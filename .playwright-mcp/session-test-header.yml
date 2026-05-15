@@ -1,0 +1,26 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - button [ref=e94] [cursor=pointer]:
+        - img [ref=e95]
+      - heading "Test" [level=1] [ref=e118]
+    - generic [ref=e14]:
+      - button "CLAP Not Loaded" [ref=e16]:
+        - img [ref=e17]
+        - paragraph [ref=e19]: CLAP Not Loaded
+        - img [ref=e20]
+      - button "Settings" [ref=e99]:
+        - img [ref=e100]
+        - generic [ref=e103]: Settings
+      - generic [ref=e104]:
+        - button "Saved Experiments" [ref=e105]
+        - button "New Experiment" [ref=e111]
+  - main [ref=e35]:
+    - generic [ref=e115]:
+      - generic [ref=e119]:
+        - generic "C:\\Users\\andno\\Desktop\\MSR_Proj\\CLAP_Annotation\\demo_data\\sample" [ref=e120]: "Source: C:\\Users\\andno\\Desktop\\MSR_Proj\\CLAP_Annotation\\demo_data\\sample"
+        - generic [ref=e122]
+        - generic [ref=e136]
+      - generic [ref=e152]:
+        - generic [ref=e153]
+        - generic [ref=e158]

@@ -1,0 +1,96 @@
+{
+  "count": 10,
+  "instances": [
+    {
+      "depth": 30,
+      "dataURL": "",
+      "workerRefHasWorker": true,
+      "hasAlternate": true,
+      "alternateDataURL": "",
+      "flags": 8390657,
+      "mode": 27
+    },
+    {
+      "depth": 30,
+      "dataURL": "",
+      "workerRefHasWorker": true,
+      "hasAlternate": true,
+      "alternateDataURL": "",
+      "flags": 8390657,
+      "mode": 27
+    },
+    {
+      "depth": 30,
+      "dataURL": "",
+      "workerRefHasWorker": true,
+      "hasAlternate": true,
+      "alternateDataURL": "",
+      "flags": 8390657,
+      "mode": 27
+    },
+    {
+      "depth": 30,
+      "dataURL": "",
+      "workerRefHasWorker": true,
+      "hasAlternate": true,
+      "alternateDataURL": "",
+      "flags": 8390657,
+      "mode": 27
+    },
+    {
+      "depth": 30,
+      "dataURL": "",
+      "workerRefHasWorker": true,
+      "hasAlternate": true,
+      "alternateDataURL": "",
+      "flags": 8390657,
+      "mode": 27
+    },
+    {
+      "depth": 30,
+      "dataURL": "",
+      "workerRefHasWorker": true,
+      "hasAlternate": true,
+      "alternateDataURL": "",
+      "flags": 8390657,
+      "mode": 27
+    },
+    {
+      "depth": 30,
+      "dataURL": "blob:http://localhost:5173/6fa4874e-61b5",
+      "workerRefHasWorker": true,
+      "lastObjectUrl": "blob:http://localhost:5173/6fa4874e-61b5",
+      "hasAlternate": true,
+      "alternateDataURL": "",
+      "flags": 8388609,
+      "mode": 27
+    },
+    {
+      "depth": 30,
+      "dataURL": "",
+      "workerRefHasWorker": true,
+      "hasAlternate": true,
+      "alternateDataURL": "",
+      "flags": 8390657,
+      "mode": 27
+    },
+    {
+      "depth": 30,
+      "dataURL": "",
+      "workerRefHasWorker": true,
+      "hasAlternate": true,
+      "alternateDataURL": "",
+      "flags": 8390657,
+      "mode": 27
+    },
+    {
+      "depth": 30,
+      "dataURL": "",
+      "workerRefHasWorker": true,
+      "hasAlternate": true,
+      "alternateDataURL": "",
+      "flags": 8390657,
+      "mode": 27
+    }
+  ]
+}

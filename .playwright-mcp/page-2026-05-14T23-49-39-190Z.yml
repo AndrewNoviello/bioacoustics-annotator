@@ -1,0 +1,58 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - button [ref=e7] [cursor=pointer]:
+        - img [ref=e8]
+      - heading "Test" [level=1] [ref=e10]
+    - generic [ref=e11]:
+      - button "CLAP Not Loaded" [ref=e13]:
+        - img [ref=e14]
+        - paragraph [ref=e16]: CLAP Not Loaded
+        - img [ref=e17]
+      - button "Settings" [ref=e20]:
+        - img [ref=e21]
+        - generic [ref=e24]: Settings
+      - generic [ref=e25]:
+        - button "Saved Experiments" [ref=e26]:
+          - img [ref=e27]
+          - generic [ref=e31]: Saved Experiments
+        - button "New Experiment" [ref=e32]:
+          - img [ref=e33]
+          - generic [ref=e34]: New Experiment
+  - main [ref=e35]:
+    - generic [ref=e37]:
+      - generic [ref=e39]:
+        - generic "C:\\Users\\andno\\Desktop\\MSR_Proj\\CLAP_Annotation\\demo_data\\sample" [ref=e40]: "Source: C:\\Users\\andno\\Desktop\\MSR_Proj\\CLAP_Annotation\\demo_data\\sample"
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - img [ref=e45] [cursor=pointer]
+            - img [ref=e46] [cursor=pointer]
+          - generic [ref=e50]: Recording_1_Segment_02.002.wav
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - img [ref=e55] [cursor=pointer]
+            - img [ref=e56] [cursor=pointer]
+          - generic [ref=e60]: Recording_1_Segment_02.003.wav
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - heading "Experiment Details" [level=3] [ref=e63]
+          - button [ref=e64]:
+            - img [ref=e65]
+        - generic [ref=e67]:
+          - generic [ref=e68]:
+            - generic [ref=e69]:
+              - strong [ref=e70]: "Time:"
+              - text: 5/14/2026, 11:18:23 AM
+            - generic [ref=e71]:
+              - strong [ref=e72]: "Positive Prompts:"
+              - text: baby cry
+            - generic [ref=e73]:
+              - strong [ref=e74]: "Negative Prompts:"
+              - text: noise
+            - generic [ref=e75]:
+              - strong [ref=e76]: "Threshold:"
+              - text: θ = 0.5
+            - generic [ref=e77]:
+              - strong [ref=e78]: "Detections:"
+              - text: 6 total
+          - paragraph [ref=e80]: Click on any detection in the spectrogram to annotate it.

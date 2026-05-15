@@ -1,20 +1,94 @@
 {
   "name": "clap-desktop",
   "version": "1.0.0",
-  "description": "",
+  "description": "CLAP-based bioacoustics annotation tool",
   "main": "electron-main.js",
+  "type": "module",
   "scripts": {
-    "start": "set NODE_ENV=DEV && electron .",
-    "build-renderer": "cd frontend && npm run build",
-    "electron-pack": "npm run build-renderer && electron ."
+    "start": "cross-env NODE_ENV=development electron .",
+    "start:prod": "cross-env NODE_ENV=production electron .",
+    "start:debug": "cross-env NODE_ENV=development ELECTRON_DEBUG=1 electron .",
+    "dev": "concurrently \"npm run dev:renderer\" \"npm run start\"",
+    "dev:debug": "concurrently \"npm run dev:renderer\" \"npm run start:debug\"",
+    "dev:renderer": "cd renderer && npm run dev",
+    "build:renderer": "cd renderer && npm run build",
+    "build:wasm": "cd wasm && wasm-pack build --target web --out-dir pkg",
+    "build:backend": "cd ml && python -m PyInstaller build_backend.spec --noconfirm",
+    "build": "npm run build:wasm && npm run build:renderer",
+    "build:all": "npm run build:backend && npm run build && electron-builder --win",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder",
+    "postinstall": "electron-builder install-app-deps"
   },
-  "keywords": [],
+  "keywords": [
+    "bioacoustics",
+    "annotation",
+    "CLAP",
+    "audio",
+    "spectrogram"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^37.1.0"
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
+    "electron": "37.1.0",
+    "electron-builder": "^25.1.8"
   },
   "dependencies": {
+    "csv-parse": "^5.5.6",
+    "csv-stringify": "^6.5.1",
     "electron-store": "^10.1.0"
+  },
+  "build": {
+    "appId": "com.clap.desktop",
+    "productName": "CLAP Desktop",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "electron-main.js",
+      "preload.cjs",
+      "main/**/*",
+      "renderer/dist/**/*",
+      "wasm/pkg/**/*",
+      "!**/__pycache__/**",
+      "!**/*.pyc",
+      "!**/*.pyo"
+    ],
+    "extraResources": [
+      {
+        "from": "ml/dist/clap_backend",
+        "to": "clap_backend",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "ml/models",
+        "to": "models",
+        "filter": ["*.pth"]
+      }
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "**/clap_backend/**",
+      "**/models/**"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "CLAP Desktop"
+    }
   }
 }

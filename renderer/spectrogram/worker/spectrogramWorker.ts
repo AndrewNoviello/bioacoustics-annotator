@@ -38,6 +38,7 @@ type SetPcmMsg = {
 type RenderMsg = {
   type: 'render'
   fileId: string
+  renderId?: number
   params: {
     sampleRate: number
     n_fft: number
@@ -59,7 +60,12 @@ type RenderMsg = {
   }
 }
 
-type Msg = InitMsg | SetPcmMsg | RenderMsg
+type ClearPcmMsg = {
+  type: 'clear_pcm'
+  fileId: string
+}
+
+type Msg = InitMsg | SetPcmMsg | RenderMsg | ClearPcmMsg
 
 type Tile = { startFrame: number; frames: number }
 
@@ -71,10 +77,37 @@ function tileKey(fileId: string, startFrame: number, tileFrames: number, p: Rend
 }
 
 let wasmReady = false                          // Tracks if WASM is initialized
+// Render coalescing: at most one render runs at a time, and one pending render
+// per fileId is queued. A new render for the same fileId overwrites the queued
+// one (slider-drag coalescing). Renders for different fileIds are processed
+// sequentially in FIFO insertion order. Single-runner — re-entry from onmessage
+// during an in-flight render's await points is guarded by `renderInFlight`.
+let renderInFlight = false
+const pendingRenders = new Map<string, RenderMsg>()
 const pcmStore = new Map<string, { sampleRate: number, pcm: Float32Array }>() // Full PCM per fileId
+
+// Resolvers waiting for set_pcm. A render can arrive before the renderer has
+// finished fetching + decoding the WAV; instead of throwing, render handlers
+// await waitForPCM(fileId), which resolves as soon as set_pcm lands for that id.
+// On clear_pcm, waiters are resolved with `undefined` so the run queue can
+// drain instead of stalling forever — the subsequent pcmStore lookup throws and
+// the catch in processRender posts an error reply that nobody listens to.
+type PCMEntry = { sampleRate: number, pcm: Float32Array }
+const pcmReadyResolvers = new Map<string, Array<(entry: PCMEntry | undefined) => void>>()
+
+function waitForPCM(fileId: string): Promise<PCMEntry | undefined> {
+  const existing = pcmStore.get(fileId)
+  if (existing) return Promise.resolve(existing)
+  return new Promise((resolve) => {
+    const list = pcmReadyResolvers.get(fileId) || []
+    list.push(resolve)
+    pcmReadyResolvers.set(fileId, list)
+  })
+}
 
 const melTileCache = new Map<string, Float32Array>()  // Tile cache: flattened (frames * n_mels)
 const TILE_FRAMES = 1024                               // Tile width in frames (time columns)
+const MAX_TILES = 200                                  // LRU eviction limit (~200 MB at 1024 frames × 128 bins × f32)
 
 // Build a viridis RGBA LUT for better visualization
 function buildViridisLUT(): Uint8ClampedArray {
@@ -138,6 +171,133 @@ async function ensureWasmInitialized(): Promise<void> {
 }
 
 
+// Single-runner render pipeline. processRender does the work; runLoop drains
+// pendingRender one at a time. The renderInFlight guard makes runLoop safe to
+// call re-entrantly from onmessage during an in-flight render's await points.
+async function processRender(msg: RenderMsg): Promise<void> {
+  const renderId = msg.renderId
+  const fileId = msg.fileId
+  try {
+    await ensureWasmInitialized()
+    // Wait for PCM if the renderer dispatched render before set_pcm landed.
+    // assembleWindowMel below relies on pcmStore being populated.
+    await waitForPCM(fileId)
+    const p = msg.params
+    // Assemble the requested window by concatenating cached / freshly computed tiles
+    const { mel, frames } = assembleWindowMel(fileId, p)
+
+    const width = frames
+    const height = p.n_mels
+
+    if (!mel || frames <= 0) {
+      // Return an empty 1x1 image blob
+      const off = new OffscreenCanvas(1, 1)
+      const blob = await off.convertToBlob()
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      self.postMessage({ type: 'image', blob, renderId, fileId })
+      return
+    }
+
+    // Compute display transform parameters (dynamic gain and gamma) from flattened mel
+    let smin = Infinity
+    let smax = -Infinity
+    // Compute min/max over flattened mel (frames x n_mels)
+    for (let i = 0; i < mel.length; i++) {
+      const v = mel[i]
+      if (!isFinite(v)) continue
+      if (v < smin) smin = v
+      if (v > smax) smax = v
+    }
+    // Sort finite mel values ONCE — both dynamicGain (percentiles) and autoGamma (median) need it.
+    // The previous `Array.from(typedArray).filter(...).sort((a,b)=>a-b)` allocated a boxed JS array
+    // and used a JS-comparator sort; on multi-million-element mels that ran for seconds, and when
+    // multiple spectrogram workers ran concurrently most of them never finished — so settings
+    // saves visibly failed to redraw. Filter into a Float32Array and use the native typed-array
+    // sort (numerical by default).
+    let sortedFinite: Float32Array | null = null
+    if (p.dynamicGain || p.autoGamma) {
+      const tmp = new Float32Array(mel.length)
+      let n = 0
+      for (let i = 0; i < mel.length; i++) {
+        const v = mel[i]
+        if (Number.isFinite(v)) tmp[n++] = v
+      }
+      sortedFinite = tmp.subarray(0, n)
+      sortedFinite.sort()
+    }
+    if (p.dynamicGain && sortedFinite && sortedFinite.length > 0) {
+      const idxLow = Math.floor(0.05 * sortedFinite.length)
+      const idxHigh = Math.floor((p.gainPercentile / 100) * sortedFinite.length)
+      smin = sortedFinite[Math.min(idxLow, sortedFinite.length - 1)]
+      smax = sortedFinite[Math.min(idxHigh, sortedFinite.length - 1)]
+    }
+    if (!(smax > smin)) {
+      smax = smin + 1e-6
+    }
+    let gamma = p.gammaValue
+    if (p.autoGamma && sortedFinite) {
+      const mid = sortedFinite.length ? sortedFinite[Math.floor(sortedFinite.length * 0.5)] : 0
+      const normalizedMedian = (mid - smin) / (smax - smin)
+      gamma = normalizedMedian < 0.3 ? 0.6 : normalizedMedian > 0.7 ? 1.4 : 1.0
+    }
+
+    const off = new OffscreenCanvas(width, height)
+    const ctx = off.getContext('2d')!
+    const image = ctx.createImageData(width, height)
+    const data = image.data
+
+    // Rasterize: bottom-up so the lowest mel band is at the bottom of the image
+    for (let j = height - 1; j >= 0; j--) {
+      for (let i = width - 1; i >= 0; i--) {
+        const v = mel[i * height + j] // flattened time-major
+        let normalizedValue = (v - smin) / (smax - smin)
+        if (!isFinite(normalizedValue)) normalizedValue = 0
+        normalizedValue = Math.max(0, Math.min(1, normalizedValue))
+        const gammaAdjusted = Math.pow(normalizedValue, gamma)
+        const adjustedValue = (gammaAdjusted - 0.5) * p.contrast + 0.5 + p.brightness
+        const clampedValue = Math.max(0, Math.min(1, adjustedValue))
+        const num = (clampedValue * 255) | 0
+        const o = ((height - 1 - j) * width + i) * 4
+        data[o + 0] = viridisLUT[num * 4 + 0]
+        data[o + 1] = viridisLUT[num * 4 + 1]
+        data[o + 2] = viridisLUT[num * 4 + 2]
+        data[o + 3] = 255
+      }
+    }
+    ctx.putImageData(image, 0, 0)
+
+    const blob = await off.convertToBlob()
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    self.postMessage({ type: 'image', blob, renderId, fileId })
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error('worker render error:', err)
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    self.postMessage({ type: 'error', error: (err as Error).message, renderId, fileId })
+  }
+}
+
+async function runLoop(): Promise<void> {
+  if (renderInFlight) return
+  while (pendingRenders.size > 0) {
+    // Drain FIFO: insertion order across fileIds is preserved by Map. New
+    // renders for an already-queued fileId have replaced the entry, so slider
+    // drags still coalesce to ~1 render per fileId.
+    const fileId = pendingRenders.keys().next().value as string
+    const next = pendingRenders.get(fileId)!
+    pendingRenders.delete(fileId)
+    renderInFlight = true
+    try {
+      await processRender(next)
+    } finally {
+      renderInFlight = false
+    }
+  }
+}
+
 // Main message dispatcher: init -> set_pcm -> render
 self.onmessage = async (e: MessageEvent<Msg>) => {
   const msg = e.data
@@ -150,98 +310,41 @@ self.onmessage = async (e: MessageEvent<Msg>) => {
 
   if (msg.type === 'set_pcm') {
     // Store PCM and sampleRate for this fileId in memory for fast repeated access
-    pcmStore.set(msg.fileId, { sampleRate: msg.sampleRate, pcm: msg.pcm })
+    const entry = { sampleRate: msg.sampleRate, pcm: msg.pcm }
+    pcmStore.set(msg.fileId, entry)
+    // Resolve any render handlers that started before this PCM arrived.
+    const waiters = pcmReadyResolvers.get(msg.fileId)
+    if (waiters) {
+      pcmReadyResolvers.delete(msg.fileId)
+      for (const w of waiters) w(entry)
+    }
     return
   }
 
   if (msg.type === 'render') {
-    try {
-      await ensureWasmInitialized()
-      const p = msg.params
-      // Assemble the requested window by concatenating cached / freshly computed tiles
-      const { mel, frames } = assembleWindowMel(msg.fileId, p)
+    // Newest wins per fileId: a queued render for the same file that hasn't
+    // started yet is dropped silently. The main thread doesn't need a reply
+    // for it — its renderId never settles, but the next reply's id catches
+    // lastSettledRef up past lastDispatchedRef. Renders for different fileIds
+    // queue independently, so one file's slider drag doesn't starve another.
+    pendingRenders.set(msg.fileId, msg)
+    runLoop()
+    return
+  }
 
-      const width = frames
-      const height = p.n_mels
-
-      if (!mel || frames <= 0) {
-        // Return an empty 1x1 image blob
-        const off = new OffscreenCanvas(1, 1)
-        const blob = await off.convertToBlob()
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        self.postMessage({ type: 'image', blob })
-        return
-      }
-
-      // Compute display transform parameters (dynamic gain and gamma) from flattened mel
-      let smin = Infinity
-      let smax = -Infinity
-      // Compute min/max over flattened mel (frames x n_mels)
-      for (let i = 0; i < mel.length; i++) {
-        const v = mel[i]
-        if (!isFinite(v)) continue
-        if (v < smin) smin = v
-        if (v > smax) smax = v
-      }
-      if (p.dynamicGain) {
-        // Percentiles on flattened data for low/high gain bounds
-        const sorted = Array.from(mel).filter(Number.isFinite).sort((a, b) => a - b)
-        if (sorted.length > 0) {
-          const idxLow = Math.floor(0.05 * sorted.length)
-          const idxHigh = Math.floor((p.gainPercentile / 100) * sorted.length)
-          smin = sorted[Math.min(idxLow, sorted.length - 1)]
-          smax = sorted[Math.min(idxHigh, sorted.length - 1)]
-        }
-      }
-      if (!(smax > smin)) {
-        smax = smin + 1e-6
-      }
-      let gamma = p.gammaValue
-      if (p.autoGamma) {
-        // Approximate median on flattened data to decide gamma
-        const sorted = Array.from(mel).filter(Number.isFinite).sort((a, b) => a - b)
-        const mid = sorted.length ? sorted[Math.floor(sorted.length * 0.5)] : 0
-        const normalizedMedian = (mid - smin) / (smax - smin)
-        gamma = normalizedMedian < 0.3 ? 0.6 : normalizedMedian > 0.7 ? 1.4 : 1.0
-      }
-
-      const off = new OffscreenCanvas(width, height)
-      const ctx = off.getContext('2d')!
-      const image = ctx.createImageData(width, height)
-      const data = image.data
-
-      // Rasterize: bottom-up so the lowest mel band is at the bottom of the image
-      for (let j = height - 1; j >= 0; j--) {
-        for (let i = width - 1; i >= 0; i--) {
-          const v = mel[i * height + j] // flattened time-major
-          let normalizedValue = (v - smin) / (smax - smin)
-          if (!isFinite(normalizedValue)) normalizedValue = 0
-          normalizedValue = Math.max(0, Math.min(1, normalizedValue))
-          const gammaAdjusted = Math.pow(normalizedValue, gamma)
-          const adjustedValue = (gammaAdjusted - 0.5) * p.contrast + 0.5 + p.brightness
-          const clampedValue = Math.max(0, Math.min(1, adjustedValue))
-          const num = (clampedValue * 255) | 0
-          const o = ((height - 1 - j) * width + i) * 4
-          data[o + 0] = viridisLUT[num * 4 + 0]
-          data[o + 1] = viridisLUT[num * 4 + 1]
-          data[o + 2] = viridisLUT[num * 4 + 2]
-          data[o + 3] = 255
-        }
-      }
-      ctx.putImageData(image, 0, 0)
-
-      const blob = await off.convertToBlob()
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      self.postMessage({ type: 'image', blob })
-    } catch (err) {
-      // eslint-disable-next-line no-console
-      console.error('worker render error:', err)
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      self.postMessage({ type: 'error', error: (err as Error).message })
+  if (msg.type === 'clear_pcm') {
+    // Last subscriber for this fileId went away. Free the PCM and drop any
+    // queued render. Wake up any waitForPCM resolvers with `undefined` so an
+    // in-flight render awaiting this PCM unblocks, the run queue drains, and
+    // we don't leak a permanently-pending Promise that wedges renderInFlight.
+    pcmStore.delete(msg.fileId)
+    pendingRenders.delete(msg.fileId)
+    const waiters = pcmReadyResolvers.get(msg.fileId)
+    if (waiters) {
+      pcmReadyResolvers.delete(msg.fileId)
+      for (const w of waiters) w(undefined)
     }
+    return
   }
 }
 
@@ -357,8 +460,6 @@ function computeSegmentAndPopulateTiles(
 
   const slice = pcmEntry.pcm.subarray(startSample, endSample)
 
-
-  console.log('slice', slice)
   const melFrames = mel_spectrogram_db(
     p.sampleRate,
     slice,
@@ -371,40 +472,6 @@ function computeSegmentAndPopulateTiles(
     p.top_db
   ) as Float32Array[]
 
-  console.log('melFrames', melFrames)
-
-  // Debug: Check frequency distribution across mel bins
-  if (melFrames.length > 0) {
-    const firstFrame = melFrames[0]
-    console.log('Spectrogram parameters:')
-    console.log('  sampleRate:', p.sampleRate)
-    console.log('  n_fft:', p.n_fft)
-    console.log('  win_length:', p.win_length)
-    console.log('  hop_length:', p.hop_length)
-    console.log('  f_min:', p.f_min, 'f_max:', p.f_max)
-    console.log('  n_mels:', p.n_mels)
-    console.log('  top_db:', p.top_db)
-
-    console.log('First frame mel values:')
-    console.log('  Length:', firstFrame.length)
-    console.log('  Min value:', Math.min(...firstFrame))
-    console.log('  Max value:', Math.max(...firstFrame))
-    console.log('  Top 8 mels (indices 56-63):', firstFrame.slice(56, 64))
-    console.log('  Bottom 8 mels (indices 0-7):', firstFrame.slice(0, 8))
-    console.log('  Middle 8 mels (indices 28-35):', firstFrame.slice(28, 36))
-
-    // Check if the issue is consistent across multiple frames
-    if (melFrames.length > 5) {
-      console.log('Checking multiple frames for consistency:')
-      for (let i = 0; i < Math.min(5, melFrames.length); i++) {
-        const frame = melFrames[i]
-        const top8 = frame.slice(56, 64)
-        const avgTop8 = top8.reduce((a, b) => a + b, 0) / top8.length
-        console.log(`  Frame ${i}: avg top 8 mels = ${avgTop8.toFixed(2)} dB`)
-      }
-    }
-  }
-
   const framesPerPad = Math.floor(pad / hop)
   const usable = melFrames.slice(framesPerPad, framesPerPad + seg.frames)
 
@@ -415,6 +482,10 @@ function computeSegmentAndPopulateTiles(
     const flat = flattenMel(tileFrames, p.n_mels)
     const tStart = seg.startFrame + cursor
     const key = tileKey(fileId, tStart, thisFrames, p)
+    // LRU eviction: remove oldest entry when cache is full
+    if (melTileCache.size >= MAX_TILES) {
+      melTileCache.delete(melTileCache.keys().next().value!)
+    }
     melTileCache.set(key, flat)
     cursor += thisFrames
   }

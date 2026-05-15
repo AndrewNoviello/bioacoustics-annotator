@@ -1,18 +1,45 @@
+# Build outputs
+dist/
+build/
+ml/dist/
+renderer/dist/
+renderer/spectrogram/dist/
+
+# Python
 ml/__pycache__/
+ml/clap/__pycache__/
 ml/.venv/
-node_modules/
-CLAP/__pycache__/
-CLAP/dataset/__pycache__/
+*.pyc
+*.pyo
+
+# Node
 node_modules/
 renderer/node_modules/
 renderer/spectrogram/node_modules/
-renderer/spectrogram/dist/
-CLAP/__pycache__/
-CLAP/dataset/__pycache__/
-data/
-models/
+package-lock.json
+
+# WASM build artifacts
 wasm/pkg
 wasm/target
 wasm/Cargo.lock
-package-lock.json
+
+# Data / models (large binaries, user-managed)
+data/
+models/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
 

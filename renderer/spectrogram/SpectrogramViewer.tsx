@@ -8,7 +8,7 @@ function SpectrogramViewer(props: {
   const { children, dataURL } = props;
   const playheadRef = useRef<SVGLineElement>(null);
 
-  const { duration, currentTime, setCurrentTime, startTime, endTime, scroll, windowDuration, isLoading } = useSpectrogram();
+  const { duration, currentTime, setCurrentTime, startTime, endTime, windowDuration } = useSpectrogram();
 
   const SPEC_HEIGHT = 300;
 
@@ -32,55 +32,8 @@ function SpectrogramViewer(props: {
     }
   };
 
-  const onWheel = (e: React.WheelEvent<SVGSVGElement>) => {
-    e.preventDefault();
-    const deltaSeconds = (e.deltaY > 0 ? 1 : -1) * windowDuration * 0.1;
-    scroll(deltaSeconds);
-  };
-
   if (!duration) {
     return <svg width="100%" height={SPEC_HEIGHT} />;
-  }
-
-  // Actual loader
-  if (isLoading) {
-    return (
-      <div style={{ height: SPEC_HEIGHT }} className="w-full flex items-center justify-center">
-        <svg
-          width="60"
-          height="60"
-          viewBox="0 0 50 50"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="25"
-            cy="25"
-            r="20"
-            stroke="#3B82F6"
-            strokeWidth="4"
-            strokeLinecap="round"
-            fill="none"
-            strokeDasharray="90 150"
-            strokeDashoffset="0"
-          >
-            <animateTransform
-              attributeName="transform"
-              type="rotate"
-              from="0 25 25"
-              to="360 25 25"
-              dur="1s"
-              repeatCount="indefinite"
-            />
-            <animate
-              attributeName="stroke-dashoffset"
-              values="0;-240"
-              dur="1.2s"
-              repeatCount="indefinite"
-            />
-          </circle>
-        </svg>
-      </div>
-    );
   }
 
   return (
@@ -92,7 +45,6 @@ function SpectrogramViewer(props: {
       cursor="pointer"
       preserveAspectRatio="none"
       onClick={onClick}
-      onWheel={onWheel}
     >
       <image
         width={windowDuration}

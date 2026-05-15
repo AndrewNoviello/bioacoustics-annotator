@@ -1,0 +1,63 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - button [ref=e113] [cursor=pointer]:
+        - img [ref=e114]
+      - heading "Test" [level=1] [ref=e116]
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - button "CLAP Not Loaded" [ref=e16]:
+          - img [ref=e17]
+          - paragraph [ref=e19]: CLAP Not Loaded
+          - img [ref=e20]
+        - generic [ref=e117]:
+          - paragraph [ref=e118]: ML backend is taking longer than expected to start.
+          - button [ref=e119]:
+            - img [ref=e120]
+      - button "Settings" [active] [ref=e124]:
+        - img [ref=e125]
+        - generic [ref=e128]: Settings
+      - generic [ref=e129]:
+        - button "Saved Experiments" [ref=e130]:
+          - img [ref=e131]
+          - generic [ref=e135]: Saved Experiments
+        - button "New Experiment" [ref=e136]:
+          - img [ref=e137]
+          - generic [ref=e138]: New Experiment
+  - main [ref=e35]:
+    - generic [ref=e140]:
+      - generic [ref=e142]:
+        - generic "C:\\Users\\andno\\Desktop\\MSR_Proj\\CLAP_Annotation\\demo_data\\sample" [ref=e143]: "Source: C:\\Users\\andno\\Desktop\\MSR_Proj\\CLAP_Annotation\\demo_data\\sample"
+        - generic [ref=e145]:
+          - generic [ref=e146]:
+            - img [ref=e148] [cursor=pointer]
+            - img [ref=e149] [cursor=pointer]
+          - generic [ref=e157]: Recording_1_Segment_02.002.wav
+        - generic [ref=e159]:
+          - generic [ref=e160]:
+            - img [ref=e162] [cursor=pointer]
+            - img [ref=e166] [cursor=pointer]
+          - generic [ref=e174]: Recording_1_Segment_02.003.wav
+      - generic [ref=e175]:
+        - generic [ref=e176]:
+          - heading "Experiment Details" [level=3] [ref=e177]
+          - button [ref=e178]:
+            - img [ref=e179]
+        - generic [ref=e181]:
+          - generic [ref=e182]:
+            - generic [ref=e183]:
+              - strong [ref=e184]: "Time:"
+              - text: 5/14/2026, 9:32:41 PM
+            - generic [ref=e185]:
+              - strong [ref=e186]: "Positive Prompts:"
+              - text: baby cry
+            - generic [ref=e187]:
+              - strong [ref=e188]: "Negative Prompts:"
+              - text: noise
+            - generic [ref=e189]:
+              - strong [ref=e190]: "Threshold:"
+              - text: θ = 0.5
+            - generic [ref=e191]:
+              - strong [ref=e192]: "Detections:"
+              - text: 2 total
+          - paragraph [ref=e194]: Click on any detection in the spectrogram to annotate it.

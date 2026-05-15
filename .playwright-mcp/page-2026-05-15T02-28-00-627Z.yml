@@ -1,0 +1,120 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - button [ref=e94] [cursor=pointer]:
+          - img [ref=e95]
+        - heading "Test" [level=1] [ref=e118]
+      - generic [ref=e14]:
+        - button "CLAP Not Loaded" [ref=e16]:
+          - img [ref=e17]
+          - paragraph [ref=e19]: CLAP Not Loaded
+          - img [ref=e20]
+        - button "Settings" [active] [ref=e99]:
+          - img [ref=e100]
+          - generic [ref=e103]: Settings
+        - generic [ref=e104]:
+          - button "Saved Experiments" [ref=e105]:
+            - img [ref=e106]
+            - generic [ref=e110]: Saved Experiments
+          - button "New Experiment" [ref=e111]:
+            - img [ref=e112]
+            - generic [ref=e113]: New Experiment
+    - generic [ref=e321]:
+      - generic [ref=e322]:
+        - heading "Settings" [level=2] [ref=e323]
+        - button [ref=e324]:
+          - img [ref=e325]
+      - generic [ref=e329]:
+        - heading "Spectrogram Settings" [level=3] [ref=e330]
+        - generic [ref=e331]:
+          - generic [ref=e333]:
+            - generic [ref=e334]:
+              - generic [ref=e335]: FFT Size (n_fft)
+              - spinbutton [ref=e336]: "4096"
+            - generic [ref=e337]:
+              - generic [ref=e338]: Window Length
+              - spinbutton [ref=e339]: "1024"
+            - generic [ref=e340]:
+              - generic [ref=e341]: Hop Length
+              - spinbutton [ref=e342]: "256"
+            - generic [ref=e343]:
+              - generic [ref=e344]: Min Frequency (Hz)
+              - spinbutton [ref=e345]: "10"
+            - generic [ref=e346]:
+              - generic [ref=e347]: Max Frequency (Hz)
+              - spinbutton [ref=e348]: "16000"
+            - generic [ref=e349]:
+              - generic [ref=e350]: Mel Bands (n_mels)
+              - spinbutton [ref=e351]: "64"
+            - generic [ref=e352]:
+              - generic [ref=e353]: Top dB
+              - spinbutton [ref=e354]: "80"
+            - generic [ref=e355]:
+              - generic [ref=e356]: Window Duration (sec)
+              - spinbutton [ref=e357]: "30"
+          - generic [ref=e358]:
+            - generic [ref=e359]:
+              - generic [ref=e360]: Gain Percentile [90-99]
+              - spinbutton [ref=e361]: "98"
+            - generic [ref=e362]:
+              - generic [ref=e363]: Brightness [-0.5, 0.5]
+              - spinbutton [ref=e364]: "0"
+            - generic [ref=e365]:
+              - generic [ref=e366]: Contrast [0.5-2.0]
+              - spinbutton [ref=e367]: "0.5"
+          - generic [ref=e368]:
+            - generic [ref=e370]:
+              - checkbox "Dynamic Gain" [checked] [ref=e371]
+              - generic [ref=e372]: Dynamic Gain
+            - generic [ref=e374]:
+              - checkbox "Auto Gamma" [checked] [ref=e375]
+              - generic [ref=e376]: Auto Gamma
+        - generic [ref=e377]:
+          - generic [ref=e378]:
+            - heading "Species List" [level=3] [ref=e379]
+            - button [ref=e380] [cursor=pointer]:
+              - img [ref=e381]
+          - paragraph [ref=e385]: No species added yet
+      - generic [ref=e386]:
+        - button "Cancel" [ref=e387]
+        - button "Save Settings" [ref=e388]:
+          - img [ref=e389]
+          - generic [ref=e393]: Save Settings
+  - main [ref=e35]:
+    - generic [ref=e115]:
+      - generic [ref=e119]:
+        - generic "C:\\Users\\andno\\Desktop\\MSR_Proj\\CLAP_Annotation\\demo_data\\sample" [ref=e120]: "Source: C:\\Users\\andno\\Desktop\\MSR_Proj\\CLAP_Annotation\\demo_data\\sample"
+        - generic [ref=e122]:
+          - generic [ref=e123]:
+            - img [ref=e125] [cursor=pointer]
+            - img [ref=e126] [cursor=pointer]
+          - generic [ref=e134]: Recording_1_Segment_02.002.wav
+        - generic [ref=e136]:
+          - generic [ref=e137]:
+            - img [ref=e139] [cursor=pointer]
+            - img [ref=e143] [cursor=pointer]
+          - generic [ref=e151]: Recording_1_Segment_02.003.wav
+      - generic [ref=e152]:
+        - generic [ref=e153]:
+          - heading "Experiment Details" [level=3] [ref=e154]
+          - button [ref=e155]:
+            - img [ref=e156]
+        - generic [ref=e158]:
+          - generic [ref=e159]:
+            - generic [ref=e160]:
+              - strong [ref=e161]: "Time:"
+              - text: 5/14/2026, 9:32:41 PM
+            - generic [ref=e162]:
+              - strong [ref=e163]: "Positive Prompts:"
+              - text: baby cry
+            - generic [ref=e164]:
+              - strong [ref=e165]: "Negative Prompts:"
+              - text: noise
+            - generic [ref=e166]:
+              - strong [ref=e167]: "Threshold:"
+              - text: θ = 0.5
+            - generic [ref=e168]:
+              - strong [ref=e169]: "Detections:"
+              - text: 2 total
+          - paragraph [ref=e171]: Click on any detection in the spectrogram to annotate it.
