@@ -19,3 +19,6 @@ tqdm>=4.65.0
 
 # Visualization (optional, for debugging)
 matplotlib>=3.7.0
+
+# Build (PyInstaller freeze for distribution)
+pyinstaller>=6.20.0

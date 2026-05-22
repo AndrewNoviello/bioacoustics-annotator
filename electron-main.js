@@ -453,6 +453,10 @@ ipcMain.handle('set-session-settings', (_event, sessionId, settings) => {
 
 // ── App lifecycle ──────────────────────────────────────────────────────────────
 
+if (process.platform === 'win32') {
+  app.setAppUserModelId('com.bioacoustics.annotation');
+}
+
 app.whenReady().then(() => {
   createWindow();
   startPythonBackend();

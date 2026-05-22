@@ -1,7 +1,7 @@
 {
-  "name": "clap-desktop",
+  "name": "bioacoustics-annotation-tool",
   "version": "1.0.0",
-  "description": "CLAP-based bioacoustics annotation tool",
+  "description": "Bioacoustics annotation tool",
   "main": "electron-main.js",
   "type": "module",
   "scripts": {
@@ -23,7 +23,6 @@
   "keywords": [
     "bioacoustics",
     "annotation",
-    "CLAP",
     "audio",
     "spectrogram"
   ],
@@ -41,8 +40,8 @@
     "electron-store": "^10.1.0"
   },
   "build": {
-    "appId": "com.clap.desktop",
-    "productName": "CLAP Desktop",
+    "appId": "com.bioacoustics.annotation",
+    "productName": "Bioacoustics Annotation Tool",
     "directories": {
       "output": "dist",
       "buildResources": "build"
@@ -88,7 +87,7 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "CLAP Desktop"
+      "shortcutName": "Bioacoustics Annotation Tool"
     }
   }
 }

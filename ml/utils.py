@@ -24,7 +24,6 @@ from matplotlib.transforms import Bbox
 
 import torch
 from torch.utils.data import DataLoader
-import torchaudio
 
 
 class CancelledError(Exception):
@@ -377,8 +376,8 @@ def single_audio_detection(wav_path, neg_prompts=None, pos_prompts=None, theta=0
     # Load the wav file.
     print("Loading data..")
     print(wav_path)
-    wav, sr = torchaudio.load(wav_path)
-    wav = wav.reshape(-1)
+    wav_np, sr = sf.read(wav_path, dtype='float32', always_2d=True)
+    wav = torch.from_numpy(wav_np.T).reshape(-1)
 
     # Split the wav into windows of 6 seconds.
     inf_dset = Inference_DS(wav, sr, seg_size=6)
@@ -436,8 +435,8 @@ def generate_segs(wav_path, file_ann,
     and extracts and saves the corresponding audio segment as a WAV file.
     """
     # Load the wav file.
-    wav, sr = torchaudio.load(wav_path)
-    wav = wav.reshape(-1)
+    wav_np, sr = sf.read(wav_path, dtype='float32', always_2d=True)
+    wav = torch.from_numpy(wav_np.T).reshape(-1)
     #  Create a directory for segments and remove any existing segments.
     seg_folder = os.path.join(save_path, "segs")
     if clean_seg_folder:

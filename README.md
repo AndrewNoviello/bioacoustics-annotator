@@ -1,4 +1,4 @@
-# CLAP Desktop - Bioacoustics Annotation Tool
+# Bioacoustics Annotation Tool
 
 A desktop application for bioacoustic analysis and annotation using CLAP (Contrastive Language-Audio Pretraining) models.
 

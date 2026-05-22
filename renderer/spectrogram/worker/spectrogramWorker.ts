@@ -20,9 +20,15 @@
 
 // Note: Vite bundles this worker as an ES module worker.
 // We import the wasm JS glue directly here; the rust-compiled WASM does the heavy DSP.
+// The default export (__wbg_init) MUST be imported and called explicitly — otherwise
+// Rollup tree-shakes it out of the worker chunk and the WASM exports table is never
+// populated, so the first call to mel_spectrogram_db throws on `undefined.__wbindgen_malloc`.
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { mel_spectrogram_db } from "../../../wasm/pkg/rust_melspec_wasm.js";
+import __wbg_init, { mel_spectrogram_db } from "../../../wasm/pkg/rust_melspec_wasm.js";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import wasmUrl from "../../../wasm/pkg/rust_melspec_wasm_bg.wasm?url";
 
 // Surface worker-side errors that previously vanished silently. Without these,
 // a WASM load failure or unhandled rejection inside the worker leaves the
@@ -168,15 +174,13 @@ const viridisLUT = buildViridisLUT()            // Global LUT reused per render
 
 
 async function ensureWasmInitialized(): Promise<void> {
-  if (!wasmReady) {
-    try {
-      // WASM is automatically initialized when the module is imported
-      // No explicit initialization function needed
-      wasmReady = true
-    } catch (err) {
-      console.error('Failed to initialize rust-melspec-wasm in worker:', err)
-      throw err
-    }
+  if (wasmReady) return
+  try {
+    await __wbg_init(wasmUrl)
+    wasmReady = true
+  } catch (err) {
+    console.error('Failed to initialize rust-melspec-wasm in worker:', err)
+    throw err
   }
 }
 

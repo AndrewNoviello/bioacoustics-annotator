@@ -10,6 +10,7 @@ import numpy as np
 
 from transformers import AutoTokenizer, logging
 
+import soundfile as sf
 import torch
 import torchaudio
 import torchaudio.transforms as T
@@ -133,7 +134,8 @@ class CLAPWrapper():
         - A tensor representation of the audio.
         """
         # Randomly sample a segment of audio_duration from the clip or pad to match duration
-        audio_time_series, sample_rate = torchaudio.load(audio_path)
+        audio_np, sample_rate = sf.read(audio_path, dtype='float32', always_2d=True)
+        audio_time_series = torch.from_numpy(audio_np.T)
         resample_rate = self.sampling_rate
         if resample:
             resampler = T.Resample(sample_rate, resample_rate)

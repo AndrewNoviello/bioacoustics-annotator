@@ -3,6 +3,7 @@ import os
 
 # %%
 import numpy as np
+import soundfile as sf
 from tqdm import tqdm
 
 # %%
@@ -102,8 +103,8 @@ class Batch_Inference_DS(Dataset):
         print("Loading data...")
         for f in tqdm(self.wav_list):
 
-            wav, sr = torchaudio.load(f)
-            wav = wav.reshape(-1)
+            wav_np, sr = sf.read(f, dtype='float32', always_2d=True)
+            wav = torch.from_numpy(wav_np.T).reshape(-1)
 
             wav_length = int(len(wav) / sr)
             num_segs = int(np.ceil(wav_length / seg_size))
@@ -116,9 +117,9 @@ class Batch_Inference_DS(Dataset):
         return len(self.data)
 
     def __getitem__(self, idx):
-        
-        wav, sr = torchaudio.load(self.data[idx])
-        wav = wav.reshape(-1)
+
+        wav_np, sr = sf.read(self.data[idx], dtype='float32', always_2d=True)
+        wav = torch.from_numpy(wav_np.T).reshape(-1)
         st = self.sts[idx] * sr
 
         step_size = self.seg_size * sr

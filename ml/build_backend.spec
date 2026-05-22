@@ -77,7 +77,6 @@ a = Analysis(
         'jupyter',
         'notebook',
         'pytest',
-        'unittest',
         'test',
         'tests',
     ],
