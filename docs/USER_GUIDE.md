@@ -200,10 +200,10 @@ The top half shows read-only metadata:
 
 The bottom half is the work area. If the species dropdown is empty, you need to add some entries in Settings first ([4.5](#45-read-the-spectrogram) → Settings → *Species List*). Otherwise:
 
-- **Save Annotation** — sets the species and (helpfully) advances to the next detection in the experiment (sorted by file path then start time).
+- **Save Annotation** — writes the selected species to the detection's row in the CSV. The detection stays selected so you can also *Verify* it; use *Next* to advance.
 - **Verify** — marks the detection green-and-locked. Use this after you've confirmed the call is what you think it is. Verified detections show an *Unverify* button instead, in case you change your mind.
 - **Cancel** — deselects the detection without saving any in-progress species change.
-- **Next** — jumps to the next detection. Disabled at the end of the list, with a tooltip "No more detections in this experiment".
+- **Previous / Next** — step through every detection in the experiment, sorted by file path then start time. Each step (a) scrolls the target file's spectrogram into view, (b) recenters the 15-second viewport on the detection, (c) seeks the audio playhead to the detection's start time, and (d) pauses playback. *Previous* is disabled at the start of the list, *Next* at the end.
 - **Delete** (red trash, top-right) — removes the detection from the CSV. A toast at the bottom of the screen offers a 10-second *Undo*; older deletions are buffered too (last 10).
 
 You can **refine the detection bounds** by hovering near the left or right edge of the rectangle until the cursor turns into a resize handle, then dragging. The minimum width is 50 ms (so you can't accidentally collapse the rect), and the edges are clamped to the audio bounds. The CSV updates on mouseup.
@@ -294,7 +294,7 @@ Species you add here populate the dropdown in the [annotation panel](#46-annotat
 - **The `Undo` toast lasts ~10 seconds** after a detection delete; up to 10 deletions are buffered. Past that, deletions are permanent (the CSV is rewritten immediately).
 - **Detections store *absolute* audio paths** in the CSV. If you move the data folder to another drive or machine, the session won't find its audio anymore. Keep the data directory stable.
 - **Resize requires hitting the edge.** The drag handles are thin — aim at the very left or right of the rectangle. If you grab the middle, the click counts as "select this detection".
-- **Annotation `Save Annotation` auto-advances** to the next detection. Useful for batch labeling; the *Cancel* button steps you back if you change your mind.
+- **For batch labeling**, *Save Annotation* keeps the detection selected — click *Next* to step to the following one.
 - **Cancel-detection takes a moment** — Python finishes the current file batch before stopping. The button disappears once the cancellation propagates.
 - **Settings are per-session.** Changing them in session A doesn't affect session B. The first time you open a new session, settings start at the renderer's defaults.
 
