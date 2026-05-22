@@ -1,6 +1,6 @@
 # %%
 import numpy as np
-from transformers import AutoModel
+from transformers import AutoConfig, AutoModel
 
 import torch
 import torch.nn.functional as F
@@ -81,7 +81,12 @@ class TextEncoder(nn.Module):
     def __init__(self, d_out: int, text_model: str, transformer_embed_dim: int) -> None:
         super().__init__()
         self.text_model = text_model
-        self.base = AutoModel.from_pretrained(text_model)
+        # Build architecture from the local config only — never download
+        # pretrained CLIP weights. CLAPWrapper.load_clap immediately
+        # overwrites these weights via load_state_dict(..., strict=False)
+        # from the CLAP_Jan23 checkpoint, so the initial values don't matter.
+        config = AutoConfig.from_pretrained(text_model, local_files_only=True)
+        self.base = AutoModel.from_config(config)
 
         if 'clip' in text_model:
             self.clip_text_projection = self.base.text_projection

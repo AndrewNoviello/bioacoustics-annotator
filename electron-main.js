@@ -147,7 +147,18 @@ function startPythonBackend() {
     console.log('Spawning Python backend:', exe, args.join(' '));
     pythonProcess = spawn(exe, args, {
       stdio: ['pipe', 'pipe', 'pipe'],
-      cwd
+      cwd,
+      // Force HuggingFace libraries fully offline. Defense-in-depth: the CLAP
+      // text encoder is loaded from local config files only (see
+      // ml/clap/clap.py + CLAPWrapper.py), but if any from_pretrained ever
+      // slips in, these env vars make it raise immediately instead of
+      // hanging on a network call — which was the root cause of the
+      // indefinite "Loading…" spinner.
+      env: {
+        ...process.env,
+        HF_HUB_OFFLINE: '1',
+        TRANSFORMERS_OFFLINE: '1',
+      }
     });
 
     // ── stdout: JSON messages from Python ──────────────────────────────────

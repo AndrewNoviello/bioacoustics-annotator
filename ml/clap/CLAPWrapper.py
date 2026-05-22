@@ -20,11 +20,23 @@ from .clap import CLAP
 logging.set_verbosity_error()
 
 
+# Local-only path to the CLIP tokenizer + architecture config. The CLAP_Jan23
+# checkpoint overwrites the text-encoder weights via load_state_dict, so we
+# only need the config + tokenizer here — no HF Hub call ever.
+def _clip_local_dir():
+    try:
+        # utils.get_models_dir handles dev vs PyInstaller-frozen layouts
+        from utils import get_models_dir  # type: ignore
+    except ImportError:
+        from ..utils import get_models_dir  # type: ignore
+    return os.path.join(get_models_dir(), 'clip-vit-base-patch16')
+
+
 class CLAPWrapper():
     """
     A wrapper class for the CLAP (Contrastive Language-Audio Pretraining) model,
     facilitating audio and text embedding generation and similarity computation.
-    """  
+    """
 
     def __init__(self, model_fp, use_cuda=False):
         """
@@ -39,7 +51,7 @@ class CLAPWrapper():
         self.default_collate_err_msg_format = (
             "default_collate: batch must contain tensors, numpy arrays, numbers, "
             "dicts or lists; found {}")
-        self.text_model = 'openai/clip-vit-base-patch16'
+        self.text_model = _clip_local_dir()
         self.token_keys = ['input_ids', 'attention_mask']
         self.model_fp = model_fp
         self.use_cuda = use_cuda
@@ -55,13 +67,13 @@ class CLAPWrapper():
         Returns:
         - The CLAP model and the tokenizer.
         """
-        
-        clap = CLAP()
+
+        clap = CLAP(text_model=self.text_model)
         # Load pretrained weights for model
         model_state_dict = torch.load(self.model_fp, map_location=torch.device('cpu'))['model']
         clap.load_state_dict(model_state_dict, strict=False)
         clap.eval()  # set clap in eval mode
-        tokenizer = AutoTokenizer.from_pretrained(self.text_model)
+        tokenizer = AutoTokenizer.from_pretrained(self.text_model, local_files_only=True)
         if self.use_cuda and torch.cuda.is_available():
             clap = clap.cuda()
 

@@ -102,7 +102,14 @@ const loadModel = async (modelName, pythonProcess, modelsDir) => {
   }
 
   const commandStr = JSON.stringify({ action: 'load_model', modelName }) + '\n'
-  pythonProcess.stdin.write(commandStr)
+  try {
+    pythonProcess.stdin.write(commandStr)
+  } catch (err) {
+    // Broken pipe / EPIPE if Python died between the null-check above and
+    // this write. Surface a real error so the renderer can clear its spinner
+    // instead of waiting forever for a model_loading_completed that won't come.
+    return { success: false, error: `Failed to send load command: ${err.message}` }
+  }
   return { success: true, message: 'Model loading started' }
 }
 
