@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-const LazyMount = ({ rootMargin = '400px', placeholderHeight, children }) => {
+const LazyMount = ({ rootMargin = '400px', placeholderHeight, forceMount = false, children }) => {
   const sentinelRef = useRef(null)
   const [mounted, setMounted] = useState(false)
 
@@ -21,7 +21,7 @@ const LazyMount = ({ rootMargin = '400px', placeholderHeight, children }) => {
     return () => observer.disconnect()
   }, [mounted, rootMargin])
 
-  if (mounted) return children
+  if (mounted || forceMount) return children
 
   return (
     <div

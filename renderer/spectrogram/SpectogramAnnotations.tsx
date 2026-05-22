@@ -9,12 +9,6 @@ const DEFAULT_COLOR = {
   stroke: "rgba(255, 165, 0, 0.6)"
 };
 
-// Active/selected color
-const ACTIVE_COLOR = {
-  fill: "rgba(59, 130, 246, 0.4)",
-  stroke: "rgba(59, 130, 246, 0.8)"
-};
-
 interface AnnotationData {
   id: string;
   interval: [number, number, string];
@@ -67,17 +61,14 @@ function SpectrogramAnnotations(props: SpectrogramAnnotationsProps) {
     return idx >= 0 ? idx : 0;
   };
 
-  const getAnnotationColor = (annotation: AnnotationData, isActive: boolean) => {
-    if (isActive) {
-      return ACTIVE_COLOR;
-    }
-
+  const getAnnotationColor = (annotation: AnnotationData) => {
     // Always honor the per-experiment color when it's been attached. The
     // color is pegged to the experiment in Session.jsx's experimentColorMap
     // (stable per experimentId across selections), so the same experiment
     // reads the same color regardless of how many others are selected.
     // DEFAULT_COLOR is only used for legacy annotations without an attached
-    // experimentColor.
+    // experimentColor. Selection is indicated via stroke width and shadow,
+    // not a separate highlight color.
     if (annotation.experimentColor) {
       return {
         fill: annotation.experimentColor.fill,
@@ -156,7 +147,7 @@ function SpectrogramAnnotations(props: SpectrogramAnnotationsProps) {
         const start = (isActive && drag) ? drag.start : Number(annotation.interval[0]);
         const stop = (isActive && drag) ? drag.end : Number(annotation.interval[1]);
         const width = stop - start;
-        const color = getAnnotationColor(annotation, isActive);
+        const color = getAnnotationColor(annotation);
 
         // Skip rendering if the rect is entirely outside the visible window.
         // SVG would otherwise emit a clientX hundreds of pixels off-screen,
@@ -192,7 +183,7 @@ function SpectrogramAnnotations(props: SpectrogramAnnotationsProps) {
               strokeWidth={isActive ? svgStrokeWidth * 2 : svgStrokeWidth}
               style={{
                 cursor: handleDetectionClick ? "pointer" : "default",
-                filter: isActive ? "drop-shadow(0 0 4px rgba(59, 130, 246, 0.6))" : "none",
+                filter: isActive ? `drop-shadow(0 0 4px ${color.stroke})` : "none",
                 transition: drag ? "none" : "fill 0.15s ease, stroke 0.15s ease"
               }}
             />
@@ -204,7 +195,7 @@ function SpectrogramAnnotations(props: SpectrogramAnnotationsProps) {
                   y={y}
                   width={handleWidth}
                   height={height}
-                  fill="rgba(59, 130, 246, 0.95)"
+                  fill={color.stroke}
                   stroke="white"
                   strokeWidth={svgStrokeWidth * 0.5}
                   style={{ cursor: 'ew-resize' }}
@@ -216,7 +207,7 @@ function SpectrogramAnnotations(props: SpectrogramAnnotationsProps) {
                   y={y}
                   width={handleWidth}
                   height={height}
-                  fill="rgba(59, 130, 246, 0.95)"
+                  fill={color.stroke}
                   stroke="white"
                   strokeWidth={svgStrokeWidth * 0.5}
                   style={{ cursor: 'ew-resize' }}

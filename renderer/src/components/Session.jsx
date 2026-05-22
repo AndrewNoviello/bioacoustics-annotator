@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext, useMemo, useRef, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
-import { Play, Save, RotateCcw, X, Loader2, ChevronUp, ChevronDown, ChevronRight, Trash2, StopCircle, Check } from 'lucide-react'
+import { Play, Save, RotateCcw, X, Loader2, ChevronUp, ChevronDown, ChevronLeft, ChevronRight, Trash2, StopCircle, Check } from 'lucide-react'
 import Spectrogram from './Spectrogram'
 import LazyMount from './LazyMount'
 import { SessionContext } from '../stores/SessionContext'
@@ -64,6 +64,14 @@ const Session = () => {
   // auto-dismisses after a few seconds.
   const [undoToast, setUndoToast] = useState(null)
   const undoToastTimerRef = useRef(null)
+
+  // Navigation request for Next/Previous detection stepping. seq is a
+  // monotonically increasing counter so NavigationBridge re-fires when the
+  // target detection is on the same file (filePath alone wouldn't change).
+  const [navRequest, setNavRequest] = useState(null)
+  // Per-file wrapper refs so navigateToDetection can scrollIntoView the
+  // correct spectrogram before NavigationBridge centers the viewport.
+  const spectrogramRefs = useRef({})
 
   // Per-file playhead registry. Each Spectrogram writes its current playback
   // time here via onTimeUpdate; the manual "Add Detection" button reads it on
@@ -807,6 +815,43 @@ const Session = () => {
     return { path: first, mixed: !allSame }
   }, [files])
 
+  // Sorted detection list for Next/Previous navigation. Sorted by filename
+  // first, then start_time, so stepping is stable across files. Each row is
+  // enriched with `filePath` (stored rows only have `filename`).
+  const allDetections = useMemo(() => {
+    const expDetections = (activeExperiment && sessionData?.experiments?.[activeExperiment]?.detections) || {}
+    const rows = []
+    Object.entries(expDetections).forEach(([filePath, detections]) => {
+      detections.forEach(d => rows.push({ ...d, filePath }))
+    })
+    rows.sort((a, b) =>
+      a.filePath !== b.filePath
+        ? a.filePath.localeCompare(b.filePath)
+        : a.start_time - b.start_time
+    )
+    return rows
+  }, [activeExperiment, sessionData])
+
+  const navigateToDetection = useCallback((d) => {
+    if (!d) return
+    setNavRequest({
+      filePath: d.filePath || d.filename,
+      seekTime: d.start_time ?? 0,
+      detectionStart: d.start_time ?? 0,
+      detectionEnd: d.end_time ?? (d.start_time ?? 0) + 1,
+      seq: Date.now(),
+    })
+    setActiveDetection(d)
+    setTempSpecies(d.species || '')
+  }, [])
+
+  // Scroll the target file's spectrogram into view whenever a nav request fires.
+  // `block: 'nearest'` keeps the viewport stable when the target is already visible.
+  useEffect(() => {
+    if (!navRequest) return
+    spectrogramRefs.current[navRequest.filePath]?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+  }, [navRequest])
+
   const renderSpectrograms = () => {
     if (!files.length) return null
     return (
@@ -822,8 +867,8 @@ const Session = () => {
           </div>
         )}
         {files.map((filePath) => (
-          <div key={filePath}>
-            <LazyMount placeholderHeight={408}>
+          <div key={filePath} ref={el => { spectrogramRefs.current[filePath] = el }}>
+            <LazyMount placeholderHeight={408} forceMount={navRequest?.filePath === filePath}>
               <div className="bg-white rounded-lg p-2">
                 <Spectrogram
                   filePath={filePath}
@@ -836,6 +881,7 @@ const Session = () => {
                   maxLanes={MAX_SELECTED_EXPERIMENTS}
                   onDetectionResize={handleResizeDetection}
                   onTimeUpdate={getTimeUpdateCallback(filePath)}
+                  navRequest={navRequest?.filePath === filePath ? navRequest : null}
                 />
                 {/* File info */}
                 <div className="mt-1 text-xs text-gray-500">
@@ -1019,36 +1065,36 @@ const Session = () => {
                 </div>
 
                 {(() => {
-                  // Compute the sorted detection list and the active index once so we
-                  // can both disable the button at end-of-list and use the same
-                  // ordering when advancing.
-                  const expDetections = (activeExperiment && sessionData?.experiments?.[activeExperiment]?.detections) || {}
-                  const allDetections = []
-                  Object.entries(expDetections).forEach(([filePath, detections]) => {
-                    detections.forEach(d => allDetections.push({ ...d, filePath }))
-                  })
-                  allDetections.sort((a, b) =>
-                    a.filePath !== b.filePath
-                      ? a.filePath.localeCompare(b.filePath)
-                      : a.start_time - b.start_time
-                  )
                   const currentIndex = allDetections.findIndex(d => d.id === activeDetection.id)
+                  const atStart = currentIndex <= 0
                   const atEnd = currentIndex === -1 || currentIndex >= allDetections.length - 1
                   return (
-                    <button
-                      disabled={atEnd}
-                      title={atEnd ? 'No more detections in this experiment' : 'Next detection'}
-                      onClick={() => {
-                        if (atEnd) return
-                        const nextDetection = allDetections[currentIndex + 1]
-                        setActiveDetection(nextDetection)
-                        setTempSpecies(nextDetection.species || '')
-                      }}
-                      className="px-3 py-1.5 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors flex items-center space-x-1 text-xs font-medium"
-                    >
-                      <span>Next</span>
-                      <ChevronRight className="h-3 w-3" />
-                    </button>
+                    <div className="flex items-center space-x-2">
+                      <button
+                        disabled={atStart}
+                        title={atStart ? 'No previous detection' : 'Previous detection'}
+                        onClick={() => {
+                          if (atStart) return
+                          navigateToDetection(allDetections[currentIndex - 1])
+                        }}
+                        className="px-3 py-1.5 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors flex items-center space-x-1 text-xs font-medium"
+                      >
+                        <ChevronLeft className="h-3 w-3" />
+                        <span>Previous</span>
+                      </button>
+                      <button
+                        disabled={atEnd}
+                        title={atEnd ? 'No more detections in this experiment' : 'Next detection'}
+                        onClick={() => {
+                          if (atEnd) return
+                          navigateToDetection(allDetections[currentIndex + 1])
+                        }}
+                        className="px-3 py-1.5 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors flex items-center space-x-1 text-xs font-medium"
+                      >
+                        <span>Next</span>
+                        <ChevronRight className="h-3 w-3" />
+                      </button>
+                    </div>
                   )
                 })()}
               </div>

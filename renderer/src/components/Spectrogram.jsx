@@ -12,7 +12,8 @@ const Spectrogram = React.memo(({
   selectedExperiments = [],
   maxLanes = 3,
   onDetectionResize = null,
-  onTimeUpdate = null
+  onTimeUpdate = null,
+  navRequest = null
 }) => {
   const [error, setError] = useState(null)
 
@@ -92,6 +93,7 @@ const Spectrogram = React.memo(({
         maxLanes={maxLanes}
         onDetectionResize={onDetectionResize}
         onTimeUpdate={onTimeUpdate}
+        navRequest={navRequest}
       />
     )
   } catch (err) {

@@ -1,0 +1,112 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - button [ref=e70] [cursor=pointer]:
+        - img [ref=e71]
+      - heading "test" [level=1] [ref=e73]
+    - generic [ref=e14]:
+      - button "CLAP Not Loaded" [ref=e16]:
+        - img [ref=e17]
+        - paragraph [ref=e19]: CLAP Not Loaded
+        - img [ref=e20]
+      - button "Settings" [ref=e75]:
+        - img [ref=e76]
+        - generic [ref=e79]: Settings
+      - generic [ref=e80]:
+        - button "Saved Experiments" [active] [ref=e81]:
+          - img [ref=e82]
+          - generic [ref=e86]: Saved Experiments
+        - button "New Experiment" [ref=e87]:
+          - img [ref=e88]
+          - generic [ref=e89]: New Experiment
+  - main [ref=e35]:
+    - generic [ref=e90]:
+      - generic [ref=e91]:
+        - generic [ref=e93]:
+          - generic "C:\\Users\\andno\\Desktop\\MSR_Proj\\CLAP_Annotation\\demo_data\\sample" [ref=e94]: "Source: C:\\Users\\andno\\Desktop\\MSR_Proj\\CLAP_Annotation\\demo_data\\sample"
+          - generic [ref=e96]:
+            - generic [ref=e97]:
+              - img [ref=e99] [cursor=pointer]
+              - img [ref=e100] [cursor=pointer]
+            - generic [ref=e109]: Recording_1_Segment_02.002.wav
+          - generic [ref=e111]:
+            - generic [ref=e112]:
+              - img [ref=e114] [cursor=pointer]
+              - img [ref=e118] [cursor=pointer]
+            - generic [ref=e126]: Recording_1_Segment_02.003.wav
+        - generic [ref=e127]:
+          - generic [ref=e128]:
+            - heading "Experiment Details" [level=3] [ref=e129]
+            - button [ref=e130]:
+              - img [ref=e131]
+          - generic [ref=e133]:
+            - generic [ref=e134]:
+              - generic [ref=e135]:
+                - strong [ref=e136]: "Time:"
+                - text: 5/22/2026, 6:12:07 PM
+              - generic [ref=e137]:
+                - strong [ref=e138]: "Positive Prompts:"
+                - text: birds, cry, bird chirps, chirping, vocalizations, squeaks, high-pitched cry
+              - generic [ref=e139]:
+                - strong [ref=e140]: "Negative Prompts:"
+                - text: noise
+              - generic [ref=e141]:
+                - strong [ref=e142]: "Threshold:"
+                - text: θ = 0.5
+              - generic [ref=e143]:
+                - strong [ref=e144]: "Detections:"
+                - text: 3 total
+            - paragraph [ref=e146]: Click on any detection in the spectrogram to annotate it.
+      - generic [ref=e147]:
+        - generic [ref=e148]:
+          - heading "Saved Experiments" [level=3] [ref=e149]
+          - button [ref=e151]:
+            - img [ref=e152]
+        - generic [ref=e155]:
+          - generic [ref=e156]:
+            - img [ref=e157]
+            - generic [ref=e160]: Multi-Select Mode
+          - paragraph [ref=e161]: "Use checkboxes to overlay multiple experiments. Selected: 1/3"
+        - generic [ref=e162]:
+          - generic [ref=e163]:
+            - generic [ref=e164]:
+              - button "Remove from overlay" [ref=e165]:
+                - img [ref=e166]
+              - 'generic "Color: Blue" [ref=e168]'
+              - generic [ref=e169]: Editing
+            - generic [ref=e170] [cursor=pointer]:
+              - generic [ref=e171]:
+                - generic [ref=e172]: 5/22/2026, 6:12:07 PM
+                - generic [ref=e173]:
+                  - generic [ref=e174]: θ=0.5
+                  - button "Delete experiment" [ref=e175]:
+                    - img [ref=e176]
+              - generic [ref=e179]:
+                - generic [ref=e180]: "Positive:"
+                - generic [ref=e181]: birds, cry, bird chirps, chirping, vocalizations, squeaks, high-pitched cry
+              - generic [ref=e182]:
+                - generic [ref=e183]: "Negative:"
+                - generic [ref=e184]: noise
+              - generic [ref=e185]:
+                - generic [ref=e186]: 3 detections
+                - generic [ref=e187]: 2 files
+          - generic [ref=e188]:
+            - generic [ref=e189]:
+              - button "Add to overlay" [ref=e190]
+              - generic [ref=e191]: Hidden
+            - generic [ref=e192] [cursor=pointer]:
+              - generic [ref=e193]:
+                - generic [ref=e194]: 5/22/2026, 4:01:11 PM
+                - generic [ref=e195]:
+                  - generic [ref=e196]: θ=0.5
+                  - button "Delete experiment" [ref=e197]:
+                    - img [ref=e198]
+              - generic [ref=e201]:
+                - generic [ref=e202]: "Positive:"
+                - generic [ref=e203]: baby cry
+              - generic [ref=e204]:
+                - generic [ref=e205]: "Negative:"
+                - generic [ref=e206]: noise
+              - generic [ref=e207]:
+                - generic [ref=e208]: 3 detections
+                - generic [ref=e209]: 2 files

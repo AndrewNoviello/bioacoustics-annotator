@@ -3,6 +3,14 @@ import SpectrogramGraphics from "./SpectrogramGraphics";
 import SpectrogramProvider, { useSpectrogram } from "./SpectrogramProvider";
 import SpectrogramNavigator from "./SpectrogramNavigator";
 
+export interface NavRequest {
+  filePath: string;
+  seekTime: number;
+  detectionStart: number;
+  detectionEnd: number;
+  seq: number;
+}
+
 interface SpectrogramPlayerProps {
   fileId?: string;
   src: string;
@@ -13,6 +21,7 @@ interface SpectrogramPlayerProps {
   maxLanes?: number;
   onDetectionResize?: (detection: any, newStart: number, newEnd: number) => void;
   onTimeUpdate?: (time: number) => void;
+  navRequest?: NavRequest | null;
 }
 
 // Bridges the per-provider currentTime out to a parent callback. Lives inside
@@ -32,6 +41,30 @@ const TimeUpdateBridge = ({
   return <></>;
 };
 
+// Reacts to a Session-level navigation request: re-centers the viewport on the
+// detection, seeks the playhead to its start, and pauses. Gated on
+// `duration != null` so it runs after the provider's duration-init effect
+// (which resets startTime/currentTime to 0). Effect key uses `seq` so
+// consecutive same-file navigations re-fire.
+const NavigationBridge = ({
+  navRequest,
+  fileId,
+}: {
+  navRequest?: NavRequest | null;
+  fileId?: string;
+}) => {
+  const { duration, windowDuration, setStartTime, setCurrentTime, pause } = useSpectrogram();
+  useEffect(() => {
+    if (!navRequest || navRequest.filePath !== fileId || duration == null) return;
+    const mid = (navRequest.detectionStart + navRequest.detectionEnd) / 2;
+    setStartTime(mid - windowDuration / 2);
+    setCurrentTime(navRequest.seekTime);
+    pause();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [navRequest?.seq, fileId, duration]);
+  return <></>;
+};
+
 const SpectrogramPlayer = (props: SpectrogramPlayerProps) => {
   const {
     src,
@@ -42,13 +75,15 @@ const SpectrogramPlayer = (props: SpectrogramPlayerProps) => {
     maxLanes = 3,
     onDetectionResize,
     onTimeUpdate,
+    navRequest,
   } = props;
+  const fileId = props.fileId ?? props.src;
 
   return (
     <div style={{ width: "100%" }}>
       <SpectrogramProvider src={src}>
         <SpectrogramGraphics
-          fileId={props.fileId ?? props.src}
+          fileId={fileId}
           annotations={annotations}
           activeDetection={activeDetection}
           handleDetectionClick={handleDetectionClick ?? undefined}
@@ -61,6 +96,7 @@ const SpectrogramPlayer = (props: SpectrogramPlayerProps) => {
           maxLanes={maxLanes}
         />
         <TimeUpdateBridge onTimeUpdate={onTimeUpdate} />
+        <NavigationBridge navRequest={navRequest} fileId={fileId} />
       </SpectrogramProvider>
     </div>
   );
