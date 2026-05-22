@@ -136,7 +136,8 @@ export interface SessionData {
 
 export interface PythonMessage {
   type: 'ready' | 'model_loading_started' | 'model_loading_completed' | 'detection_started' |
-        'detection_completed' | 'error' | 'fatal_error' | 'backend_timeout' | string;
+        'detection_progress' | 'detection_completed' | 'detection_cancelled' |
+        'error' | 'fatal_error' | 'backend_timeout' | string;
   data: Record<string, unknown>;
   timestamp: string;
 }

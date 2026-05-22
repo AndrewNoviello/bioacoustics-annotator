@@ -183,6 +183,7 @@ function startPythonBackend() {
               appState.detectionInProgress = true;
               break;
             case 'detection_completed':
+            case 'detection_cancelled':
             case 'error':
             case 'fatal_error':
               appState.detectionInProgress = false;
@@ -289,6 +290,15 @@ ipcMain.handle('list-profiles', async () => {
 ipcMain.handle('load-model', async (_event, { modelName }) => {
   if (!pythonProcess) {
     return { success: false, error: 'ML backend is not running' };
+  }
+  // Block model loads while a detection is running. The worker thread on
+  // the Python side is using the current model; loading a new one mid-flight
+  // would race with that. The Python backend will also reject this, but
+  // intercepting here keeps the rejection out of the python-message stream
+  // (where Session.jsx would otherwise interpret an 'error' message as a
+  // detection failure and clear the running-state UI).
+  if (appState.detectionInProgress) {
+    return { success: false, error: 'Cannot load model while detection is running' };
   }
   return api.loadModel(modelName, pythonProcess, getModelsDir())
 });

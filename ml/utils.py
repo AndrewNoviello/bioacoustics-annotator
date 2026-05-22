@@ -26,6 +26,13 @@ import torch
 from torch.utils.data import DataLoader
 import torchaudio
 
+
+class CancelledError(Exception):
+    """Raised from inside compute_similarity when the caller's cancel_event
+    has been set. The worker that submitted the job catches this and emits a
+    detection_cancelled message; it should not be treated as a real error."""
+    pass
+
 # Get the directory containing this module for relative path resolution
 _module_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -127,7 +134,7 @@ def load_models(model_name, send_message):
     return clap
 
 # %%
-def compute_similarity(model, data_loader, class_prompts, neg_n=1, pos_n=1, theta=0.5, progress_callback=None):
+def compute_similarity(model, data_loader, class_prompts, neg_n=1, pos_n=1, theta=0.5, progress_callback=None, cancel_event=None):
     """
     Computes the similarity between audio embeddings and class text embeddings.
 
@@ -161,6 +168,9 @@ def compute_similarity(model, data_loader, class_prompts, neg_n=1, pos_n=1, thet
 
     total_batches = len(data_loader)
     for batch_i in tqdm(range(total_batches), desc="Detection in process..."):
+
+        if cancel_event is not None and cancel_event.is_set():
+            raise CancelledError()
 
         x = next(data_iter)
 
@@ -319,7 +329,7 @@ def generate_spectrogram_results(wav, sr, seg_size=None, preds=None, total_score
 
 
 # %%
-def batch_audio_detection(wav_list, neg_prompts, pos_prompts, theta, save_path, progress_callback=None):
+def batch_audio_detection(wav_list, neg_prompts, pos_prompts, theta, save_path, progress_callback=None, cancel_event=None):
 
     if isinstance(wav_list, str):
         wav_list = wav_list.split("\n")
@@ -344,7 +354,8 @@ def batch_audio_detection(wav_list, neg_prompts, pos_prompts, theta, save_path, 
 
     total_scores, preds = compute_similarity(clap, inf_dl, class_prompts,
                                              neg_n=neg_n, pos_n=pos_n, theta=theta,
-                                             progress_callback=progress_callback)
+                                             progress_callback=progress_callback,
+                                             cancel_event=cancel_event)
 
     print("Outputing detection results..")
     with open(save_path, 'w') as det_preds:

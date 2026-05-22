@@ -267,6 +267,14 @@ const Session = () => {
             setErrorMessage(`Detection failed: ${message.data.error}`)
           }
           break
+        case 'detection_cancelled':
+          // User-initiated cancel — no red error banner, no temp results to
+          // load (the Python worker raised before writing temp.csv).
+          stopDetectionTimer()
+          setIsRunningDetection(false)
+          setDetectionProgress(null)
+          setErrorMessage('')
+          break
         case 'error':
           stopDetectionTimer()
           setIsRunningDetection(false)
