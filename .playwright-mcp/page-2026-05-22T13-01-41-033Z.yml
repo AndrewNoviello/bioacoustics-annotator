@@ -1,0 +1,26 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - img [ref=e236]
+      - heading "Bioacoustics Annotation Tool" [level=1] [ref=e242]
+    - generic [ref=e14]:
+      - button "CLAP Not Loaded" [ref=e16]:
+        - img [ref=e17]
+        - paragraph [ref=e19]: CLAP Not Loaded
+        - img [ref=e20]
+      - button "data" [ref=e244]:
+        - img [ref=e245]
+        - paragraph [ref=e247]: data
+      - button "Andrew" [ref=e249]:
+        - img [ref=e250]
+        - generic [ref=e253]: Andrew
+        - img [ref=e254]
+  - main [ref=e35]:
+    - main [ref=e257]:
+      - generic [ref=e258]:
+        - generic [ref=e261]:
+          - heading "Sessions" [level=2] [ref=e262]
+          - button "Create Session" [ref=e263]:
+            - img [ref=e264]
+            - generic [ref=e265]: Create Session
+        - paragraph [ref=e269]: Loading sessions...

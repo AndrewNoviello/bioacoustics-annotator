@@ -24,6 +24,16 @@
 // @ts-ignore
 import { mel_spectrogram_db } from "../../../wasm/pkg/rust_melspec_wasm.js";
 
+// Surface worker-side errors that previously vanished silently. Without these,
+// a WASM load failure or unhandled rejection inside the worker leaves the
+// renderer-side render queue waiting forever with no signal.
+self.addEventListener('error', (e) => {
+  console.error('[spectrogram-worker] uncaught error', e.message, (e as ErrorEvent).filename, (e as ErrorEvent).lineno, (e as ErrorEvent).error);
+});
+self.addEventListener('unhandledrejection', (e) => {
+  console.error('[spectrogram-worker] unhandledrejection', (e as PromiseRejectionEvent).reason);
+});
+
 type InitMsg = {
   type: 'init'
 }
@@ -304,7 +314,7 @@ self.onmessage = async (e: MessageEvent<Msg>) => {
   if (msg.type === 'init') {
     try {
       await ensureWasmInitialized()
-    } catch { }
+    } catch { /* swallow — render path will surface a real error reply */ }
     return
   }
 
@@ -347,6 +357,17 @@ self.onmessage = async (e: MessageEvent<Msg>) => {
     return
   }
 }
+
+// Ready handshake: now that self.onmessage is installed, tell the main thread
+// it can start delivering. Messages posted to a module Worker during its
+// initial evaluation are silently dropped by Chromium/Electron in dev mode —
+// observed empirically: the very first render's init/set_pcm/render produced
+// zero onmessage callbacks here, while the same worker happily processed a
+// clear_pcm sent ~200ms later. workerClient buffers outbound messages until
+// this 'ready' arrives.
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+self.postMessage({ type: 'ready' })
 
 function framesForWindow(p: RenderMsg['params']): { F0: number, F1: number } {
   // framesPerSecond = how many hop-aligned frames fit in one second

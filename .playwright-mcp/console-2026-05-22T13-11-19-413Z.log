@@ -1,0 +1,669 @@
+[     284ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:21606
+[     349ms] [WARNING] %cElectron Security Warning (Disabled webSecurity) font-weight: bold; This renderer process has "webSecurity" disabled. This
+  exposes users of this app to severe security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[     349ms] [WARNING] %cElectron Security Warning (allowRunningInsecureContent) font-weight: bold; This renderer process has "allowRunningInsecureContent"
+  enabled. This exposes users of this app to severe security risks.
+
+  
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[   11444ms] [LOG] [spec/graphics] 11440 subscribe effect mount {fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   11445ms] [LOG] [spec/client] 11441 ensureWorker creating new Worker @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[   11446ms] [LOG] [spec/client] 11443 ensureWorker awaiting ready @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[   11447ms] [LOG] [spec/client] 11443 subscribeWorker {fileId: balaenoptera-acutorostrata.wav, setSize: 1} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[   11448ms] [LOG] [spec/graphics] 11444 set_pcm effect skipped {fileId: balaenoptera-acutorostrata.wav, audioLen: 0, sampleRate: 32000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   11449ms] [LOG] [spec/graphics] 11446 render effect skipped — no audioSamples {fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   11558ms] [LOG] [spec/client] 11555 worker ready — flushing pending posts {count: 0} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[   11558ms] [LOG] [spec/worker] 101 worker ready posted @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   11617ms] [LOG] [spec/graphics] 11613 set_pcm effect posting {fileId: balaenoptera-acutorostrata.wav, audioLen: 1859064, sampleRate: 48000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   11617ms] [LOG] [spec/client] 11614 postWorkerMessage {type: set_pcm, fileId: balaenoptera-acutorostrata.wav, renderId: undefined, transferCount: 1} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[   11618ms] [LOG] [spec/graphics] 11614 markRenderPosted {fileId: balaenoptera-acutorostrata.wav, renderId: 1, timerArmed: true} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   11618ms] [LOG] [spec/worker] 162 onmessage {type: set_pcm, fileId: balaenoptera-acutorostrata.wav, renderId: undefined} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   11618ms] [LOG] [spec/graphics] 11615 render effect posting {fileId: balaenoptera-acutorostrata.wav, renderId: 1, startTime: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   11619ms] [LOG] [spec/worker] 162 set_pcm stored {fileId: balaenoptera-acutorostrata.wav, pcmLen: 1859064, sampleRate: 48000, waitersResolved: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   11619ms] [LOG] [spec/client] 11615 postWorkerMessage {type: render, fileId: balaenoptera-acutorostrata.wav, renderId: 1, transferCount: 0} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[   11619ms] [LOG] [spec/worker] 163 onmessage {type: render, fileId: balaenoptera-acutorostrata.wav, renderId: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   11620ms] [LOG] [spec/worker] 163 render queued {fileId: balaenoptera-acutorostrata.wav, renderId: 1, replaced: false, renderInFlight: false, pendingSize: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   11620ms] [LOG] [spec/worker] 164 runLoop enter {pendingSize: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   11621ms] [LOG] [spec/worker] 164 runLoop drain iteration {fileId: balaenoptera-acutorostrata.wav, renderId: 1, remaining: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   11622ms] [LOG] [spec/worker] 165 processRender enter {renderId: 1, fileId: balaenoptera-acutorostrata.wav, t0: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   11622ms] [LOG] [spec/worker] 165 processRender awaiting PCM {renderId: 1, fileId: balaenoptera-acutorostrata.wav, hasPcm: true} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   11622ms] [LOG] [spec/worker] 166 processRender PCM ready {renderId: 1, fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   11777ms] [LOG] [spec/graphics] 11774 show-timer fired {fileId: balaenoptera-acutorostrata.wav, shouldShow: true, lastDispatched: 1, lastSettled: 0} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   21538ms] [LOG] [spec/worker] 10082 processRender assembleWindowMel done {renderId: 1, frames: 2812, melLen: 359936} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   21762ms] [LOG] [spec/worker] 10305 processRender converting to blob {renderId: 1, fileId: balaenoptera-acutorostrata.wav, width: 2812, height: 128} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   21807ms] [LOG] [spec/worker] 10350 processRender posting image {renderId: 1, fileId: balaenoptera-acutorostrata.wav, blobSize: 192973} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   21808ms] [LOG] [spec/worker] 10352 runLoop exit — queue drained @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   21808ms] [LOG] [spec/client] 21805 onmessage {type: image, fileId: balaenoptera-acutorostrata.wav, renderId: 1, listenerCount: 1, blobSize: 192973} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[   21809ms] [LOG] [spec/graphics] 21806 cb received {fileId: balaenoptera-acutorostrata.wav, type: image, replyId: 1, lastDispatched: 1, stale: false} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   21810ms] [LOG] [spec/graphics] 21806 markRenderDone {fileId: balaenoptera-acutorostrata.wav, id: 1, prevSettled: 0, lastSettled: 1, lastDispatched: 1} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   62061ms] [LOG] [spec/graphics] 62058 subscribe effect mount {fileId: ale-megaptera-novaeangliae.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   62063ms] [LOG] [spec/client] 62059 subscribeWorker {fileId: ale-megaptera-novaeangliae.wav, setSize: 1} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[   62064ms] [LOG] [spec/graphics] 62061 set_pcm effect skipped {fileId: ale-megaptera-novaeangliae.wav, audioLen: 0, sampleRate: 32000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   62065ms] [LOG] [spec/graphics] 62062 render effect skipped — no audioSamples {fileId: ale-megaptera-novaeangliae.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   62204ms] [LOG] [spec/graphics] 62200 set_pcm effect posting {fileId: ale-megaptera-novaeangliae.wav, audioLen: 2619984, sampleRate: 48000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   62205ms] [LOG] [spec/client] 62201 postWorkerMessage {type: set_pcm, fileId: ale-megaptera-novaeangliae.wav, renderId: undefined, transferCount: 1} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[   62206ms] [LOG] [spec/worker] 50750 onmessage {type: set_pcm, fileId: ale-megaptera-novaeangliae.wav, renderId: undefined} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   62207ms] [LOG] [spec/worker] 50750 set_pcm stored {fileId: ale-megaptera-novaeangliae.wav, pcmLen: 2619984, sampleRate: 48000, waitersResolved: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   62206ms] [LOG] [spec/graphics] 62203 markRenderPosted {fileId: ale-megaptera-novaeangliae.wav, renderId: 1, timerArmed: true} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   62207ms] [LOG] [spec/graphics] 62203 render effect posting {fileId: ale-megaptera-novaeangliae.wav, renderId: 1, startTime: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   62207ms] [LOG] [spec/client] 62204 postWorkerMessage {type: render, fileId: ale-megaptera-novaeangliae.wav, renderId: 1, transferCount: 0} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[   62208ms] [LOG] [spec/worker] 50751 onmessage {type: render, fileId: ale-megaptera-novaeangliae.wav, renderId: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   62208ms] [LOG] [spec/worker] 50751 render queued {fileId: ale-megaptera-novaeangliae.wav, renderId: 1, replaced: false, renderInFlight: false, pendingSize: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   62208ms] [LOG] [spec/worker] 50751 runLoop enter {pendingSize: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   62209ms] [LOG] [spec/worker] 50752 runLoop drain iteration {fileId: ale-megaptera-novaeangliae.wav, renderId: 1, remaining: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   62209ms] [LOG] [spec/worker] 50752 processRender enter {renderId: 1, fileId: ale-megaptera-novaeangliae.wav, t0: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   62209ms] [LOG] [spec/worker] 50753 processRender awaiting PCM {renderId: 1, fileId: ale-megaptera-novaeangliae.wav, hasPcm: true} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   62209ms] [LOG] [spec/worker] 50753 processRender PCM ready {renderId: 1, fileId: ale-megaptera-novaeangliae.wav} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   62366ms] [LOG] [spec/graphics] 62362 show-timer fired {fileId: ale-megaptera-novaeangliae.wav, shouldShow: true, lastDispatched: 1, lastSettled: 0} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   70713ms] [LOG] [spec/worker] 59256 processRender assembleWindowMel done {renderId: 1, frames: 2812, melLen: 359936} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   71048ms] [LOG] [spec/worker] 59591 processRender converting to blob {renderId: 1, fileId: ale-megaptera-novaeangliae.wav, width: 2812, height: 128} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   71089ms] [LOG] [spec/worker] 59632 processRender posting image {renderId: 1, fileId: ale-megaptera-novaeangliae.wav, blobSize: 164493} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   71089ms] [LOG] [spec/worker] 59633 runLoop exit — queue drained @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[   71089ms] [LOG] [spec/client] 71086 onmessage {type: image, fileId: ale-megaptera-novaeangliae.wav, renderId: 1, listenerCount: 1, blobSize: 164493} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[   71090ms] [LOG] [spec/graphics] 71086 cb received {fileId: ale-megaptera-novaeangliae.wav, type: image, replyId: 1, lastDispatched: 1, stale: false} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[   71090ms] [LOG] [spec/graphics] 71087 markRenderDone {fileId: ale-megaptera-novaeangliae.wav, id: 1, prevSettled: 0, lastSettled: 1, lastDispatched: 1} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  109584ms] [LOG] [spec/graphics] 109581 subscribe effect mount {fileId: hale-balaenoptera physalus.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  109585ms] [LOG] [spec/client] 109581 subscribeWorker {fileId: hale-balaenoptera physalus.wav, setSize: 1} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  109585ms] [LOG] [spec/graphics] 109582 set_pcm effect skipped {fileId: hale-balaenoptera physalus.wav, audioLen: 0, sampleRate: 32000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  109585ms] [LOG] [spec/graphics] 109582 render effect skipped — no audioSamples {fileId: hale-balaenoptera physalus.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  109586ms] [LOG] [spec/graphics] 109583 subscribe effect mount {fileId: lot-whale-globicephala-spp.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  109587ms] [LOG] [spec/client] 109583 subscribeWorker {fileId: lot-whale-globicephala-spp.wav, setSize: 1} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  109587ms] [LOG] [spec/graphics] 109584 set_pcm effect skipped {fileId: lot-whale-globicephala-spp.wav, audioLen: 0, sampleRate: 32000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  109587ms] [LOG] [spec/graphics] 109584 render effect skipped — no audioSamples {fileId: lot-whale-globicephala-spp.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  109675ms] [LOG] [spec/graphics] 109672 set_pcm effect posting {fileId: hale-balaenoptera physalus.wav, audioLen: 664512, sampleRate: 48000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  109676ms] [LOG] [spec/client] 109672 postWorkerMessage {type: set_pcm, fileId: hale-balaenoptera physalus.wav, renderId: undefined, transferCount: 1} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  109676ms] [LOG] [spec/graphics] 109672 markRenderPosted {fileId: hale-balaenoptera physalus.wav, renderId: 1, timerArmed: true} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  109676ms] [LOG] [spec/worker] 98219 onmessage {type: set_pcm, fileId: hale-balaenoptera physalus.wav, renderId: undefined} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  109676ms] [LOG] [spec/graphics] 109673 render effect posting {fileId: hale-balaenoptera physalus.wav, renderId: 1, startTime: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  109676ms] [LOG] [spec/worker] 98220 set_pcm stored {fileId: hale-balaenoptera physalus.wav, pcmLen: 664512, sampleRate: 48000, waitersResolved: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  109676ms] [LOG] [spec/client] 109673 postWorkerMessage {type: render, fileId: hale-balaenoptera physalus.wav, renderId: 1, transferCount: 0} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  109677ms] [LOG] [spec/worker] 98220 onmessage {type: render, fileId: hale-balaenoptera physalus.wav, renderId: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  109677ms] [LOG] [spec/worker] 98221 render queued {fileId: hale-balaenoptera physalus.wav, renderId: 1, replaced: false, renderInFlight: false, pendingSize: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  109678ms] [LOG] [spec/worker] 98221 runLoop enter {pendingSize: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  109678ms] [LOG] [spec/worker] 98221 runLoop drain iteration {fileId: hale-balaenoptera physalus.wav, renderId: 1, remaining: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  109679ms] [LOG] [spec/worker] 98222 processRender enter {renderId: 1, fileId: hale-balaenoptera physalus.wav, t0: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  109679ms] [LOG] [spec/worker] 98223 processRender awaiting PCM {renderId: 1, fileId: hale-balaenoptera physalus.wav, hasPcm: true} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  109680ms] [LOG] [spec/worker] 98223 processRender PCM ready {renderId: 1, fileId: hale-balaenoptera physalus.wav} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  109707ms] [LOG] [spec/graphics] 109703 set_pcm effect posting {fileId: lot-whale-globicephala-spp.wav, audioLen: 1429235, sampleRate: 48000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  109707ms] [LOG] [spec/client] 109704 postWorkerMessage {type: set_pcm, fileId: lot-whale-globicephala-spp.wav, renderId: undefined, transferCount: 1} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  109709ms] [LOG] [spec/graphics] 109706 markRenderPosted {fileId: lot-whale-globicephala-spp.wav, renderId: 1, timerArmed: true} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  109710ms] [LOG] [spec/graphics] 109707 render effect posting {fileId: lot-whale-globicephala-spp.wav, renderId: 1, startTime: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  109711ms] [LOG] [spec/client] 109707 postWorkerMessage {type: render, fileId: lot-whale-globicephala-spp.wav, renderId: 1, transferCount: 0} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  109836ms] [LOG] [spec/graphics] 109833 show-timer fired {fileId: hale-balaenoptera physalus.wav, shouldShow: true, lastDispatched: 1, lastSettled: 0} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  109868ms] [LOG] [spec/graphics] 109865 show-timer fired {fileId: lot-whale-globicephala-spp.wav, shouldShow: true, lastDispatched: 1, lastSettled: 0} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  117495ms] [LOG] [spec/worker] 106039 processRender assembleWindowMel done {renderId: 1, frames: 2812, melLen: 331136} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  117684ms] [LOG] [spec/worker] 106228 processRender converting to blob {renderId: 1, fileId: hale-balaenoptera physalus.wav, width: 2812, height: 128} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  117719ms] [LOG] [spec/worker] 106262 onmessage {type: set_pcm, fileId: lot-whale-globicephala-spp.wav, renderId: undefined} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  117721ms] [LOG] [spec/worker] 106265 set_pcm stored {fileId: lot-whale-globicephala-spp.wav, pcmLen: 1429235, sampleRate: 48000, waitersResolved: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  117723ms] [LOG] [spec/worker] 106266 onmessage {type: render, fileId: lot-whale-globicephala-spp.wav, renderId: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  117724ms] [LOG] [spec/worker] 106267 render queued {fileId: lot-whale-globicephala-spp.wav, renderId: 1, replaced: false, renderInFlight: true, pendingSize: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  117725ms] [LOG] [spec/worker] 106268 runLoop skipped — renderInFlight {pendingSize: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  117730ms] [LOG] [spec/worker] 106274 processRender posting image {renderId: 1, fileId: hale-balaenoptera physalus.wav, blobSize: 203170} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  117731ms] [LOG] [spec/worker] 106274 runLoop drain iteration {fileId: lot-whale-globicephala-spp.wav, renderId: 1, remaining: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  117731ms] [LOG] [spec/client] 117727 onmessage {type: image, fileId: hale-balaenoptera physalus.wav, renderId: 1, listenerCount: 1, blobSize: 203170} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  117731ms] [LOG] [spec/worker] 106275 processRender enter {renderId: 1, fileId: lot-whale-globicephala-spp.wav, t0: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  117732ms] [LOG] [spec/graphics] 117728 cb received {fileId: hale-balaenoptera physalus.wav, type: image, replyId: 1, lastDispatched: 1, stale: false} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  117732ms] [LOG] [spec/graphics] 117728 markRenderDone {fileId: hale-balaenoptera physalus.wav, id: 1, prevSettled: 0, lastSettled: 1, lastDispatched: 1} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  117732ms] [LOG] [spec/worker] 106275 processRender awaiting PCM {renderId: 1, fileId: lot-whale-globicephala-spp.wav, hasPcm: true} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  117733ms] [LOG] [spec/worker] 106276 processRender PCM ready {renderId: 1, fileId: lot-whale-globicephala-spp.wav} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  126267ms] [LOG] [spec/worker] 114811 processRender assembleWindowMel done {renderId: 1, frames: 2812, melLen: 359936} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  126427ms] [LOG] [spec/worker] 114971 processRender converting to blob {renderId: 1, fileId: lot-whale-globicephala-spp.wav, width: 2812, height: 128} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  126495ms] [LOG] [spec/client] 126492 onmessage {type: image, fileId: lot-whale-globicephala-spp.wav, renderId: 1, listenerCount: 1, blobSize: 556299} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  126496ms] [LOG] [spec/graphics] 126492 cb received {fileId: lot-whale-globicephala-spp.wav, type: image, replyId: 1, lastDispatched: 1, stale: false} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  126494ms] [LOG] [spec/worker] 115037 processRender posting image {renderId: 1, fileId: lot-whale-globicephala-spp.wav, blobSize: 556299} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  126495ms] [LOG] [spec/worker] 115038 runLoop exit — queue drained @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  126496ms] [LOG] [spec/graphics] 126492 markRenderDone {fileId: lot-whale-globicephala-spp.wav, id: 1, prevSettled: 0, lastSettled: 1, lastDispatched: 1} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  172981ms] [LOG] [spec/graphics] 172978 subscribe effect cleanup {fileId: balaenoptera-acutorostrata.wav, lastDispatched: 1, lastSettled: 1} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  172982ms] [LOG] [spec/client] 172979 unsubscribeWorker {fileId: balaenoptera-acutorostrata.wav, remaining: 0} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  172983ms] [LOG] [spec/client] 172979 unsubscribeWorker last subscriber — posting clear_pcm {fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  172983ms] [LOG] [spec/client] 172979 postWorkerMessage {type: clear_pcm, fileId: balaenoptera-acutorostrata.wav, renderId: undefined, transferCount: 0} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  172983ms] [LOG] [spec/graphics] 172980 subscribe effect cleanup {fileId: hale-balaenoptera physalus.wav, lastDispatched: 1, lastSettled: 1} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  172983ms] [LOG] [spec/worker] 161527 onmessage {type: clear_pcm, fileId: balaenoptera-acutorostrata.wav, renderId: undefined} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  172983ms] [LOG] [spec/client] 172980 unsubscribeWorker {fileId: hale-balaenoptera physalus.wav, remaining: 0} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  172984ms] [LOG] [spec/worker] 161527 clear_pcm {fileId: balaenoptera-acutorostrata.wav, hadPcm: true, droppedQueued: false, waitersWoken: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  172984ms] [LOG] [spec/client] 172980 unsubscribeWorker last subscriber — posting clear_pcm {fileId: hale-balaenoptera physalus.wav} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  172984ms] [LOG] [spec/client] 172981 postWorkerMessage {type: clear_pcm, fileId: hale-balaenoptera physalus.wav, renderId: undefined, transferCount: 0} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  172985ms] [LOG] [spec/worker] 161529 onmessage {type: clear_pcm, fileId: hale-balaenoptera physalus.wav, renderId: undefined} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  172985ms] [LOG] [spec/graphics] 172982 subscribe effect cleanup {fileId: lot-whale-globicephala-spp.wav, lastDispatched: 1, lastSettled: 1} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  172986ms] [LOG] [spec/worker] 161529 clear_pcm {fileId: hale-balaenoptera physalus.wav, hadPcm: true, droppedQueued: false, waitersWoken: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  172986ms] [LOG] [spec/client] 172982 unsubscribeWorker {fileId: lot-whale-globicephala-spp.wav, remaining: 0} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  172986ms] [LOG] [spec/client] 172983 unsubscribeWorker last subscriber — posting clear_pcm {fileId: lot-whale-globicephala-spp.wav} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  172987ms] [LOG] [spec/client] 172983 postWorkerMessage {type: clear_pcm, fileId: lot-whale-globicephala-spp.wav, renderId: undefined, transferCount: 0} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  172987ms] [LOG] [spec/worker] 161531 onmessage {type: clear_pcm, fileId: lot-whale-globicephala-spp.wav, renderId: undefined} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  172987ms] [LOG] [spec/graphics] 172984 subscribe effect cleanup {fileId: ale-megaptera-novaeangliae.wav, lastDispatched: 1, lastSettled: 1} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455377299:26
+[  172988ms] [LOG] [spec/worker] 161531 clear_pcm {fileId: lot-whale-globicephala-spp.wav, hadPcm: true, droppedQueued: false, waitersWoken: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  172988ms] [LOG] [spec/client] 172984 unsubscribeWorker {fileId: ale-megaptera-novaeangliae.wav, remaining: 0} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  172988ms] [LOG] [spec/client] 172985 unsubscribeWorker last subscriber — posting clear_pcm {fileId: ale-megaptera-novaeangliae.wav} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  172989ms] [LOG] [spec/client] 172985 postWorkerMessage {type: clear_pcm, fileId: ale-megaptera-novaeangliae.wav, renderId: undefined, transferCount: 0} @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455377299:3
+[  172989ms] [LOG] [spec/worker] 161532 onmessage {type: clear_pcm, fileId: ale-megaptera-novaeangliae.wav, renderId: undefined} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  172989ms] [LOG] [spec/graphics] 172986 subscribe effect mount {fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  172989ms] [LOG] [spec/worker] 161533 clear_pcm {fileId: ale-megaptera-novaeangliae.wav, hadPcm: true, droppedQueued: false, waitersWoken: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  172994ms] [LOG] [spec/graphics] 172990 set_pcm effect posting {fileId: balaenoptera-acutorostrata.wav, audioLen: 1859064, sampleRate: 48000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  172995ms] [LOG] [spec/graphics] 172991 markRenderPosted {fileId: balaenoptera-acutorostrata.wav, renderId: 1, timerArmed: true} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  172995ms] [LOG] [spec/graphics] 172991 render effect posting {fileId: balaenoptera-acutorostrata.wav, renderId: 1, startTime: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  172995ms] [LOG] [spec/graphics] 172992 subscribe effect mount {fileId: hale-balaenoptera physalus.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  172997ms] [LOG] [spec/graphics] 172993 set_pcm effect posting {fileId: hale-balaenoptera physalus.wav, audioLen: 664512, sampleRate: 48000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  172997ms] [LOG] [spec/graphics] 172994 markRenderPosted {fileId: hale-balaenoptera physalus.wav, renderId: 1, timerArmed: true} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  172998ms] [LOG] [spec/graphics] 172994 render effect posting {fileId: hale-balaenoptera physalus.wav, renderId: 1, startTime: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  172998ms] [LOG] [spec/graphics] 172994 subscribe effect mount {fileId: lot-whale-globicephala-spp.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  173001ms] [LOG] [spec/graphics] 172997 set_pcm effect posting {fileId: lot-whale-globicephala-spp.wav, audioLen: 1429235, sampleRate: 48000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  173001ms] [LOG] [spec/graphics] 172998 markRenderPosted {fileId: lot-whale-globicephala-spp.wav, renderId: 1, timerArmed: true} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  173002ms] [LOG] [spec/graphics] 172998 render effect posting {fileId: lot-whale-globicephala-spp.wav, renderId: 1, startTime: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  173002ms] [LOG] [spec/graphics] 172999 subscribe effect mount {fileId: ale-megaptera-novaeangliae.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  173012ms] [LOG] [spec/graphics] 173008 set_pcm effect posting {fileId: ale-megaptera-novaeangliae.wav, audioLen: 2619984, sampleRate: 48000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  173012ms] [LOG] [spec/graphics] 173009 markRenderPosted {fileId: ale-megaptera-novaeangliae.wav, renderId: 1, timerArmed: true} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  173013ms] [LOG] [spec/graphics] 173009 render effect posting {fileId: ale-megaptera-novaeangliae.wav, renderId: 1, startTime: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  173044ms] [LOG] [spec/worker] 29 worker ready posted @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  173045ms] [LOG] [spec/worker] 30 onmessage {type: set_pcm, fileId: balaenoptera-acutorostrata.wav, renderId: undefined} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  173046ms] [LOG] [spec/worker] 31 set_pcm stored {fileId: balaenoptera-acutorostrata.wav, pcmLen: 1859064, sampleRate: 48000, waitersResolved: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  173046ms] [LOG] [spec/worker] 32 onmessage {type: render, fileId: balaenoptera-acutorostrata.wav, renderId: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  173047ms] [LOG] [spec/worker] 32 render queued {fileId: balaenoptera-acutorostrata.wav, renderId: 1, replaced: false, renderInFlight: false, pendingSize: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  173048ms] [LOG] [spec/worker] 33 runLoop enter {pendingSize: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  173048ms] [LOG] [spec/worker] 33 runLoop drain iteration {fileId: balaenoptera-acutorostrata.wav, renderId: 1, remaining: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  173049ms] [LOG] [spec/worker] 34 processRender enter {renderId: 1, fileId: balaenoptera-acutorostrata.wav, t0: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  173051ms] [LOG] [spec/worker] 36 processRender awaiting PCM {renderId: 1, fileId: balaenoptera-acutorostrata.wav, hasPcm: true} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  173052ms] [LOG] [spec/worker] 37 processRender PCM ready {renderId: 1, fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  173151ms] [LOG] [spec/graphics] 173148 show-timer fired {fileId: balaenoptera-acutorostrata.wav, shouldShow: true, lastDispatched: 1, lastSettled: 0} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  173152ms] [LOG] [spec/graphics] 173148 show-timer fired {fileId: hale-balaenoptera physalus.wav, shouldShow: true, lastDispatched: 1, lastSettled: 0} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  173152ms] [LOG] [spec/graphics] 173148 show-timer fired {fileId: lot-whale-globicephala-spp.wav, shouldShow: true, lastDispatched: 1, lastSettled: 0} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  173167ms] [LOG] [spec/graphics] 173164 show-timer fired {fileId: ale-megaptera-novaeangliae.wav, shouldShow: true, lastDispatched: 1, lastSettled: 0} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  182157ms] [LOG] [spec/worker] 9142 processRender assembleWindowMel done {renderId: 1, frames: 2812, melLen: 359936} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182340ms] [LOG] [spec/worker] 9326 processRender converting to blob {renderId: 1, fileId: balaenoptera-acutorostrata.wav, width: 2812, height: 128} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182377ms] [LOG] [spec/worker] 9362 onmessage {type: set_pcm, fileId: hale-balaenoptera physalus.wav, renderId: undefined} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182378ms] [LOG] [spec/worker] 9363 set_pcm stored {fileId: hale-balaenoptera physalus.wav, pcmLen: 664512, sampleRate: 48000, waitersResolved: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182379ms] [LOG] [spec/worker] 9364 onmessage {type: render, fileId: hale-balaenoptera physalus.wav, renderId: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182379ms] [LOG] [spec/worker] 9365 render queued {fileId: hale-balaenoptera physalus.wav, renderId: 1, replaced: false, renderInFlight: true, pendingSize: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182380ms] [LOG] [spec/worker] 9366 runLoop skipped — renderInFlight {pendingSize: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182381ms] [LOG] [spec/worker] 9366 onmessage {type: set_pcm, fileId: lot-whale-globicephala-spp.wav, renderId: undefined} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182382ms] [LOG] [spec/worker] 9367 set_pcm stored {fileId: lot-whale-globicephala-spp.wav, pcmLen: 1429235, sampleRate: 48000, waitersResolved: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182383ms] [LOG] [spec/worker] 9368 onmessage {type: render, fileId: lot-whale-globicephala-spp.wav, renderId: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182384ms] [LOG] [spec/worker] 9369 render queued {fileId: lot-whale-globicephala-spp.wav, renderId: 1, replaced: false, renderInFlight: true, pendingSize: 2} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182384ms] [LOG] [spec/worker] 9370 runLoop skipped — renderInFlight {pendingSize: 2} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182385ms] [LOG] [spec/worker] 9371 onmessage {type: set_pcm, fileId: ale-megaptera-novaeangliae.wav, renderId: undefined} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182386ms] [LOG] [spec/worker] 9371 set_pcm stored {fileId: ale-megaptera-novaeangliae.wav, pcmLen: 2619984, sampleRate: 48000, waitersResolved: 0} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182388ms] [LOG] [spec/worker] 9374 onmessage {type: render, fileId: ale-megaptera-novaeangliae.wav, renderId: 1} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182389ms] [LOG] [spec/worker] 9375 render queued {fileId: ale-megaptera-novaeangliae.wav, renderId: 1, replaced: false, renderInFlight: true, pendingSize: 3} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182390ms] [LOG] [spec/worker] 9376 runLoop skipped — renderInFlight {pendingSize: 3} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182398ms] [LOG] [spec/worker] 9384 processRender posting image {renderId: 1, fileId: balaenoptera-acutorostrata.wav, blobSize: 192973} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182400ms] [LOG] [spec/worker] 9385 runLoop drain iteration {fileId: hale-balaenoptera physalus.wav, renderId: 1, remaining: 2} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182400ms] [LOG] [spec/graphics] 182396 cb received {fileId: balaenoptera-acutorostrata.wav, type: image, replyId: 1, lastDispatched: 1, stale: false} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  182400ms] [LOG] [spec/graphics] 182397 markRenderDone {fileId: balaenoptera-acutorostrata.wav, id: 1, prevSettled: 0, lastSettled: 1, lastDispatched: 1} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  182400ms] [LOG] [spec/worker] 9386 processRender enter {renderId: 1, fileId: hale-balaenoptera physalus.wav, t0: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182401ms] [LOG] [spec/worker] 9386 processRender awaiting PCM {renderId: 1, fileId: hale-balaenoptera physalus.wav, hasPcm: true} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  182402ms] [LOG] [spec/worker] 9387 processRender PCM ready {renderId: 1, fileId: hale-balaenoptera physalus.wav} @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:6
+[  190426ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:21606
+[  190451ms] [WARNING] %cElectron Security Warning (Disabled webSecurity) font-weight: bold; This renderer process has "webSecurity" disabled. This
+  exposes users of this app to severe security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[  190451ms] [WARNING] %cElectron Security Warning (allowRunningInsecureContent) font-weight: bold; This renderer process has "allowRunningInsecureContent"
+  enabled. This exposes users of this app to severe security risks.
+
+  
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[  191113ms] [LOG] [spec/graphics] 814 subscribe effect mount {fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  191114ms] [LOG] [spec/graphics] 815 set_pcm effect skipped {fileId: balaenoptera-acutorostrata.wav, audioLen: 0, sampleRate: 32000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  191115ms] [LOG] [spec/graphics] 815 render effect skipped — no audioSamples {fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  191222ms] [ERROR] [spectrogram-worker] uncaught error Uncaught ReferenceError: dbg is not defined http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module 228 ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:228:1 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:4
+[  191223ms] [ERROR] [spectrogram-worker] onerror Uncaught ReferenceError: dbg is not defined http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module 228 null @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455652316:23
+[  191232ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:228:1
+[  191267ms] [LOG] [spec/graphics] 968 set_pcm effect posting {fileId: balaenoptera-acutorostrata.wav, audioLen: 1859064, sampleRate: 48000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  191267ms] [LOG] [spec/graphics] 968 markRenderPosted {fileId: balaenoptera-acutorostrata.wav, renderId: 1, timerArmed: true} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  191267ms] [LOG] [spec/graphics] 968 render effect posting {fileId: balaenoptera-acutorostrata.wav, renderId: 1, startTime: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  191269ms] [ERROR] [spectrogram-worker] unhandledrejection ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:183:3) @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:7
+[  191270ms] ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:183:3)
+[  191270ms] [ERROR] [spectrogram-worker] unhandledrejection ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:183:3) @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:7
+[  191271ms] ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:183:3)
+[  191426ms] [LOG] [spec/graphics] 1127 show-timer fired {fileId: balaenoptera-acutorostrata.wav, shouldShow: true, lastDispatched: 1, lastSettled: 0} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  205048ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:21606
+[  205076ms] [WARNING] %cElectron Security Warning (Disabled webSecurity) font-weight: bold; This renderer process has "webSecurity" disabled. This
+  exposes users of this app to severe security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[  205077ms] [WARNING] %cElectron Security Warning (allowRunningInsecureContent) font-weight: bold; This renderer process has "allowRunningInsecureContent"
+  enabled. This exposes users of this app to severe security risks.
+
+  
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[  205232ms] [LOG] [spec/graphics] 360 subscribe effect mount {fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  205234ms] [LOG] [spec/graphics] 362 set_pcm effect skipped {fileId: balaenoptera-acutorostrata.wav, audioLen: 0, sampleRate: 32000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  205235ms] [LOG] [spec/graphics] 363 render effect skipped — no audioSamples {fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  205321ms] [ERROR] [spectrogram-worker] uncaught error Uncaught ReferenceError: dbg is not defined http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module 223 ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:223:1 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:4
+[  205323ms] [ERROR] [spectrogram-worker] onerror Uncaught ReferenceError: dbg is not defined http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module 223 null @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455652316:23
+[  205334ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:223:1
+[  205351ms] [LOG] [spec/graphics] 479 set_pcm effect posting {fileId: balaenoptera-acutorostrata.wav, audioLen: 1859064, sampleRate: 48000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  205352ms] [LOG] [spec/graphics] 479 markRenderPosted {fileId: balaenoptera-acutorostrata.wav, renderId: 1, timerArmed: true} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  205352ms] [ERROR] [spectrogram-worker] unhandledrejection ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:178:3) @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:7
+[  205352ms] [LOG] [spec/graphics] 480 render effect posting {fileId: balaenoptera-acutorostrata.wav, renderId: 1, startTime: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  205354ms] ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:178:3)
+[  205353ms] [ERROR] [spectrogram-worker] unhandledrejection ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:178:3) @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:7
+[  205355ms] ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:178:3)
+[  205510ms] [LOG] [spec/graphics] 638 show-timer fired {fileId: balaenoptera-acutorostrata.wav, shouldShow: true, lastDispatched: 1, lastSettled: 0} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  214985ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:21606
+[  215010ms] [WARNING] %cElectron Security Warning (Disabled webSecurity) font-weight: bold; This renderer process has "webSecurity" disabled. This
+  exposes users of this app to severe security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[  215010ms] [WARNING] %cElectron Security Warning (allowRunningInsecureContent) font-weight: bold; This renderer process has "allowRunningInsecureContent"
+  enabled. This exposes users of this app to severe security risks.
+
+  
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[  215313ms] [LOG] [spec/graphics] 442 subscribe effect mount {fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  215316ms] [LOG] [spec/graphics] 444 set_pcm effect skipped {fileId: balaenoptera-acutorostrata.wav, audioLen: 0, sampleRate: 32000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  215317ms] [LOG] [spec/graphics] 445 render effect skipped — no audioSamples {fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  215395ms] [ERROR] [spectrogram-worker] uncaught error Uncaught ReferenceError: dbg is not defined http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module 220 ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:220:1 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:4
+[  215402ms] [ERROR] [spectrogram-worker] onerror Uncaught ReferenceError: dbg is not defined http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module 220 null @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455652316:23
+[  215408ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:220:1
+[  215438ms] [LOG] [spec/graphics] 567 set_pcm effect posting {fileId: balaenoptera-acutorostrata.wav, audioLen: 1859064, sampleRate: 48000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  215439ms] [LOG] [spec/graphics] 567 markRenderPosted {fileId: balaenoptera-acutorostrata.wav, renderId: 1, timerArmed: true} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  215439ms] [ERROR] [spectrogram-worker] unhandledrejection ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:175:3) @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:7
+[  215440ms] [LOG] [spec/graphics] 568 render effect posting {fileId: balaenoptera-acutorostrata.wav, renderId: 1, startTime: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  215441ms] ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:175:3)
+[  215440ms] [ERROR] [spectrogram-worker] unhandledrejection ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:175:3) @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:7
+[  215442ms] ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:175:3)
+[  215591ms] [LOG] [spec/graphics] 719 show-timer fired {fileId: balaenoptera-acutorostrata.wav, shouldShow: true, lastDispatched: 1, lastSettled: 0} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  225088ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:21606
+[  225122ms] [WARNING] %cElectron Security Warning (Disabled webSecurity) font-weight: bold; This renderer process has "webSecurity" disabled. This
+  exposes users of this app to severe security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[  225123ms] [WARNING] %cElectron Security Warning (allowRunningInsecureContent) font-weight: bold; This renderer process has "allowRunningInsecureContent"
+  enabled. This exposes users of this app to severe security risks.
+
+  
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[  225398ms] [LOG] [spec/graphics] 462 subscribe effect mount {fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  225399ms] [LOG] [spec/graphics] 464 set_pcm effect skipped {fileId: balaenoptera-acutorostrata.wav, audioLen: 0, sampleRate: 32000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  225401ms] [LOG] [spec/graphics] 465 render effect skipped — no audioSamples {fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  225467ms] [ERROR] [spectrogram-worker] uncaught error Uncaught ReferenceError: dbg is not defined http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module 214 ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:214:1 @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:4
+[  225467ms] [ERROR] [spectrogram-worker] onerror Uncaught ReferenceError: dbg is not defined http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module 214 null @ http://localhost:5173/spectrogram/workerClient.ts?t=1779455652316:23
+[  225468ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:214:1
+[  225498ms] [LOG] [spec/graphics] 562 set_pcm effect posting {fileId: balaenoptera-acutorostrata.wav, audioLen: 1859064, sampleRate: 48000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  225499ms] [LOG] [spec/graphics] 563 markRenderPosted {fileId: balaenoptera-acutorostrata.wav, renderId: 1, timerArmed: true} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  225499ms] [ERROR] [spectrogram-worker] unhandledrejection ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:169:3) @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:7
+[  225499ms] [LOG] [spec/graphics] 564 render effect posting {fileId: balaenoptera-acutorostrata.wav, renderId: 1, startTime: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  225501ms] ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:169:3)
+[  225500ms] [ERROR] [spectrogram-worker] unhandledrejection ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:169:3) @ http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:7
+[  225503ms] ReferenceError: dbg is not defined
+    at self.onmessage (http://localhost:5173/spectrogram/worker/spectrogramWorker.ts?worker_file&type=module:169:3)
+[  225656ms] [LOG] [spec/graphics] 720 show-timer fired {fileId: balaenoptera-acutorostrata.wav, shouldShow: true, lastDispatched: 1, lastSettled: 0} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  254579ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:21606
+[  254610ms] [WARNING] %cElectron Security Warning (Disabled webSecurity) font-weight: bold; This renderer process has "webSecurity" disabled. This
+  exposes users of this app to severe security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[  254611ms] [WARNING] %cElectron Security Warning (allowRunningInsecureContent) font-weight: bold; This renderer process has "allowRunningInsecureContent"
+  enabled. This exposes users of this app to severe security risks.
+
+  
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. @ node:electron/js2c/sandbox_bundle:1
+[  255636ms] [LOG] [spec/graphics] 1192 subscribe effect mount {fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  255636ms] [LOG] [spec/graphics] 1193 set_pcm effect skipped {fileId: balaenoptera-acutorostrata.wav, audioLen: 0, sampleRate: 32000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  255637ms] [LOG] [spec/graphics] 1193 render effect skipped — no audioSamples {fileId: balaenoptera-acutorostrata.wav} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  255741ms] [LOG] [spec/graphics] 1297 set_pcm effect posting {fileId: balaenoptera-acutorostrata.wav, audioLen: 1859064, sampleRate: 48000} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  255741ms] [LOG] [spec/graphics] 1298 markRenderPosted {fileId: balaenoptera-acutorostrata.wav, renderId: 1, timerArmed: true} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  255742ms] [LOG] [spec/graphics] 1298 render effect posting {fileId: balaenoptera-acutorostrata.wav, renderId: 1, startTime: 0, windowDuration: 15} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  255903ms] [LOG] [spec/graphics] 1459 show-timer fired {fileId: balaenoptera-acutorostrata.wav, shouldShow: true, lastDispatched: 1, lastSettled: 0} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  265052ms] [LOG] [spec/graphics] 10608 cb received {fileId: balaenoptera-acutorostrata.wav, type: image, replyId: 1, lastDispatched: 1, stale: false} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  265053ms] [LOG] [spec/graphics] 10610 markRenderDone {fileId: balaenoptera-acutorostrata.wav, id: 1, prevSettled: 0, lastSettled: 1, lastDispatched: 1} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  275891ms] [LOG] [spec/graphics] 21448 subscribe effect cleanup {fileId: balaenoptera-acutorostrata.wav, lastDispatched: 1, lastSettled: 1} @ http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455652316:26
+[  275892ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455755215:92:5
+    at commitHookEffectListMount (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:16961:34)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18204:19)
+    at commitPassiveMountEffects_complete (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18177:17)
+    at commitPassiveMountEffects_begin (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18167:15)
+    at commitPassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18157:11)
+    at flushPassiveEffectsImpl (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19541:11)
+    at flushPassiveEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19498:22)
+    at commitRootImpl (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19467:13)
+    at commitRoot (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19328:13)
+[  275899ms] [ERROR] The above error occurred in the <SpectrogramGraphics> component:
+
+    at SpectrogramGraphics (http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455755215:26:24)
+    at SpectrogramProvider (http://localhost:5173/spectrogram/SpectrogramProvider.tsx:62:5)
+    at div
+    at SpectrogramPlayer (http://localhost:5173/spectrogram/SpectrogramPlayer.tsx?t=1779455652316:42:5)
+    at http://localhost:5173/src/components/Spectrogram.jsx?t=1779455652316:21:3
+    at div
+    at LazyMount (http://localhost:5173/src/components/LazyMount.jsx:19:22)
+    at div
+    at div
+    at div
+    at div
+    at div
+    at Session (http://localhost:5173/src/components/Session.jsx?t=1779455652316:41:148)
+    at RenderedRoute (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4086:5)
+    at Routes (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4556:5)
+    at main
+    at div
+    at SettingsProvider (http://localhost:5173/src/stores/SettingsContext.jsx:55:36)
+    at Router (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4499:15)
+    at HashRouter (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:5281:5)
+    at App (http://localhost:5173/src/App.jsx?t=1779455733832:28:47)
+    at SessionProvider (http://localhost:5173/src/stores/SessionContext.jsx:20:35)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:14077
+[  275900ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455755215:92:5
+    at commitHookEffectListMount (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:16961:34)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18204:19)
+    at commitPassiveMountEffects_complete (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18177:17)
+    at commitPassiveMountEffects_begin (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18167:15)
+    at commitPassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18157:11)
+    at flushPassiveEffectsImpl (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19541:11)
+    at flushPassiveEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19498:22)
+    at commitRootImpl (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19467:13)
+    at commitRoot (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19328:13)
+[  289034ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455767391:85:5
+    at commitHookEffectListMount (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:16961:34)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18204:19)
+    at commitPassiveMountEffects_complete (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18177:17)
+    at commitPassiveMountEffects_begin (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18167:15)
+    at commitPassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18157:11)
+    at flushPassiveEffectsImpl (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19541:11)
+    at flushPassiveEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19498:22)
+    at http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19379:17
+    at workLoop (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:195:42)
+[  289033ms] [ERROR] The above error occurred in the <SpectrogramGraphics> component:
+
+    at SpectrogramGraphics (http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455767391:26:24)
+    at SpectrogramProvider (http://localhost:5173/spectrogram/SpectrogramProvider.tsx:62:5)
+    at div
+    at SpectrogramPlayer (http://localhost:5173/spectrogram/SpectrogramPlayer.tsx?t=1779455652316:42:5)
+    at http://localhost:5173/src/components/Spectrogram.jsx?t=1779455652316:21:3
+    at div
+    at LazyMount (http://localhost:5173/src/components/LazyMount.jsx:19:22)
+    at div
+    at div
+    at div
+    at div
+    at div
+    at Session (http://localhost:5173/src/components/Session.jsx?t=1779455652316:41:148)
+    at RenderedRoute (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4086:5)
+    at Routes (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4556:5)
+    at main
+    at div
+    at SettingsProvider (http://localhost:5173/src/stores/SettingsContext.jsx:55:36)
+    at Router (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4499:15)
+    at HashRouter (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:5281:5)
+    at App (http://localhost:5173/src/App.jsx?t=1779455733832:28:47)
+    at SessionProvider (http://localhost:5173/src/stores/SessionContext.jsx:20:35)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:14077
+[  289035ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455767391:85:5
+    at commitHookEffectListMount (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:16961:34)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18204:19)
+    at commitPassiveMountEffects_complete (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18177:17)
+    at commitPassiveMountEffects_begin (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18167:15)
+    at commitPassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18157:11)
+    at flushPassiveEffectsImpl (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19541:11)
+    at flushPassiveEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19498:22)
+    at http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19379:17
+    at workLoop (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:195:42)
+[  300181ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455778531:122:7
+    at commitHookEffectListMount (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:16961:34)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18204:19)
+    at commitPassiveMountEffects_complete (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18177:17)
+    at commitPassiveMountEffects_begin (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18167:15)
+    at commitPassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18157:11)
+    at flushPassiveEffectsImpl (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19541:11)
+    at flushPassiveEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19498:22)
+    at http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19379:17
+    at workLoop (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:195:42)
+[  300180ms] [ERROR] The above error occurred in the <SpectrogramGraphics> component:
+
+    at SpectrogramGraphics (http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455778531:26:24)
+    at SpectrogramProvider (http://localhost:5173/spectrogram/SpectrogramProvider.tsx:62:5)
+    at div
+    at SpectrogramPlayer (http://localhost:5173/spectrogram/SpectrogramPlayer.tsx?t=1779455652316:42:5)
+    at http://localhost:5173/src/components/Spectrogram.jsx?t=1779455652316:21:3
+    at div
+    at LazyMount (http://localhost:5173/src/components/LazyMount.jsx:19:22)
+    at div
+    at div
+    at div
+    at div
+    at div
+    at Session (http://localhost:5173/src/components/Session.jsx?t=1779455652316:41:148)
+    at RenderedRoute (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4086:5)
+    at Routes (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4556:5)
+    at main
+    at div
+    at SettingsProvider (http://localhost:5173/src/stores/SettingsContext.jsx:55:36)
+    at Router (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4499:15)
+    at HashRouter (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:5281:5)
+    at App (http://localhost:5173/src/App.jsx?t=1779455733832:28:47)
+    at SessionProvider (http://localhost:5173/src/stores/SessionContext.jsx:20:35)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:14077
+[  300183ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455778531:122:7
+    at commitHookEffectListMount (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:16961:34)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18204:19)
+    at commitPassiveMountEffects_complete (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18177:17)
+    at commitPassiveMountEffects_begin (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18167:15)
+    at commitPassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18157:11)
+    at flushPassiveEffectsImpl (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19541:11)
+    at flushPassiveEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19498:22)
+    at http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19379:17
+    at workLoop (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:195:42)
+[  300185ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455778531:105:7
+    at safelyCallDestroy (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:16794:13)
+    at commitHookEffectListUnmount (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:16921:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18331:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18293:13)
+    at commitPassiveUnmountEffects_begin (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18229:19)
+    at commitPassiveUnmountEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18217:11)
+    at flushPassiveEffectsImpl (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19540:11)
+    at flushPassiveEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19498:22)
+    at http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19379:17
+[  300185ms] [ERROR] The above error occurred in the <SpectrogramGraphics> component:
+
+    at SpectrogramGraphics (http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455778531:26:24)
+    at SpectrogramProvider (http://localhost:5173/spectrogram/SpectrogramProvider.tsx:62:5)
+    at div
+    at SpectrogramPlayer (http://localhost:5173/spectrogram/SpectrogramPlayer.tsx?t=1779455652316:42:5)
+    at http://localhost:5173/src/components/Spectrogram.jsx?t=1779455652316:21:3
+    at div
+    at LazyMount (http://localhost:5173/src/components/LazyMount.jsx:19:22)
+    at div
+    at div
+    at div
+    at div
+    at div
+    at Session (http://localhost:5173/src/components/Session.jsx?t=1779455652316:41:148)
+    at RenderedRoute (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4086:5)
+    at Routes (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4556:5)
+    at main
+    at div
+    at SettingsProvider (http://localhost:5173/src/stores/SettingsContext.jsx:55:36)
+    at Router (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4499:15)
+    at HashRouter (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:5281:5)
+    at App (http://localhost:5173/src/App.jsx?t=1779455733832:28:47)
+    at SessionProvider (http://localhost:5173/src/stores/SessionContext.jsx:20:35)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:14077
+[  300187ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455778531:105:7
+    at safelyCallDestroy (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:16794:13)
+    at commitHookEffectListUnmount (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:16921:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18331:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18293:13)
+    at commitPassiveUnmountEffects_begin (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18229:19)
+    at commitPassiveUnmountEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18217:11)
+    at flushPassiveEffectsImpl (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19540:11)
+    at flushPassiveEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19498:22)
+    at http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19379:17
+[  306042ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455784411:121:7
+    at commitHookEffectListMount (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:16961:34)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18204:19)
+    at commitPassiveMountEffects_complete (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18177:17)
+    at commitPassiveMountEffects_begin (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18167:15)
+    at commitPassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18157:11)
+    at flushPassiveEffectsImpl (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19541:11)
+    at flushPassiveEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19498:22)
+    at http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19379:17
+    at workLoop (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:195:42)
+[  306043ms] [ERROR] The above error occurred in the <SpectrogramGraphics> component:
+
+    at SpectrogramGraphics (http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455784411:26:24)
+    at SpectrogramProvider (http://localhost:5173/spectrogram/SpectrogramProvider.tsx:62:5)
+    at div
+    at SpectrogramPlayer (http://localhost:5173/spectrogram/SpectrogramPlayer.tsx?t=1779455652316:42:5)
+    at http://localhost:5173/src/components/Spectrogram.jsx?t=1779455652316:21:3
+    at div
+    at LazyMount (http://localhost:5173/src/components/LazyMount.jsx:19:22)
+    at div
+    at div
+    at div
+    at div
+    at div
+    at Session (http://localhost:5173/src/components/Session.jsx?t=1779455652316:41:148)
+    at RenderedRoute (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4086:5)
+    at Routes (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4556:5)
+    at main
+    at div
+    at SettingsProvider (http://localhost:5173/src/stores/SettingsContext.jsx:55:36)
+    at Router (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4499:15)
+    at HashRouter (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:5281:5)
+    at App (http://localhost:5173/src/App.jsx?t=1779455733832:28:47)
+    at SessionProvider (http://localhost:5173/src/stores/SessionContext.jsx:20:35)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:14077
+[  306045ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455784411:121:7
+    at commitHookEffectListMount (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:16961:34)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18204:19)
+    at commitPassiveMountEffects_complete (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18177:17)
+    at commitPassiveMountEffects_begin (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18167:15)
+    at commitPassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18157:11)
+    at flushPassiveEffectsImpl (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19541:11)
+    at flushPassiveEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19498:22)
+    at http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19379:17
+    at workLoop (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:195:42)
+[  313703ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455792066:137:7
+    at commitHookEffectListMount (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:16961:34)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18204:19)
+    at commitPassiveMountEffects_complete (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18177:17)
+    at commitPassiveMountEffects_begin (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18167:15)
+    at commitPassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18157:11)
+    at flushPassiveEffectsImpl (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19541:11)
+    at flushPassiveEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19498:22)
+    at http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19379:17
+    at workLoop (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:195:42)
+[  313704ms] [ERROR] The above error occurred in the <SpectrogramGraphics> component:
+
+    at SpectrogramGraphics (http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455792066:26:24)
+    at SpectrogramProvider (http://localhost:5173/spectrogram/SpectrogramProvider.tsx:62:5)
+    at div
+    at SpectrogramPlayer (http://localhost:5173/spectrogram/SpectrogramPlayer.tsx?t=1779455652316:42:5)
+    at http://localhost:5173/src/components/Spectrogram.jsx?t=1779455652316:21:3
+    at div
+    at LazyMount (http://localhost:5173/src/components/LazyMount.jsx:19:22)
+    at div
+    at div
+    at div
+    at div
+    at div
+    at Session (http://localhost:5173/src/components/Session.jsx?t=1779455652316:41:148)
+    at RenderedRoute (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4086:5)
+    at Routes (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4556:5)
+    at main
+    at div
+    at SettingsProvider (http://localhost:5173/src/stores/SettingsContext.jsx:55:36)
+    at Router (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:4499:15)
+    at HashRouter (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=84b494a0:5281:5)
+    at App (http://localhost:5173/src/App.jsx?t=1779455733832:28:47)
+    at SessionProvider (http://localhost:5173/src/stores/SessionContext.jsx:20:35)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:14077
+[  313706ms] ReferenceError: dbg is not defined
+    at http://localhost:5173/spectrogram/SpectrogramGraphics.tsx?t=1779455792066:137:7
+    at commitHookEffectListMount (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:16961:34)
+    at commitPassiveMountOnFiber (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18204:19)
+    at commitPassiveMountEffects_complete (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18177:17)
+    at commitPassiveMountEffects_begin (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18167:15)
+    at commitPassiveMountEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:18157:11)
+    at flushPassiveEffectsImpl (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19541:11)
+    at flushPassiveEffects (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19498:22)
+    at http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:19379:17
+    at workLoop (http://localhost:5173/node_modules/.vite/deps/chunk-SVG7M4VJ.js?v=84b494a0:195:42)
+[  319905ms] [WARNING] MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 python-message listeners added. Use emitter.setMaxListeners() to increase limit
+    at _addListener (node:electron/js2c/sandbox_bundle:2:43268)
+    at IpcRenderer.addListener (node:electron/js2c/sandbox_bundle:2:46156)
+    at Object.onPythonMessage (<anonymous>:10:46) @ node:electron/js2c/sandbox_bundle:1

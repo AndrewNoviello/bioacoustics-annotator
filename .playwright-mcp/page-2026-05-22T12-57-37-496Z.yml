@@ -1,0 +1,63 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - button [ref=e159] [cursor=pointer]:
+        - img [ref=e160]
+      - heading "2026-05-15T05-07-54" [level=1] [ref=e162]
+    - generic [ref=e14]:
+      - button "CLAP Not Loaded" [ref=e16]:
+        - img [ref=e17]
+        - paragraph [ref=e19]: CLAP Not Loaded
+        - img [ref=e20]
+      - button "Settings" [ref=e164]:
+        - img [ref=e165]
+        - generic [ref=e168]: Settings
+      - generic [ref=e169]:
+        - button "Saved Experiments" [ref=e170]:
+          - img [ref=e171]
+          - generic [ref=e175]: Saved Experiments
+        - button "New Experiment" [ref=e176]:
+          - img [ref=e177]
+          - generic [ref=e178]: New Experiment
+  - main [ref=e35]:
+    - generic [ref=e180]:
+      - generic [ref=e182]:
+        - generic "C:\\Users\\andno\\Downloads\\archive (1)\\whale-sounds\\whale-sounds-wav" [ref=e183]: "Source: C:\\Users\\andno\\Downloads\\archive (1)\\whale-sounds\\whale-sounds-wav"
+        - generic [ref=e185]:
+          - generic [ref=e186]:
+            - generic [ref=e187]:
+              - img [ref=e188] [cursor=pointer]
+              - generic:
+                - img
+                - text: Rendering…
+            - img [ref=e189] [cursor=pointer]
+          - generic [ref=e196]: sei-whale-balaenoptera-borealis.wav
+      - generic [ref=e197]:
+        - generic [ref=e198]:
+          - heading "New Experiment" [level=3] [ref=e199]
+          - button [ref=e200]:
+            - img [ref=e201]
+        - generic [ref=e203]:
+          - generic [ref=e204]:
+            - generic [ref=e205]:
+              - generic [ref=e206]: Positive Prompts
+              - textbox "e.g., whale song; humpback vocalization; low frequency calls" [ref=e207]
+            - generic [ref=e208]:
+              - generic [ref=e209]: Negative Prompts
+              - textbox "e.g., background noise; boat engine; human activity" [ref=e210]
+          - generic [ref=e211]:
+            - generic [ref=e212]: Detection Threshold (θ = 0.5)
+            - slider [ref=e213]: "0.5"
+          - generic [ref=e215]:
+            - button "Run Detection" [ref=e216]:
+              - img [ref=e217]
+              - generic [ref=e219]: Run Detection
+            - button "Save Experiment" [disabled] [ref=e220]:
+              - img [ref=e221]
+              - generic [ref=e225]: Save Experiment
+            - button "Wipe Prompt" [ref=e226]:
+              - img [ref=e227]
+              - generic [ref=e230]: Wipe Prompt
+            - button "Wipe Experiment" [ref=e231]:
+              - img [ref=e232]
+              - generic [ref=e235]: Wipe Experiment
