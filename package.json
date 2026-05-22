@@ -65,7 +65,7 @@
       {
         "from": "ml/models",
         "to": "models",
-        "filter": ["*.pth"]
+        "filter": ["*.pth", "clip-vit-base-patch16/**/*"]
       }
     ],
     "asar": true,
