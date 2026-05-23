@@ -1,8 +1,0 @@
-{
-  "imageCount": 2,
-  "populated": 2,
-  "sample": [
-    "blob:http://localhost:5173/8af40690-7490-471b-96f6",
-    "blob:http://localhost:5173/fc7d66f6-ac00-464a-b964"
-  ]
-}
