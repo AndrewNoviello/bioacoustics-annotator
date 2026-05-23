@@ -43,3 +43,6 @@ desktop.ini
 *.swp
 *.swo
 
+# Cursor / Playwright MCP
+.playwright-mcp/
+
