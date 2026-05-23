@@ -20,8 +20,9 @@ A walkthrough of how to actually use the app, with screenshots from a live sessi
    - [4.6 Annotate and verify detections](#46-annotate-and-verify-detections)
    - [4.7 Compare experiments (multi-overlay)](#47-compare-experiments)
 5. [Settings reference](#settings-reference)
-6. [Tips, gotchas, and limits](#tips-and-gotchas)
-7. [Troubleshooting](#troubleshooting)
+6. [Sharing a session](#sharing-a-session)
+7. [Tips, gotchas, and limits](#tips-and-gotchas)
+8. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -288,12 +289,57 @@ Species you add here show up in the dropdown in the [annotation panel](#46-annot
 
 ---
 
+## Sharing a session
+
+Sessions aren't locked to one machine. You can hand a session to another scientist so they can verify your annotations, give a second opinion on borderline detections, or run their own experiments against the same audio. Having two people working from the same session is the cleanest way to compare how each of you interprets the calls, and it's a sensible step before publishing results.
+
+There's no built-in export feature, so sharing is a manual file copy plus a small path rewrite. It takes about five minutes.
+
+### What to copy
+
+1. The **session folder** at `<data_dir>/<profile>/<session_id>/`. This includes `config.json` and every `<experiment_id>.csv`. It's the entire record of what you did.
+2. The **audio files** the session references. Without them, the session opens but the spectrograms can't render.
+
+Keep the original folder structure of the audio when you zip it up. If your audio was organized into subfolders like `day1/`, `day2/`, those need to come along too. The path rewrite below relies on a single common prefix changing, not on every individual path changing differently.
+
+### What the recipient does
+
+1. Install CLAP Desktop on their Windows machine.
+2. Pick a data directory, then create a profile (or use an existing one).
+3. Drop the session folder you sent into `<their_data_dir>/<their_profile>/`. The session shows up in the Sessions list next time they open the app.
+4. Drop the audio files anywhere on their disk, keeping the internal folder structure intact. Note the new top-level folder path.
+5. Rewrite the absolute audio paths inside the session (next subsection).
+
+### Rewriting the audio paths
+
+The session stores the absolute path to each audio file in two places:
+
+- `config.json`, in the `files` array. This is what the session view uses to render its spectrogram blocks.
+- Every `<experiment_id>.csv`, in the `filename` column. This is what each detection row points back to.
+
+If your audio used to live in `D:\Recordings\WhaleSurvey\` and the recipient drops it into `C:\Users\Jane\Audio\WhaleSurvey\`, they just need to swap that prefix in both files.
+
+The easiest way is a folder-wide find and replace. In VS Code, open the recipient's session folder and use **Edit, Replace in Files** (Ctrl+Shift+H):
+
+- **Find:** `D:\Recordings\WhaleSurvey\`
+- **Replace:** `C:\Users\Jane\Audio\WhaleSurvey\`
+
+Hit "Replace All", save both `config.json` and every `.csv`, then reopen the session in the app. The spectrograms should render and the detections should land in the right places. Any text editor with multi-file search and replace will work; VS Code is just a common choice.
+
+### Caveats
+
+- **Windows to Windows only.** Paths use the `C:\...` format with backslashes. The app won't translate them to a different convention.
+- **Don't run new detections before the paths are fixed**, or you'll get errors loading the audio.
+- **Sharing creates two independent copies.** If you change something in your version and the recipient changes something in theirs, there's no merge. Decide upfront who owns which experiments, or use separate experiments inside the same shared session for each person's work.
+
+---
+
 ## Tips and gotchas
 
 - **A session can hold up to 500 files.** Split larger batches.
 - **You can overlay at most 3 experiments at once.** The 4th checkbox in the sidebar goes grey.
 - **Undo for deletions lasts about 10 seconds** after you delete a detection, and the last 10 deletions are buffered. After that, deletions are permanent.
-- **Detections store absolute audio paths in the CSV.** If you move your data folder to another drive or machine, the session won't find its audio anymore. Keep the data directory stable.
+- **Detections store absolute audio paths in the CSV.** If you move your data folder to another drive or machine, the session won't find its audio anymore. Keep the data directory stable, or if you're handing a session to someone else, follow [Sharing a session](#sharing-a-session) to rewrite the paths.
 - **Resizing means hitting the edge.** The drag handles are thin, so aim at the very left or right of the rectangle. Clicking in the middle just selects the detection.
 - **For batch labeling**, *Save Annotation* keeps the detection selected. Click *Next* to step to the following one.
 - **Cancelling a detection takes a moment.** The model finishes the current batch of files before stopping. The *Cancel* button disappears once the cancellation goes through.
