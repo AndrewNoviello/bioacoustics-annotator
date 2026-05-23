@@ -6,8 +6,7 @@ renderer/dist/
 renderer/spectrogram/dist/
 
 # Python
-ml/__pycache__/
-ml/clap/__pycache__/
+**/__pycache__/
 ml/.venv/
 *.pyc
 *.pyo
