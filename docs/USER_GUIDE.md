@@ -41,7 +41,7 @@ Everything runs locally. Your audio never leaves the machine.
 The whole loop, end to end:
 
 1. **Launch the app** from the Start Menu (or wherever the installer placed the shortcut).
-2. **First-time setup.** Pick a data directory (any folder on disk), then create a profile inside it. Both happen from the buttons in the top-right of the header.
+2. **First-time setup.** Create a new empty folder on disk (e.g. `C:\Users\You\Bioacoustics`), pick it as your data directory in the app, then create a profile inside it. The folder picker and profile creation both live in the top-right of the header.
 3. **Load the model.** Click the red `CLAP Not Loaded` button in the header and pick `CLAP_Jan23`. Wait until it turns blue.
 4. **Create a session.** Click `Create Session`, browse to a folder of `.wav` files, pick some, and hit `Create Session`.
 5. **Run a detection.** Open the new session, click `New Experiment`, type a positive prompt (e.g. `baby cry`), a negative prompt (e.g. `noise`), pick a threshold, and click `Run Detection`.
@@ -83,9 +83,11 @@ When the app first opens, you see the Sessions screen. Until you've picked a dat
 
 ![Main page, sessions list](screenshots/01-main-page-sessions-list.png)
 
+**First-time recommendation:** create a dedicated empty folder before you open the picker — for example `C:\Users\You\Bioacoustics` or `D:\Projects\WhaleSurvey`. The app stores every profile, session, and experiment CSV under this directory, so giving it its own folder keeps your work easy to find, back up, and move later. You can point the app at any existing folder, but avoid picking something broad like your Desktop or Documents root unless you already know you want all your CLAP work mixed in there.
+
 Use the header buttons on the right side:
 
-- The **folder button** (showing your data dir name) opens a native folder picker. Pick the parent directory where all your work will live.
+- The **folder button** (showing your data dir name) opens a native folder picker. Select the folder you created (or another parent directory where all your work will live).
 - The **profile button** next to it opens a dropdown of profiles found under that directory.
 
 Click the profile button to see existing profiles and a *Create Profile* shortcut:
