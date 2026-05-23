@@ -2,6 +2,8 @@
 
 A walkthrough of how to actually use the app, with screenshots from a live session. If you haven't installed it yet, see the [README](../README.md) for install steps.
 
+> **Platform:** CLAP Desktop runs on Windows only. There is no Mac or Linux build.
+
 ---
 
 ## Contents
@@ -37,7 +39,7 @@ Everything runs locally. Your audio never leaves the machine.
 
 The whole loop, end to end:
 
-1. **Launch the app** from the Start Menu (Windows) or Applications folder (Mac).
+1. **Launch the app** from the Start Menu (or wherever the installer placed the shortcut).
 2. **First-time setup.** Pick a data directory (any folder on disk), then create a profile inside it. Both happen from the buttons in the top-right of the header.
 3. **Load the model.** Click the red `CLAP Not Loaded` button in the header and pick `CLAP_Jan23`. Wait until it turns blue.
 4. **Create a session.** Click `Create Session`, browse to a folder of `.wav` files, pick some, and hit `Create Session`.
